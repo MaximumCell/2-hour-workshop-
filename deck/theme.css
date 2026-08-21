@@ -1,0 +1,559 @@
+/*
+  AI Mastery Workshop, custom slide theme.
+  Brand: orange on a warm off-white canvas, near-black for high-contrast hook
+  and reveal moments. Clean, heavy display headline (Montserrat) + readable body.
+  Change the values under :root to restyle the whole deck at once.
+*/
+
+:root {
+  --ink: #1a1a1a;          /* main text, near black */
+  --muted: #6b645c;        /* secondary text */
+  --cream: #fff9f4;        /* content slide canvas, warm off-white */
+  --dark: #141312;         /* hook / reveal slide background */
+  --accent: #ff7d00;       /* brand orange */
+  --accent-soft: #ffb05c;  /* softer orange for dark slides */
+  --win: #62c41f;          /* wins, stats, checkmarks, guarantees */
+  --win-soft: #9fe36a;
+  --line: #eadecf;         /* hairline on cream */
+  --code-bg: #1e1b18;
+  --font: "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "Calibri", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Consolas", "SFMono-Regular", Menlo, monospace;
+}
+
+/* ---------- canvas ---------- */
+.reveal-viewport { background-color: var(--cream) !important; }
+.reveal { font-family: var(--font-body); color: var(--ink); font-size: 30px; font-weight: 500; -webkit-font-smoothing: antialiased; }
+.reveal .slides { text-align: left; }
+.reveal .slides section { padding: 0 7% 0 8.5%; box-sizing: border-box; }
+
+/* ---------- headings ---------- */
+.reveal h1, .reveal h2 {
+  font-family: var(--font);
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 0.45em 0;
+  color: var(--ink);
+}
+.reveal h1 { font-size: 1.85em; }
+.reveal h2 { font-size: 1.5em; }
+.reveal h3 {
+  font-family: var(--font-body);
+  font-size: 0.66em;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 0.9em 0;
+}
+
+.reveal p { line-height: 1.4; }
+
+/* ---------- bullets ---------- */
+.reveal ul { list-style: none; margin: 0.5em 0 0 0; }
+.reveal ul li { position: relative; padding-left: 1.35em; margin-bottom: 0.62em; line-height: 1.34; }
+.reveal ul li::before {
+  content: "";
+  position: absolute;
+  left: 0.05em;
+  top: 0.52em;
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.reveal strong { font-weight: 700; }
+.reveal section:not(.dark) strong { color: var(--accent); }
+.reveal section.dark strong { color: var(--accent-soft); }
+
+/* ---------- section kicker (orange, all-caps, letter-spaced) ---------- */
+.reveal .lesson-no {
+  font-size: 0.58em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.85em;
+}
+
+/* ---------- big section number on section-break slides ---------- */
+.reveal .mod-num {
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  font-size: 3.6em;
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255,176,92,0.5);
+  letter-spacing: -0.03em;
+  pointer-events: none;
+}
+
+/* ---------- progress-through-deck chip ---------- */
+.reveal .progress-chip {
+  position: absolute;
+  top: 6%;
+  right: 7%;
+  font-size: 0.42em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.reveal section.dark .progress-chip { color: rgba(255,249,244,0.55); }
+
+/* ---------- track chips ---------- */
+.reveal .tag {
+  display: inline-block;
+  font-size: 0.44em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3em 0.85em;
+  border-radius: 5px;
+  color: #fff;
+  vertical-align: middle;
+  margin-right: 0.25em;
+}
+.reveal .tag.hook { background: var(--dark); }
+.reveal .tag.win { background: var(--win); }
+.reveal .tag.core { background: var(--accent); }
+
+/* ---------- demo / live marker ---------- */
+.reveal .demo {
+  display: inline-block;
+  margin-top: 0.7em;
+  color: #fff;
+  background: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.54em;
+  padding: 0.4em 0.9em;
+  border-radius: 5px;
+}
+
+/* ---------- live-session badge, bottom-left on title/section-break ---------- */
+.reveal .live-badge {
+  position: absolute;
+  left: 8.5%;
+  bottom: 6%;
+  font-size: 0.42em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.reveal .live-badge::before {
+  content: "";
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+/* ---------- cover meta strip ---------- */
+.reveal .meta {
+  margin-top: 1.3em;
+  font-size: 0.5em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+/* ---------- dark (hook / reveal) slides, full bleed ---------- */
+.reveal section.dark { text-align: left; }
+.reveal section.dark h1,
+.reveal section.dark h2 { color: var(--cream); }
+.reveal section.dark h2 { font-size: 2.15em; }
+.reveal section.dark h3 { color: var(--accent-soft); }
+.reveal section.dark p { color: #c9c2b8; }
+.reveal section.dark li { color: #d9d3c9; }
+.reveal section.dark li::before { background: var(--accent-soft); }
+.reveal section.dark .lesson-no { color: var(--accent-soft); }
+
+/* accent underline beneath a headline word/phrase: wrap it in <u> */
+.reveal h1 u, .reveal h2 u {
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: 0 0.94em;
+  background-size: 100% 0.16em;
+}
+.reveal section.dark h1 u, .reveal section.dark h2 u {
+  background-image: linear-gradient(var(--accent), var(--accent));
+}
+
+/* keep presenter text clear of the headshot on the right */
+.reveal section.instructor > h2 { font-size: 2.25em; margin-bottom: 0.1em; white-space: nowrap; max-width: none; }
+.reveal section.instructor > p { max-width: 66%; }
+
+.reveal .tagline {
+  font-size: 0.66em;
+  font-weight: 500;
+  color: #e3ded4;
+  margin: 0.5em 0 0 0;
+}
+
+/* big credibility stats */
+.reveal .stats {
+  display: flex;
+  gap: 3em;
+  margin-top: 1.6em;
+  max-width: 90%;
+  flex-wrap: wrap;
+}
+.reveal .stats .stat { display: flex; flex-direction: column; }
+.reveal .stats .num {
+  font-family: var(--font);
+  font-size: 1.5em;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.reveal .stats .lbl {
+  margin-top: 0.55em;
+  font-size: 0.4em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  max-width: 12em;
+}
+.reveal section.dark .stats .lbl { color: #a9a196; }
+
+.reveal .social-row {
+  display: flex;
+  gap: 0.75em;
+  margin-top: 1.7em;
+  flex-wrap: wrap;
+  max-width: 90%;
+}
+.reveal .social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  padding: 0.5em 0.95em;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  font-size: 0.42em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #d9d3c9;
+  line-height: 1;
+}
+.reveal .social-pill svg { width: 1.5em; height: 1.5em; fill: var(--accent-soft); flex-shrink: 0; }
+
+/* ---------- curriculum / recap roadmap ---------- */
+.reveal .roadmap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55em 2.6em;
+  margin-top: 0.7em;
+  max-width: 94%;
+  font-size: 0.92em;
+}
+.reveal .roadmap .rm { display: flex; align-items: baseline; gap: 0.7em; }
+.reveal .roadmap .rm-n { color: var(--accent); font-weight: 800; min-width: 1.4em; }
+.reveal .roadmap .rm-t { font-weight: 600; color: var(--ink); }
+.reveal .roadmap-foot { margin-top: 1.3em; font-size: 0.6em; color: var(--muted); max-width: 90%; }
+
+/* ---------- "your turn / try it" callout ---------- */
+.reveal .try {
+  margin-top: 1.2em;
+  font-size: 0.64em;
+  color: var(--ink);
+  max-width: 88%;
+  line-height: 1.4;
+}
+.reveal .try b {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78em;
+  margin-right: 0.7em;
+}
+
+/* ---------- comparison table ---------- */
+.reveal table {
+  margin: 0.7em auto 0;
+  border-collapse: collapse;
+  width: 94%;
+  font-size: 0.6em;
+}
+.reveal table th, .reveal table td {
+  text-align: left;
+  padding: 0.5em 0.85em;
+  border-bottom: 1px solid rgba(26,26,26,0.12);
+  vertical-align: top;
+}
+.reveal table thead th { color: var(--accent); font-weight: 700; border-bottom: 2px solid var(--accent); }
+.reveal table tbody td:first-child { color: var(--muted); }
+.reveal table tbody td:last-child { font-weight: 600; color: var(--ink); }
+
+/* ---------- before / after, weak / power verdict blocks ---------- */
+.reveal .qa { margin-top: 0.7em; max-width: 96%; }
+.reveal .qa-item { padding: 0.5em 0; border-top: 1px solid rgba(26,26,26,0.1); }
+.reveal section.dark .qa-item { border-top-color: rgba(255,255,255,0.12); }
+.reveal .qa-item:first-child { border-top: none; }
+.reveal .qa-q { font-size: 0.66em; font-weight: 700; line-height: 1.35; }
+.reveal .qa-line { margin-top: 0.35em; display: flex; align-items: baseline; gap: 0.8em; font-size: 0.6em; }
+.reveal .qa-tag {
+  flex: 0 0 auto;
+  padding: 0.12em 0.75em;
+  border-radius: 5px;
+  font-size: 0.82em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.reveal .qa-tag.weak { background: rgba(196,74,42,0.14); color: #c44a2a; }
+.reveal .qa-tag.power { background: var(--accent); color: #fff; }
+.reveal .qa-why { color: var(--muted); line-height: 1.35; }
+.reveal section.dark .qa-why { color: #a9a196; }
+.reveal .rule { margin-top: 1.05em; font-size: 0.64em; font-weight: 600; }
+.reveal .rule b {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.82em;
+  margin-right: 0.6em;
+  font-weight: 700;
+}
+
+/* ---------- code / prompt block, styled like a code editor ---------- */
+.reveal .codecard {
+  margin: 0.9em auto 0;
+  max-width: 92%;
+  border-radius: 10px;
+  background: var(--code-bg);
+  box-shadow: 0 14px 34px rgba(20,19,18,0.28);
+  overflow: hidden;
+}
+.reveal .codecard .cc-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.6em 0.9em;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.reveal .codecard .cc-dot { width: 0.6em; height: 0.6em; border-radius: 50%; }
+.reveal .codecard .cc-dot.r { background: #ff5f56; }
+.reveal .codecard .cc-dot.y { background: #ffbd2e; }
+.reveal .codecard .cc-dot.g { background: #27c93f; }
+.reveal .codecard .cc-label {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.4em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+.reveal .codecard pre {
+  margin: 0;
+  box-shadow: none;
+  background: transparent !important;
+}
+.reveal .codecard code {
+  display: block;
+  padding: 0.9em 1.1em 1.05em;
+  font-family: var(--font-mono) !important;
+  font-size: 0.52em;
+  line-height: 1.55;
+  color: #e8e3dc;
+  background: transparent !important;
+  white-space: pre-wrap;
+}
+
+/* ---------- plain prompt card (short one-liners, on light bg) ---------- */
+.reveal .promptcard {
+  margin: 0.9em auto 0;
+  max-width: 90%;
+  border: 1px solid rgba(26,26,26,0.14);
+  border-radius: 10px;
+  padding: 0.85em 1.05em;
+  background: #fffdf9;
+}
+.reveal .promptcard .lbl {
+  display: block;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.5em;
+  margin-bottom: 0.45em;
+}
+.reveal .promptcard p { margin: 0; font-size: 0.68em; line-height: 1.5; color: var(--ink); }
+
+/* ---------- stat / win cards (2x2 or row grids) ---------- */
+.reveal .card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8em;
+  margin-top: 0.8em;
+  max-width: 96%;
+}
+.reveal .stat-card {
+  border: 1px solid rgba(26,26,26,0.1);
+  border-radius: 10px;
+  padding: 0.9em 1.05em;
+  background: #fffdf9;
+  box-shadow: 0 8px 20px rgba(26,26,26,0.05);
+}
+.reveal .stat-card .sc-val { font-family: var(--font); font-size: 0.85em; font-weight: 800; color: var(--accent); }
+.reveal .stat-card .sc-lbl { margin-top: 0.3em; font-size: 0.44em; color: var(--muted); font-weight: 600; }
+.reveal .stat-card.win { border-color: rgba(98,196,31,0.4); background: #f3fbec; }
+.reveal .stat-card.win .sc-val { color: var(--win); }
+
+/* ---------- price reveal ---------- */
+.reveal .price-old {
+  font-family: var(--font);
+  font-size: 1em;
+  font-weight: 700;
+  color: #8a5a3a;
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+}
+.reveal .price-new {
+  font-family: var(--font);
+  font-size: 2.6em;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-top: 0.2em;
+}
+.reveal .price-save {
+  display: inline-block;
+  margin-top: 0.6em;
+  background: var(--win);
+  color: #14210a;
+  font-weight: 700;
+  font-size: 0.44em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4em 0.9em;
+  border-radius: 999px;
+}
+
+/* ---------- use case / recap grid (two columns) ---------- */
+.reveal .uc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6em 2.6em;
+  margin-top: 0.7em;
+  max-width: 94%;
+  font-size: 0.92em;
+}
+.reveal .uc-grid .uc { position: relative; padding-left: 1.3em; color: var(--ink); }
+.reveal section.dark .uc-grid .uc { color: #d9d3c9; }
+.reveal .uc-grid .uc::before {
+  content: "";
+  position: absolute;
+  left: 0.05em;
+  top: 0.5em;
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- presenter / testimonial / logo placeholder ---------- */
+.reveal .headshot, .reveal .placeholder {
+  border-radius: 14px;
+  border: 2px dashed rgba(255,125,0,0.45);
+  background: rgba(255,125,0,0.04);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a97f5a;
+  font-size: 0.4em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1em;
+}
+.reveal .headshot {
+  position: absolute;
+  top: 50%;
+  right: 9%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 360px;
+}
+.reveal .placeholder-row { display: flex; gap: 0.7em; margin-top: 0.8em; max-width: 96%; }
+.reveal .placeholder-row .placeholder { flex: 1; height: 140px; font-size: 0.36em; }
+
+/* ---------- numbered sequence (for step-by-step demos) ---------- */
+.reveal .steps { margin-top: 0.8em; max-width: 94%; }
+.reveal .step { display: flex; align-items: flex-start; gap: 0.8em; margin-bottom: 0.75em; }
+.reveal .step-n {
+  flex: 0 0 auto;
+  width: 1.5em; height: 1.5em;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.6em;
+  display: flex; align-items: center; justify-content: center;
+}
+.reveal .step-t { font-size: 0.68em; line-height: 1.4; padding-top: 0.12em; }
+
+/* ---------- "the tool is..." reveal moment ---------- */
+.reveal .reveal-box {
+  margin-top: 1em;
+  padding: 1.1em 1.3em;
+  border-radius: 12px;
+  background: rgba(255,125,0,0.08);
+  border: 1px dashed var(--accent);
+  max-width: 80%;
+}
+.reveal .reveal-box .rb-kick { font-size: 0.44em; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.reveal .reveal-box .rb-name { font-family: var(--font); font-size: 1.1em; font-weight: 800; color: var(--accent); margin-top: 0.2em; }
+
+/* ---------- fixed brand footer ---------- */
+.reveal .brand-footer {
+  position: fixed;
+  bottom: 20px;
+  left: 32px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a9917a;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* ---------- code ---------- */
+.reveal pre { box-shadow: none; font-size: 0.6em; width: 100%; }
+.reveal code { border-radius: 6px; }
+
+/* ---------- reveal chrome ---------- */
+.reveal .progress { color: var(--accent); height: 3px; }
+.reveal .controls { color: var(--accent); }
+.reveal .slide-number {
+  background: transparent;
+  color: #a9917a;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  right: 26px;
+  bottom: 16px;
+}

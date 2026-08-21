@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>AI Mastery Workshop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="base-theme" />
+    <link rel="stylesheet" href="theme.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!--
+          Each section of the workshop is one markdown file in the slides folder.
+          A slide break is a line with three dashes. Speaker notes start with a line that says Note:.
+          Always leave a blank line after any raw HTML tag so the markdown below it is parsed.
+        -->
+        <section data-markdown="slides/title.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-02-credibility.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-03-rules.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-04-prompt-hack.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-05-claude.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-06-automation.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-07-build-fast.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-08-heygen.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-09-outro.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+      </div>
+
+      <!-- brand footer, fixed on every slide -->
+      <div class="brand-footer">AI Mastery Workshop</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css" />
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: 'c/t',
+        transition: 'slide',
+        transitionSpeed: 'fast',
+        controls: false,
+        controlsTutorial: false,
+        progress: true,
+        center: true,
+        margin: 0.08,
+        width: 1280,
+        height: 720,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
