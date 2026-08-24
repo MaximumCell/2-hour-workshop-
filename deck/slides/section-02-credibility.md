@@ -7,7 +7,7 @@
 
 Founder — Aaghaz AI
 
-<div class="headshot">Presenter Photo</div>
+<div class="headshot filled" style="background-image:url('assets/presenter.png');" role="img" aria-label="Badar, Founder of Aaghaz AI"></div>
 
 <p class="tagline">Runs an AI startup studio for US clients. Worked with HeyGen, Higgsfield, Wondershare, and Hostinger. Aaghaz is Asia's first AI startup institute.</p>
 
@@ -28,11 +28,11 @@ Note: Full self-intro, name is Badar. State the stats with confidence, pause aft
 
 Guest masterclasses on channels reaching hundreds of thousands of AI learners.
 
-<div class="placeholder-row">
-<div class="placeholder">Kashif Majeed<br/>logo</div>
-<div class="placeholder">HBA Services<br/>logo</div>
-<div class="placeholder">Lets Uncover<br/>logo</div>
-<div class="placeholder">Meet Mughals<br/>logo</div>
+<div class="logo-grid">
+<div class="logo-card" style="background-image:url('assets/kashif-majeed.png');" role="img" aria-label="Kashif Majeed channel banner"></div>
+<div class="logo-card" style="background-image:url('assets/hba-services.png');" role="img" aria-label="HBA Services channel banner"></div>
+<div class="logo-card" style="background-image:url('assets/lets-uncover.png');" role="img" aria-label="Lets Uncover channel banner"></div>
+<div class="logo-card" style="background-image:url('assets/meet-mughals.png');" role="img" aria-label="Meet Mughals channel banner"></div>
 </div>
 
 <p class="try"><b>Daily proof</b> Want more than today's slides? Follow the journey on LinkedIn — new wins posted every week.</p>

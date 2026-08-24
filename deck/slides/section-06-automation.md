@@ -6,7 +6,7 @@
 
 ## Build One Real Automation, Live, in n8n
 
-<span class="tag hook">0:50 – 1:00</span>
+<span class="tag hook">50 min – 1 hr</span>
 
 Something that works while you sleep — built from scratch, on screen, right now.
 

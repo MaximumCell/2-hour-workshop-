@@ -6,7 +6,7 @@
 
 ## The 3-Second Prompt Hack
 
-<span class="tag hook">0:15 – 0:30</span>
+<span class="tag hook">15 – 30 min</span>
 
 Note: Section title card. This is the first real payoff of the session — a technique they can use immediately, on any AI tool.
 
@@ -111,4 +111,6 @@ Never write the same prompt twice. Organize every prompt that works, in Notion.
 <div class="stat-card win"><div class="sc-val">Marketing</div><div class="sc-lbl">Ads, captions, funnels</div></div>
 </div>
 
-Note: Quick bonus tip to close the section. Show a real Notion database if time allows, otherwise describe the three categories and move on.
+<a class="link-pill" href="https://app.notion.com/p/cce7dc9a031944939cb6e3c08ef0093d?v=137121df7e2e468aa8e2e763ccd17ac1&source=copy_link" target="_blank" rel="noopener"><span class="lp-src">Notion ·</span> Open the Prompt Library template</a>
+
+Note: Quick bonus tip to close the section. Show the real Notion database live if time allows (link above), otherwise describe the three categories and move on.

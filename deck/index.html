@@ -7,11 +7,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Roboto:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="base-theme" />
-    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="theme.css?v=2" />
   </head>
   <body>
     <div class="reveal">
@@ -55,7 +55,36 @@
         width: 1280,
         height: 720,
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-      });
+      }).then(addCopyButtons);
+
+      // Adds a "Copy" button to every prompt block (.codecard) so the
+      // presenter can copy the exact prompt text to the clipboard live.
+      function addCopyButtons() {
+        document.querySelectorAll('.reveal .codecard').forEach(function (card) {
+          if (card.querySelector('.copy-btn')) return;
+          var bar = card.querySelector('.cc-bar');
+          var codeEl = card.querySelector('pre code');
+          if (!bar || !codeEl) return;
+
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'copy-btn';
+          btn.textContent = 'Copy';
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var text = codeEl.innerText;
+            navigator.clipboard.writeText(text).then(function () {
+              btn.textContent = 'Copied!';
+              btn.classList.add('copied');
+              setTimeout(function () {
+                btn.textContent = 'Copy';
+                btn.classList.remove('copied');
+              }, 1500);
+            });
+          });
+          bar.appendChild(btn);
+        });
+      }
     </script>
   </body>
 </html>

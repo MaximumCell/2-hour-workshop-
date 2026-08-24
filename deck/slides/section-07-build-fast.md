@@ -6,11 +6,25 @@
 
 ## Research, Slides & Vibe-Coded Sites
 
-<span class="tag hook">1:00 – 1:30</span>
+<span class="tag hook">1 hr – 1 hr 30 min</span>
 
 Three tools, three payoffs: deep research in minutes, a live presentation, and a working website.
 
 Note: Section title card. Three sub-blocks follow: NotebookLM, Genspark/Chronicle, and Stitch → AI Studio.
+
+---
+
+<div class="lesson-no">Section 7 · Coming up</div>
+
+# The tools in this section
+
+<div class="card-grid">
+<div class="stat-card"><div class="sc-val">NotebookLM</div><div class="sc-lbl">Deep research, compressed into minutes</div></div>
+<div class="stat-card win"><div class="sc-val">? ? ?</div><div class="sc-lbl">Research → 1-minute presentation — name revealed live</div></div>
+<div class="stat-card" style="grid-column: span 2;"><div class="sc-val">Stitch → Google AI Studio</div><div class="sc-lbl">A vibe-coded, working website, redesigned live</div></div>
+</div>
+
+Note: Quick preview so the room knows what's coming. Keep the second tool masked as "? ? ?" — its name (Genspark/Chronicle) is a deliberate reveal-box punchline two slides later, don't spoil it here.
 
 ---
 

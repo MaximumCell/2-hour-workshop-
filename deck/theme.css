@@ -1,7 +1,7 @@
 /*
   AI Mastery Workshop, custom slide theme.
   Brand: orange on a warm off-white canvas, near-black for high-contrast hook
-  and reveal moments. Clean, heavy display headline (Montserrat) + readable body.
+  and reveal moments. Clean, heavy display headline (Poppins) + readable body (Google Sans).
   Change the values under :root to restyle the whole deck at once.
 */
 
@@ -16,8 +16,8 @@
   --win-soft: #9fe36a;
   --line: #eadecf;         /* hairline on cream */
   --code-bg: #1e1b18;
-  --font: "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-body: "Calibri", "Segoe UI", system-ui, sans-serif;
+  --font: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "Google Sans", "Roboto", "Segoe UI", system-ui, sans-serif;
   --font-mono: "Consolas", "SFMono-Regular", Menlo, monospace;
 }
 
@@ -80,28 +80,47 @@
 
 /* ---------- big section number on section-break slides ---------- */
 .reveal .mod-num {
+  /* top is a fixed px, not %: reveal.js's center:true makes each
+     <section> shrink to its own content height, so a % top would
+     measure against that shrunk, content-dependent box and drift
+     per-slide. A fixed px offset is stable regardless of content. */
   position: absolute;
-  top: 8%;
-  right: 8%;
-  font-size: 3.6em;
+  top: 26px;
+  right: 6%;
+  font-size: 3em;
   font-weight: 800;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255,176,92,0.5);
+  -webkit-text-stroke: 1.5px rgba(255,176,92,0.4);
   letter-spacing: -0.03em;
   pointer-events: none;
+  z-index: 0;
+}
+
+/* keep headline text off the big background number */
+.reveal .mod-num + h1, .reveal .mod-num + h2,
+.reveal .mod-num ~ h1, .reveal .mod-num ~ h2 {
+  max-width: 80%;
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------- progress-through-deck chip ---------- */
 .reveal .progress-chip {
   position: absolute;
-  top: 6%;
+  top: 46px;
   right: 7%;
   font-size: 0.42em;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
+}
+/* on section-break slides the big background number also sits top-right;
+   drop the chip below it so the two never overlap */
+.reveal .mod-num + .progress-chip,
+.reveal .mod-num ~ .progress-chip {
+  top: 150px;
 }
 .reveal section.dark .progress-chip { color: rgba(255,249,244,0.55); }
 
@@ -138,17 +157,15 @@
 
 /* ---------- live-session badge, bottom-left on title/section-break ---------- */
 .reveal .live-badge {
-  position: absolute;
-  left: 8.5%;
-  bottom: 6%;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: 1.6em;
   font-size: 0.42em;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent-soft);
-  display: flex;
-  align-items: center;
-  gap: 0.6em;
 }
 .reveal .live-badge::before {
   content: "";
@@ -205,11 +222,12 @@
 
 /* big credibility stats */
 .reveal .stats {
-  display: flex;
-  gap: 3em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3em;
+  row-gap: 1.4em;
   margin-top: 1.6em;
-  max-width: 90%;
-  flex-wrap: wrap;
+  max-width: 62%;
 }
 .reveal .stats .stat { display: flex; flex-direction: column; }
 .reveal .stats .num {
@@ -368,6 +386,36 @@
   box-shadow: none;
   background: transparent !important;
 }
+
+/* ---------- copy-prompt button, injected by script.js into every
+   .codecard and .promptcard ---------- */
+.reveal .copy-btn {
+  font-family: var(--font-body);
+  font-size: 0.38em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.5em 0.85em;
+  border-radius: 999px;
+  border: 1px solid rgba(255,176,92,0.5);
+  background: rgba(255,125,0,0.1);
+  color: var(--accent-soft);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.reveal .codecard .copy-btn { margin-left: 0.6em; }
+.reveal .copy-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.reveal .copy-btn.copied {
+  background: var(--win);
+  border-color: var(--win);
+  color: #14210a;
+}
 .reveal .codecard code {
   display: block;
   padding: 0.9em 1.1em 1.05em;
@@ -490,15 +538,73 @@
   padding: 1em;
 }
 .reveal .headshot {
+  /* top is a fixed px (720px slide height minus the 360px box, halved),
+     not 50%, for the same reason as .mod-num above */
   position: absolute;
-  top: 50%;
+  top: 180px;
   right: 9%;
-  transform: translateY(-50%);
   width: 300px;
   height: 360px;
+  overflow: hidden;
+}
+.reveal .headshot.filled {
+  border-style: solid;
+  border-color: var(--accent);
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.reveal .headshot.filled img {
+  display: none;
 }
 .reveal .placeholder-row { display: flex; gap: 0.7em; margin-top: 0.8em; max-width: 96%; }
 .reveal .placeholder-row .placeholder { flex: 1; height: 140px; font-size: 0.36em; }
+
+/* ---------- testimonial / demo video grid ---------- */
+.reveal .video-grid {
+  display: flex;
+  gap: 0.7em;
+  margin-top: 0.8em;
+  max-width: 96%;
+}
+.reveal .video-grid .video-card {
+  flex: 0 1 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,125,0,0.3);
+  background: #000;
+  box-shadow: 0 14px 34px rgba(20,19,18,0.28);
+  aspect-ratio: 3 / 4;
+}
+.reveal .video-grid video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+/* ---------- landscape logo/banner grid (channel banners etc.) ---------- */
+.reveal .logo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8em;
+  margin-top: 0.9em;
+  max-width: 96%;
+}
+.reveal .logo-card {
+  border-radius: 10px;
+  border: 1px solid rgba(255,125,0,0.3);
+  overflow: hidden;
+  aspect-ratio: 2.5 / 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.reveal .logo-card img {
+  display: none;
+}
 
 /* ---------- numbered sequence (for step-by-step demos) ---------- */
 .reveal .steps { margin-top: 0.8em; max-width: 94%; }
@@ -526,6 +632,31 @@
 }
 .reveal .reveal-box .rb-kick { font-size: 0.44em; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 .reveal .reveal-box .rb-name { font-family: var(--font); font-size: 1.1em; font-weight: 800; color: var(--accent); margin-top: 0.2em; }
+
+/* ---------- clickable resource link (Notion, docs, etc.) ---------- */
+.reveal .link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  margin-top: 1em;
+  padding: 0.6em 1.1em;
+  border: 1px solid rgba(26,26,26,0.16);
+  border-radius: 999px;
+  background: #fffdf9;
+  font-size: 0.48em;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1;
+}
+.reveal .link-pill:hover { border-color: var(--accent); color: var(--accent); }
+.reveal .link-pill .lp-src { color: var(--muted); font-weight: 600; margin-right: 0.4em; }
+.reveal section.dark .link-pill {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.16);
+  color: #d9d3c9;
+}
+.reveal section.dark .link-pill:hover { border-color: var(--accent-soft); color: var(--accent-soft); }
 
 /* ---------- fixed brand footer ---------- */
 .reveal .brand-footer {

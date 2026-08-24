@@ -6,7 +6,7 @@
 
 ## Get the most out of today
 
-<span class="tag hook">0:12 – 0:15</span>
+<span class="tag hook">12 – 15 min</span>
 
 Note: Section title card. Covers logistics, the bonus teaser, the no-recording rule, the commitment moment, and the recap checklist before we go deep on content.
 

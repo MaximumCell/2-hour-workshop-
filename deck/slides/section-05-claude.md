@@ -6,7 +6,7 @@
 
 ## Meet Your Real Thought Partner
 
-<span class="tag hook">0:30 – 0:50</span>
+<span class="tag hook">30 – 50 min</span>
 
 Not a search engine. Not autocomplete. A collaborator that holds context and builds with you.
 
@@ -34,7 +34,7 @@ Note: Set the frame before the live build. This is the conceptual anchor for eve
 <div class="cc-bar"><span class="cc-dot r"></span><span class="cc-dot y"></span><span class="cc-dot g"></span><span class="cc-label">Original Ask</span></div>
 
 ```
-mujhe ek barber shop ke liye booking app chahiye
+I need a booking app for a barber shop
 ```
 
 </div>
@@ -104,3 +104,33 @@ posting. Keep every claim true.
 </div>
 
 Note: Emphasize "keep every claim true" — this is a tailoring prompt, not a fabrication prompt. Run it on one of the 4 selected roles live.
+
+---
+
+<div class="lesson-no">Section 5 · Beyond chat</div>
+
+# The rest of the Claude toolkit
+
+<div class="card-grid">
+<div class="stat-card"><div class="sc-val">Projects</div><div class="sc-lbl">A dedicated workspace that holds your files, instructions, and context across every chat inside it — stop re-explaining yourself every session</div></div>
+<div class="stat-card win"><div class="sc-val">Artifacts</div><div class="sc-lbl">Docs, code, and mini-apps Claude builds in a live side panel you can preview and keep editing, not just a wall of chat text</div></div>
+<div class="stat-card" style="grid-column: span 2;"><div class="sc-val">Claude Code</div><div class="sc-lbl">Claude working directly in your terminal and codebase — reads your files, runs commands, tests its own changes. This entire workshop deck was built with it.</div></div>
+</div>
+
+Note: Quick tour so the room knows these exist beyond just chatting. Projects = long-running context. Artifacts = the barber-shop app they just watched get built, lives here. Claude Code = the power-user tier, worth a one-line mention that this very deck is a real example of it.
+
+---
+
+<div class="lesson-no">Section 5 · See it live</div>
+
+# Claude Code, on this exact deck
+
+<div class="steps">
+<div class="step"><div class="step-n">1</div><div class="step-t">Every slide, prompt block, and layout fix in this workshop was made by talking to Claude Code in plain language</div></div>
+<div class="step"><div class="step-n">2</div><div class="step-t">No manual HTML or CSS was hand-written — it was described, built, previewed, and corrected in a loop</div></div>
+<div class="step"><div class="step-n">3</div><div class="step-t">The same loop works for a real app, not just slides: describe it, review it, refine it</div></div>
+</div>
+
+<p class="rule"><b>The point</b> If it can build the exact deck you're watching, it can build your idea too.</p>
+
+Note: Meta moment — make it real by briefly flipping to the terminal/editor if convenient, showing this deck's actual repo. This is the bridge from "concept" to "I could actually do this."

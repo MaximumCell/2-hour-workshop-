@@ -6,7 +6,7 @@
 
 ## Studio-Quality Content, No Studio
 
-<span class="tag hook">1:30 – 1:50</span>
+<span class="tag hook">1 hr 30 min – 1 hr 50 min</span>
 
 AI avatars, cloned voices, and instant localization — built on real production work.
 
@@ -55,9 +55,33 @@ Note: Screen-share the actual HeyGen dashboard, click through each library live 
 <div class="step"><div class="step-n">4</div><div class="step-t">Render & preview</div></div>
 </div>
 
-<div class="placeholder" style="height:160px; margin-top:0.8em;">Live demo / finished content reveal</div>
+<div class="codecard">
+<div class="cc-bar"><span class="cc-dot r"></span><span class="cc-dot y"></span><span class="cc-dot g"></span><span class="cc-label">Demo Script</span></div>
 
-Note: Build one short piece of content live, start to finish, then play the finished render for the room.
+```
+Your Claude Code designs look average, and it's not Claude, it's your
+setup. Here are three skills that actually fix that.
+
+First up, Emil Kowalski Design. This one brings in real motion and
+easing, so your UI stops feeling stiff and static. It genuinely
+feels alive.
+
+Second is Impeccable Design. Rather than guessing layout, spacing,
+and typography, you run a single command, and it tidies the entire
+thing for you.
+
+Third is the Taste Skill. This is the big one. It pulls in real
+design references, so Claude quits spitting out generic sites and
+starts building things that actually look good.
+
+The same exact tool and a completely different output. If you want
+the link to these three skills, follow me, then comment SKILLS, and
+I'll send it right over.
+```
+
+</div>
+
+Note: Paste this script into HeyGen for the live build — script input, then avatar selection, voice pairing, render & preview, in front of the room, start to finish.
 
 ---
 

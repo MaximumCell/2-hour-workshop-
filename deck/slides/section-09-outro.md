@@ -91,10 +91,10 @@ Note: Frame both bonuses as directly useful to freelancers/agency-builders in th
 
 # What students say
 
-<div class="placeholder-row">
-<div class="placeholder">Testimonial screenshot</div>
-<div class="placeholder">Testimonial screenshot</div>
-<div class="placeholder">Testimonial screenshot</div>
+<div class="video-grid">
+<div class="video-card"><video src="assets/testimonial-1.mp4" controls preload="metadata"></video></div>
+<div class="video-card"><video src="assets/testimonial-2.mp4" controls preload="metadata"></video></div>
+<div class="video-card"><video src="assets/testimonial-3.mp4" controls preload="metadata"></video></div>
 </div>
 
 <p class="rule"><b>Live now</b> 31 slots booked — 19 left.</p>
