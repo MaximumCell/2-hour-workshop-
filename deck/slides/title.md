@@ -4,7 +4,7 @@
 
 # AI IS NOT <u>OPTIONAL</u> ANYMORE
 
-In the next 2 hours 10 minutes: become a top 1% AI user, run your first automation live, and vibe-code any app you want.
+You will leave knowing how to <u>use</u> AI, <u>build</u> with AI, <u>automate</u> with AI, and start thinking about how to <u>make money</u> with AI.
 
 <div class="promptcard" style="background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.14);"><span class="lbl">Awaz clear aa rahi hai?</span>
 
@@ -14,16 +14,34 @@ In the next 2 hours 10 minutes: become a top 1% AI user, run your first automati
 
 <div class="live-badge">Live Session · MakeFirstMillion Series</div>
 
-Note: Opening slide. Deliver the hook headline exactly as written, it's proven. State the promise in one line: top 1% AI user, first automation live, vibe-code any app. Say the Roman Urdu line for the audio check, then wait for chat confirmation before continuing.
+Note: Opening slide. Deliver the hook headline exactly as written, it's proven. Say the Roman Urdu line for the audio check, then wait for chat confirmation before continuing. Then say the four verbs slowly — use, build, automate, make money.
 
 ---
 
-<!-- .slide: data-background-color="#fff9f4" -->
+<div class="lesson-no">Section 1 · By the end of today</div>
 
-<div class="lesson-no">Before we start</div>
+# You will be able to
 
-# Drop your city in the chat
+<div class="uc-grid">
+<div class="uc">AI, ML, Deep Learning, GenAI & AGI — explained simply</div>
+<div class="uc">A repeatable prompting framework</div>
+<div class="uc">Research with an agentic browser</div>
+<div class="uc">Your own custom AI assistant/GPT</div>
+<div class="uc">A working app, built with Claude</div>
+<div class="uc">Agent vs. automation — the real difference</div>
+<div class="uc">AI videos & avatars with HeyGen</div>
+<div class="uc">A real automation workflow in n8n</div>
+<div class="uc">Turning these skills into income</div>
+</div>
 
-Let's see how far this workshop reaches today.
+Note: Read this fast but clearly — it's the full promise of the workshop on one screen. Don't dwell on any single line yet, they'll see all nine delivered live.
 
-Note: Quick housekeeping / engagement prompt before moving into the credibility section. Read chat responses aloud as they come in, it builds energy fast.
+---
+
+<div class="lesson-no">Section 1 · Positioning</div>
+
+# This is not a "100 AI tools" tour
+
+The goal is to understand **how to think about AI** and **how to turn the tools into outcomes**.
+
+Note: Set this expectation early — it prevents the workshop from feeling like a tool-dump. Every section from here on ties back to this one line.

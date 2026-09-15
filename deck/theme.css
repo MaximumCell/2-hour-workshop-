@@ -30,7 +30,7 @@
 /* ---------- headings ---------- */
 .reveal h1, .reveal h2 {
   font-family: var(--font);
-  font-weight: 800;
+  font-weight: 600;
   text-transform: none;
   letter-spacing: -0.02em;
   line-height: 1.05;
@@ -90,11 +90,10 @@
   font-size: 3em;
   font-weight: 800;
   line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255,176,92,0.4);
+  color: #ff7d00;
   letter-spacing: -0.03em;
   pointer-events: none;
-  z-index: 0;
+  z-index: 3;
 }
 
 /* keep headline text off the big background number */
@@ -115,6 +114,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
+  z-index: 3;
 }
 /* on section-break slides the big background number also sits top-right;
    drop the chip below it so the two never overlap */
@@ -165,8 +165,9 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent-soft);
+  color: var(--accent);
 }
+.reveal section.dark .live-badge { color: var(--accent-soft); }
 .reveal .live-badge::before {
   content: "";
   width: 0.6em;
@@ -285,6 +286,7 @@
 .reveal .roadmap .rm { display: flex; align-items: baseline; gap: 0.7em; }
 .reveal .roadmap .rm-n { color: var(--accent); font-weight: 800; min-width: 1.4em; }
 .reveal .roadmap .rm-t { font-weight: 600; color: var(--ink); }
+.reveal section.dark .roadmap .rm-t { color: var(--cream); }
 .reveal .roadmap-foot { margin-top: 1.3em; font-size: 0.6em; color: var(--muted); max-width: 90%; }
 
 /* ---------- "your turn / try it" callout ---------- */
@@ -585,6 +587,107 @@
   background: #000;
 }
 
+/* ---------- diagram / screenshot figure (natural aspect ratio, no crop) ---------- */
+.reveal .figure {
+  margin-top: 0.8em;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,125,0,0.3);
+  box-shadow: 0 14px 34px rgba(20,19,18,0.22);
+  background: #fff;
+  display: inline-block;
+  max-width: 100%;
+}
+.reveal .figure img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+}
+.reveal .figure.wide { display: block; }
+.reveal .figure.wide img { width: 100%; max-height: 340px; }
+.reveal .figure-cap {
+  margin-top: 0.5em;
+  font-size: 0.4em;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+}
+.reveal section.dark .figure-cap { color: #a9917a; }
+
+/* ---------- corner figure: sits in unused bottom-right space without
+   shrinking or reflowing the slide's existing text (unlike .figure-side) ---------- */
+.reveal .figure-corner {
+  position: absolute;
+  right: 5%;
+  bottom: 50px;
+  width: 560px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,125,0,0.3);
+  box-shadow: 0 12px 28px rgba(20,19,18,0.2);
+  background: #fff;
+  z-index: 1;
+}
+.reveal .figure-corner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---------- right-side figure (diagram/screenshot pinned to the right,
+   text column constrained on the left, same idea as .headshot) ---------- */
+.reveal .figure-side {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  width: 500px;
+  max-height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,125,0,0.3);
+  box-shadow: 0 14px 34px rgba(20,19,18,0.22);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.reveal .figure-side img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+}
+/* smaller, tighter card for a plain logo/icon (not a full screenshot) */
+.reveal .figure-side.logo {
+  width: 260px;
+  max-height: 260px;
+  padding: 1.6em;
+}
+.reveal .figure-side.logo img { max-height: 220px; }
+/* the big decorative watermark number is purely decorative — when a
+   slide also carries a real figure, drop it rather than fight for space */
+.reveal .slides section:has(.figure-side) .mod-num { display: none; }
+.reveal .slides section:has(.figure-side) .progress-chip { top: 46px; }
+
+/* keep text out from under the right-side figure */
+.reveal .slides section:has(.figure-side) h1,
+.reveal .slides section:has(.figure-side) h2,
+.reveal .slides section:has(.figure-side) > p,
+.reveal .slides section:has(.figure-side) ul,
+.reveal .slides section:has(.figure-side) .uc-grid,
+.reveal .slides section:has(.figure-side) .steps,
+.reveal .slides section:has(.figure-side) .rule,
+.reveal .slides section:has(.figure-side) .codecard {
+  max-width: 49%;
+}
+
 /* ---------- landscape logo/banner grid (channel banners etc.) ---------- */
 .reveal .logo-grid {
   display: grid;
@@ -611,12 +714,14 @@
 .reveal .step { display: flex; align-items: flex-start; gap: 0.8em; margin-bottom: 0.75em; }
 .reveal .step-n {
   flex: 0 0 auto;
-  width: 1.5em; height: 1.5em;
-  border-radius: 50%;
+  min-width: 1.9em;
+  height: 1.9em;
+  padding: 0 0.35em;
+  border-radius: 999px;
   background: var(--accent);
   color: #fff;
   font-weight: 800;
-  font-size: 0.6em;
+  font-size: 0.68em;
   display: flex; align-items: center; justify-content: center;
 }
 .reveal .step-t { font-size: 0.68em; line-height: 1.4; padding-top: 0.12em; }
