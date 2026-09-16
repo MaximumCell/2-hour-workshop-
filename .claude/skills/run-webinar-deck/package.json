@@ -1,0 +1,9 @@
+{
+  "name": "run-webinar-deck-driver",
+  "private": true,
+  "type": "module",
+  "description": "Playwright driver used by the run-webinar-deck skill to screenshot the reveal.js deck.",
+  "dependencies": {
+    "playwright": "^1.63.0"
+  }
+}
