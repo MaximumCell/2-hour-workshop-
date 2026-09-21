@@ -1,5 +1,3 @@
 __pycache__/
 *.pyc
 
-# Too large for GitHub (>100MB) - kept locally, host externally before deploying
-deck/assets/testimonial-3.mp4
