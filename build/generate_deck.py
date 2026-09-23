@@ -40,7 +40,7 @@ MONO_FONT = "Consolas"
 
 SLIDE_W = Inches(13.333)
 SLIDE_H = Inches(7.5)
-TOTAL_SECTIONS = 9
+TOTAL_SECTIONS = 13
 
 prs = Presentation()
 prs.slide_width = SLIDE_W
@@ -285,8 +285,76 @@ def new_content_slide(section_num, kicker_text, title, title_size=32, bg=BG_LIGH
     return s
 
 
+def step_list(slide, steps, x, y, w, row_h=0.92, circle_d=0.5, size=16, color=INK, start=1):
+    """Numbered-circle step list — same visual pattern as the job-hunting /
+    curriculum steps in the legacy deck."""
+    for i, st in enumerate(steps):
+        yy = y + Inches(row_h) * i
+        circ = slide.shapes.add_shape(MSO_SHAPE.OVAL, x, yy, Inches(circle_d), Inches(circle_d))
+        circ.fill.solid(); circ.fill.fore_color.rgb = ORANGE
+        circ.line.fill.background(); circ.shadow.inherit = False
+        tf = circ.text_frame; tf.word_wrap = False
+        p = tf.paragraphs[0]; p.alignment = PP_ALIGN.CENTER
+        r = p.add_run(); r.text = str(i + start)
+        r.font.bold = True; r.font.size = Pt(16); r.font.color.rgb = WHITE; r.font.name = HEAD_FONT
+        textbox(slide, x + Inches(circle_d + 0.28), yy, w - Inches(circle_d + 0.28), Inches(circle_d),
+                st, size=size, color=color, anchor=MSO_ANCHOR.MIDDLE)
+
+
+def chip_grid(slide, items, x, y, w, h, cols=3, size=13, color=INK, fill=WHITE, border=CARD_BORDER):
+    """Grid of short text chips — mirrors the deck's `.uc-grid` pattern."""
+    n = len(items)
+    rows = -(-n // cols)
+    gap = Inches(0.2)
+    cw = (w - gap * (cols - 1)) / cols
+    ch = (h - gap * (rows - 1)) / rows
+    for i, item in enumerate(items):
+        col, row = i % cols, i // cols
+        xx = x + col * (cw + gap)
+        yy = y + row * (ch + gap)
+        rect(slide, xx, yy, cw, ch, fill=fill, line_color=border, line_w=Pt(1), radius=0.12)
+        textbox(slide, xx + Inches(0.18), yy, cw - Inches(0.36), ch, item, size=size, color=color,
+                anchor=MSO_ANCHOR.MIDDLE, line_spacing=1.12)
+
+
+def qa_row(slide, x, y, w, label, tag_text, why_text, power=False, h=1.0):
+    """Weak-vs-power comparison row — mirrors the deck's `.qa-item` pattern."""
+    fill = RGBColor(0xEE, 0xF8, 0xE4) if power else WHITE
+    border = GREEN if power else CARD_BORDER
+    tag_color = GREEN if power else RGBColor(0xC4, 0x4A, 0x2A)
+    rect(slide, x, y, w, Inches(h), fill=fill, line_color=border, line_w=Pt(1.25), radius=0.08, shadow=True)
+    textbox(slide, x + Inches(0.3), y + Inches(0.12), w - Inches(0.6), Inches(0.4), label,
+            size=16, color=INK, bold=True)
+    rich_textbox(slide, x + Inches(0.3), y + Inches(0.55), w - Inches(0.6), Inches(0.4),
+                 [(tag_text + "  —  ", tag_color, True), (why_text, MUTED, False)], size=13)
+
+
+def table_block(slide, x, y, w, h, headers, rows):
+    """Simple comparison table (native pptx table)."""
+    n_rows = len(rows) + 1
+    tbl_shape = slide.shapes.add_table(n_rows, len(headers), x, y, w, h)
+    tbl = tbl_shape.table
+    for j, htext in enumerate(headers):
+        cell = tbl.cell(0, j)
+        cell.text = htext
+        cell.fill.solid(); cell.fill.fore_color.rgb = DARK_BG
+        for p in cell.text_frame.paragraphs:
+            for r in p.runs:
+                r.font.bold = True; r.font.size = Pt(15); r.font.color.rgb = ORANGE; r.font.name = HEAD_FONT
+    for i, row in enumerate(rows):
+        for j, val in enumerate(row):
+            cell = tbl.cell(i + 1, j)
+            cell.text = val
+            cell.fill.solid()
+            cell.fill.fore_color.rgb = WHITE if i % 2 == 0 else RGBColor(0xF6, 0xF0, 0xE8)
+            for p in cell.text_frame.paragraphs:
+                for r in p.runs:
+                    r.font.size = Pt(14); r.font.color.rgb = INK; r.font.name = BODY_FONT
+    return tbl_shape
+
+
 # =============================================================================
-# SECTION 1 — HOOK & HOUSEKEEPING (0:00-0:05)
+# TITLE — HOOK & HOUSEKEEPING
 # =============================================================================
 
 s = add_slide(bg=DARK_BG)
@@ -294,454 +362,517 @@ kicker(s, "AI MASTERY WORKSHOP", color=ORANGE)
 headline(s, "AI IS NOT\nOPTIONAL\nANYMORE", y=Inches(1.5), size=64, color=BG_LIGHT)
 underline(s, Inches(0.72), Inches(4.55), Inches(2.6), color=ORANGE, h=Pt(8))
 textbox(s, Inches(0.72), Inches(4.85), Inches(9.5), Inches(1.3),
-        "In the next 2 hours 10 minutes you'll join the top 1% of AI users — run your\n"
-        "first automation live, and vibe-code any app you want.",
+        "You will leave knowing how to use AI, build with AI, automate with AI,\n"
+        "and start thinking about how to make money with AI.",
         size=18, color=MUTED_ON_DARK, line_spacing=1.3)
 rect(s, Inches(0.72), Inches(5.9), Inches(8.6), Inches(0.9), fill=RGBColor(0x24, 0x20, 0x1C), radius=0.12)
 textbox(s, Inches(1.0), Inches(6.02), Inches(8.1), Inches(0.7),
-        "“Awaz clear aa rahi hai? Comment mein bata dijiye.”\n(Confirming audio is clear — drop a comment.)",
+        "“Awaz clear aa rahi hai?”\n(Confirming audio is clear — drop a comment.)",
         size=14, color=ORANGE, bold=False, line_spacing=1.2)
 live_badge(s, on_dark=True)
 footer_page(s, 1); page_num[0] = 1
 
-s = add_slide(bg=BG_LIGHT)
-kicker(s, "AI MASTERY WORKSHOP")
-progress_tag(s, 1)
-headline(s, "Before we start...", y=Inches(1.0), size=38)
-underline(s, Inches(0.72), Inches(1.85), Inches(2.0))
-rect(s, Inches(0.72), Inches(2.4), Inches(6.2), Inches(1.5), fill=WHITE, line_color=ORANGE, line_w=Pt(1.5), radius=0.08, shadow=True)
-textbox(s, Inches(1.05), Inches(2.7), Inches(5.6), Inches(0.9),
-        "\U0001F4CD  Drop your city in the chat right now", size=20, color=INK, bold=True)
-textbox(s, Inches(1.05), Inches(3.15), Inches(5.6), Inches(0.6),
-        "Let's see how far this workshop reaches today.", size=14, color=MUTED)
-footer_page(s, 2)
+s = new_content_slide(1, "By the End of Today", "You Will Be Able To", title_size=34)
+byend = ["AI, ML, Deep Learning, GenAI & AGI — explained simply", "A repeatable prompting framework",
+         "Research with an agentic browser", "Your own custom AI assistant / GPT",
+         "A working app, built with Claude", "Agent vs. automation — the real difference",
+         "AI videos & avatars with HeyGen", "A real automation workflow in n8n",
+         "Turning these skills into income"]
+chip_grid(s, byend, Inches(0.72), Inches(2.0), Inches(11.9), Inches(4.5), cols=3, size=14)
+textbox(s, Inches(0.72), Inches(6.75), Inches(11.9), Inches(0.5),
+        "This is not a “100 AI tools” tour — the goal is to understand how to think about AI and turn tools into outcomes.",
+        size=13, color=MUTED, bold=True)
 
 # =============================================================================
-# SECTION 2 — CREDIBILITY / SELF-INTRO (0:05-0:12)
+# SECTION 2 — CREDIBILITY
 # =============================================================================
 
 s = new_content_slide(2, "Credibility", "Why Listen to Me?", title_size=36)
 placeholder_box(s, Inches(0.72), Inches(2.0), Inches(3.1), Inches(3.6), "PRESENTER PHOTO")
-textbox(s, Inches(4.1), Inches(2.15), Inches(4.5), Inches(0.6), "Badar", size=30, color=INK, bold=True, font=HEAD_FONT)
-textbox(s, Inches(4.1), Inches(2.75), Inches(6.5), Inches(0.5), "Founder — Aaghaz AI", size=17, color=ORANGE, bold=True)
-textbox(s, Inches(4.1), Inches(3.25), Inches(8.3), Inches(1.5),
-        "Runs an AI startup studio for US clients. Worked with HeyGen, Higgsfield,\n"
-        "Wondershare, and Hostinger. Delivers guest masterclasses on major tech\n"
-        "channels. Aaghaz is Asia's first AI startup institute.",
+textbox(s, Inches(4.1), Inches(2.15), Inches(4.5), Inches(0.6), "AI Engineer / Practitioner", size=22, color=ORANGE, bold=True, font=HEAD_FONT)
+textbox(s, Inches(4.1), Inches(2.75), Inches(8.3), Inches(1.3),
+        "Runs an AI startup studio building products and automations for US clients.\n"
+        "Built Aaghaz as an AI education and startup platform focused on\n"
+        "practical, hands-on skills.",
         size=14, color=MUTED, line_spacing=1.3)
-cards = [("10,000+", "Students Trained"), ("5+ Years", "AI Engineer → AI Marketing"),
-         ("Mini Courses", "On Big Tech Platforms"), ("MakeFirstMillion", "AI Content Channel")]
-cx, cy, cw, ch, gap = Inches(4.1), Inches(4.55), Inches(3.9), Inches(1.25), Inches(0.3)
+cards = [("15,000+", "Students trained"), ("5+ yrs", "In the AI field"),
+         ("AI Startup", "Studio for US clients"), ("Aaghaz", "AI education platform")]
+cx, cy, cw, ch, gap = Inches(4.1), Inches(4.35), Inches(3.9), Inches(1.25), Inches(0.3)
 for i, (val, lbl) in enumerate(cards):
     col, row = i % 2, i // 2
     x = cx + col * (cw + gap)
     y = cy + row * (ch + Inches(0.25))
     stat_card(s, x, y, cw, ch, val, lbl)
 
-s = new_content_slide(2, "Credibility", "The Proof", title_size=36)
-textbox(s, Inches(0.72), Inches(1.9), Inches(11.9), Inches(0.5),
-        "Guest masterclasses on channels reaching hundreds of thousands of AI learners.",
-        size=15, color=MUTED)
+s = new_content_slide(2, "The Proof", "Worked With, and Worth Trusting", title_size=32)
+textbox(s, Inches(0.72), Inches(1.9), Inches(11.9), Inches(0.6),
+        "Companies and tools worked with include HeyGen, Higgsfield, Wondershare, and\n"
+        "Hostinger — plus guest masterclasses on major technology channels.",
+        size=15, color=MUTED, line_spacing=1.3)
 logos = ["Kashif Majeed", "HBA Services", "Lets Uncover", "Meet Mughals"]
 lx, lw, lgap = Inches(0.72), Inches(2.75), Inches(0.3)
 for i, name in enumerate(logos):
     x = lx + i * (lw + lgap)
-    placeholder_box(s, x, Inches(2.6), lw, Inches(1.6), name.upper() + " LOGO")
-rect(s, Inches(0.72), Inches(4.7), Inches(11.9), Inches(1.3), fill=WHITE, line_color=CARD_BORDER, radius=0.06, shadow=True)
-textbox(s, Inches(1.05), Inches(4.9), Inches(11.2), Inches(0.9),
-        "Want daily proof, not just today's slides?\nFollow the journey on LinkedIn — new wins posted every week.",
-        size=16, color=INK, line_spacing=1.3, bold=False)
+    placeholder_box(s, x, Inches(2.9), lw, Inches(1.6), name.upper() + " LOGO")
+rect(s, Inches(0.72), Inches(4.9), Inches(11.9), Inches(1.1), fill=WHITE, line_color=CARD_BORDER, radius=0.06, shadow=True)
+textbox(s, Inches(1.05), Inches(5.15), Inches(11.2), Inches(0.6),
+        "Credibility principle — show evidence rather than spending too much time describing yourself.",
+        size=15, color=INK, bold=True)
+
+s = new_content_slide(2, "Real Results", "In Their Own Words", title_size=32)
+vids = ["Testimonial 1", "Testimonial 2", "Testimonial 3"]
+vw, vgap = Inches(3.75), Inches(0.3)
+for i, name in enumerate(vids):
+    x = Inches(0.72) + i * (vw + vgap)
+    placeholder_box(s, x, Inches(2.1), vw, Inches(4.2), name.upper() + " VIDEO")
 
 # =============================================================================
-# SECTION 3 — WORKSHOP RULES & COMMITMENT (0:12-0:15)
+# SECTION 3 — THE AGENDA
 # =============================================================================
 
-s = new_content_slide(3, "Ground Rules", "Get the Most Out of Today", title_size=34)
-tips = ["Pen and paper ready — you'll want to write a few things down",
-        "Mobile is fine, but a laptop is better if you plan to build along live"]
-bullets(s, tips, Inches(0.72), Inches(2.0), Inches(11.5), Inches(1.5), size=18)
+s = new_content_slide(3, "The Agenda", "Topics We Will Discuss", title_size=34)
+roadmap = ["AI Basics & Mental Models", "Prompting with a Repeatable Framework",
+           "Perplexity Comet — The Agentic Browser", "Custom GPTs — Build Your Own AI Assistant",
+           "Claude — Build a Mini App Live", "OpenClaw — The AGI Principle",
+           "HeyGen — AI Video Creation", "Automation with n8n — Agents vs Automation",
+           "Selling AI Skills & Services"]
+rmy = Inches(2.0)
+half = -(-len(roadmap) // 2)
+for i, item in enumerate(roadmap):
+    col, row = i // half, i % half
+    x = Inches(0.72) + col * Inches(6.1)
+    y = rmy + Inches(0.66) * row
+    textbox(s, x, y, Inches(0.6), Inches(0.5), f"{i + 1:02d}", size=18, color=ORANGE, bold=True, font=HEAD_FONT)
+    textbox(s, x + Inches(0.65), y + Inches(0.02), Inches(5.3), Inches(0.5), item, size=15, color=INK, anchor=MSO_ANCHOR.TOP)
+live_badge(s, on_dark=False)
 
-s = new_content_slide(3, "Ground Rules", "There's a Bonus Waiting", title_size=32, bg=DARK_BG)
-for tb in s.shapes:
-    pass
-# override title/kicker colors for dark bg
-for shp in list(s.shapes):
-    if shp.has_text_frame:
-        for p in shp.text_frame.paragraphs:
-            for r in p.runs:
-                if r.font.color.rgb == INK:
-                    r.font.color.rgb = BG_LIGHT
-rect(s, Inches(0.72), Inches(2.0), Inches(11.9), Inches(4.4), fill=RGBColor(0x24, 0x20, 0x1C),
-     line_color=ORANGE, line_w=Pt(1.5), radius=0.05, shadow=True)
-textbox(s, Inches(1.1), Inches(2.3), Inches(3.5), Inches(0.5), "\U0001F512  LOCKED", size=16, color=ORANGE, bold=True, spacing=1.5)
-unlock_items = ["A curated book list", "The full AI tools stack list", "Live Q&A with direct answers", "A special announcement"]
-bullets(s, unlock_items, Inches(1.1), Inches(2.9), Inches(10.8), Inches(2.2), size=18, color=BG_LIGHT)
-textbox(s, Inches(1.1), Inches(5.55), Inches(10.8), Inches(0.6),
-        "Unlocks only if you stay till the very end.", size=15, color=ORANGE, bold=True)
+# =============================================================================
+# SECTION 4 — AI BASICS
+# =============================================================================
 
-s = new_content_slide(3, "Ground Rules", "Why No Recording?", title_size=34)
-textbox(s, Inches(0.72), Inches(2.1), Inches(11.0), Inches(1.5),
-        "This session isn't being recorded on purpose. Learning sticks best when\n"
-        "you're fully present, building live, not watching later.",
-        size=19, color=INK, line_spacing=1.35)
-
-s = add_slide(bg=DARK_BG)
-kicker(s, "Commitment", color=ORANGE)
-progress_tag(s, 3, on_dark=True)
-headline(s, "Type YES if\nyou're in.", y=Inches(2.4), size=56, color=BG_LIGHT)
-underline(s, Inches(0.72), Inches(4.5), Inches(2.0))
-live_badge(s, on_dark=True)
+s = section_break(BG_LIGHT, 4, "AI Basics", "Mental Models, Not Theory",
+                   "The goal is not to teach AI theory in depth — it's to give beginners a mental\nmodel that makes the rest of the workshop understandable.")
 page_num[0] += 1; footer_page(s, page_num[0])
 
-s = new_content_slide(3, "Today's Roadmap", "What You'll Walk Away With", title_size=32)
-recap = ["The 3-second prompt hack", "Custom GPTs / AI employees", "The top 1% tool stack",
-         "HeyGen content creation", "Claude mastery", "20 hours of research in 2 minutes",
-         "1-minute presentations", "Personal AI agents & automations"]
-half = len(recap) // 2
-bullets(s, recap[:half], Inches(0.72), Inches(2.0), Inches(5.7), Inches(4.5), size=16, gap=0.22)
-bullets(s, recap[half:], Inches(6.6), Inches(2.0), Inches(5.7), Inches(4.5), size=16, gap=0.22)
+s = new_content_slide(4, "What is AI?", "AI Has Been Invisible in Your Life for Years", title_size=28)
+textbox(s, Inches(0.72), Inches(1.85), Inches(11.9), Inches(0.9),
+        "AI is a broad category of software that can recognize patterns, learn from\n"
+        "data, and produce useful outputs — not one single tool or product.",
+        size=15, color=MUTED, line_spacing=1.3)
+ai_ex = ["A map app reroutes you around traffic", "A bank flags an unusual purchase",
+         "A customer-support chatbot answers common questions", "A recommendation system predicts what you'll want next"]
+chip_grid(s, ai_ex, Inches(0.72), Inches(2.9), Inches(11.9), Inches(2.6), cols=2, size=15)
+
+s = new_content_slide(4, "The Mental Model", "AI → Model → LLM → ChatGPT", title_size=32)
+chain = ["AI — the overall field / category", "Models — trained systems that perform particular tasks",
+         "LLMs — models specialized in understanding and generating language",
+         "ChatGPT — a product/interface that lets people use an LLM effectively"]
+step_list(s, chain, Inches(0.72), Inches(2.0), Inches(11.5), row_h=0.85, size=17)
+textbox(s, Inches(0.72), Inches(5.6), Inches(11.9), Inches(0.9),
+        "Key takeaway — don't think of AI as one tool. Think of it as an ecosystem of\nmodels and products designed for different kinds of work.",
+        size=14, color=MUTED, bold=True, line_spacing=1.3)
+
+s = new_content_slide(4, "Evolution", "From Rules to Generative AI", title_size=30)
+timeline = ["1990s — Spam filters and rule-based systems", "1997 — Deep Blue defeats chess champion Garry Kasparov",
+            "2000s — Search ranking and information retrieval mature",
+            "2010s — Recommendation systems, computer vision, Face ID, speech recognition mature",
+            "2020s — Generative AI produces text, images, audio, video, and code"]
+bullets(s, timeline, Inches(0.72), Inches(1.95), Inches(11.5), Inches(3.6), size=16, gap=0.22)
+textbox(s, Inches(0.72), Inches(5.9), Inches(11.9), Inches(0.8),
+        "Why now? Three pieces came together: enormous computing power, huge amounts\nof data, and modern architectures like transformers.",
+        size=14, color=MUTED, bold=True, line_spacing=1.3)
+
+s = new_content_slide(4, "The AI Hierarchy", "AI → ML → Deep Learning → GenAI / LLMs", title_size=28)
+layers = [("AI", "The broad outer layer"), ("Machine Learning", "Learns patterns from data"),
+          ("Deep Learning", "ML using neural networks"), ("Generative AI / LLMs", "The innermost layer, creates new content")]
+lyw, lygap = Inches(2.85), Inches(0.2)
+for i, (name, desc) in enumerate(layers):
+    x = Inches(0.72) + i * (lyw + lygap)
+    fill = ORANGE if i == len(layers) - 1 else WHITE
+    txt = WHITE if i == len(layers) - 1 else INK
+    rect(s, x, Inches(2.3), lyw, Inches(2.6), fill=fill, line_color=CARD_BORDER if fill == WHITE else None, radius=0.08, shadow=True)
+    textbox(s, x + Inches(0.2), Inches(2.6), lyw - Inches(0.4), Inches(0.9), name, size=16, color=txt, bold=True, font=HEAD_FONT, line_spacing=1.05)
+    textbox(s, x + Inches(0.2), Inches(3.7), lyw - Inches(0.4), Inches(1.1), desc, size=12, color=txt if fill == ORANGE else MUTED, line_spacing=1.25)
+textbox(s, Inches(0.72), Inches(5.3), Inches(11.9), Inches(0.7),
+        "Takeaway — these aren't separate competing categories, they're nested layers of one stack.",
+        size=14, color=MUTED, bold=True)
+
+s = new_content_slide(4, "Machine Learning & Deep Learning", "Teaching by Examples", title_size=27)
+qa_row(s, Inches(0.72), Inches(1.95), Inches(11.9), "Traditional programming",
+       "RULES → COMPUTER → RESULT", "You write every rule by hand, one at a time.", power=False)
+qa_row(s, Inches(0.72), Inches(3.15), Inches(11.9), "Machine learning",
+       "EXAMPLES → MODEL LEARNS PATTERNS → RESULT", "You show it data instead, and it finds the rules itself.", power=True)
+textbox(s, Inches(0.72), Inches(4.5), Inches(11.9), Inches(0.6),
+        "Deep learning is ML using neural networks: layer 1 detects edges, layer 2 shapes, layer 3\nfeatures — real-world examples include Face ID, translation, and image recognition.",
+        size=14, color=MUTED, line_spacing=1.3)
+
+s = new_content_slide(4, "LLMs & How They Work", "Large Language Model", title_size=30)
+textbox(s, Inches(0.72), Inches(1.95), Inches(11.9), Inches(0.9),
+        "An LLM is a type of AI model trained on very large amounts of text and other\n"
+        "data to understand and generate language — the models behind ChatGPT and Claude.",
+        size=15, color=MUTED, line_spacing=1.3)
+rule_pairs = [("Mental model", "An LLM takes the context you give it, processes the relationships between\nthe tokens, and generates a response one token at a time."),
+              ("Important distinction", "ChatGPT or Claude are applications that use models — an LLM is the\nunderlying model technology."),
+              ("Core takeaway", "An LLM generates language by repeatedly predicting the next token based\non context — not simple “autocomplete.”")]
+ry = Inches(3.1)
+for i, (lbl, txt) in enumerate(rule_pairs):
+    y = ry + Inches(1.25) * i
+    rect(s, Inches(0.72), y, Inches(11.9), Inches(1.05), fill=WHITE, line_color=CARD_BORDER, radius=0.06, shadow=True)
+    rich_textbox(s, Inches(1.0), y + Inches(0.18), Inches(11.3), Inches(0.75),
+                 [(lbl + "  ", ORANGE, True), (txt, MUTED, False)], size=13, line_spacing=1.25)
+
+s = new_content_slide(4, "Narrow AI vs. AGI, and Limitations", "What AI Can — and Can't — Do", title_size=28)
+qa_row(s, Inches(0.72), Inches(1.95), Inches(11.9), "Narrow AI",
+       "WHAT EXISTS TODAY", "Powerful at defined tasks, not generally intelligent across every domain.", power=True)
+qa_row(s, Inches(0.72), Inches(3.15), Inches(11.9), "AGI",
+       "NOT A SETTLED, EXISTING SYSTEM", "The long-term idea of broad, human-level intelligence that transfers across domains.", power=False)
+lims = ["Hallucinations / incorrect information", "Knowledge may be outdated depending on the model/tool",
+        "Prompt and context quality affect output quality", "AI can sound confident even when wrong"]
+bullets(s, lims, Inches(0.72), Inches(4.5), Inches(11.9), Inches(2.0), size=15, gap=0.16)
+textbox(s, Inches(0.72), Inches(6.6), Inches(11.9), Inches(0.5),
+        "Rule — use AI for leverage, but verify important information.", size=13, color=MUTED, bold=True)
 
 # =============================================================================
-# SECTION 4 — AI FUNDAMENTALS + THE 3-SECOND PROMPT HACK (0:15-0:30)
+# SECTION 5 — PROMPTING
 # =============================================================================
 
-s = section_break(BG_LIGHT, 4, "AI Fundamentals", "The 3-Second Prompt Hack",
-                   "Why most people get bad results from AI — and the fix that takes seconds to apply.")
+s = section_break(BG_LIGHT, 5, "Prompting", "Stop Guessing What to Type",
+                   "A repeatable framework for talking to AI — one you'll reuse for the rest of today.")
 page_num[0] += 1; footer_page(s, page_num[0])
 
-s = new_content_slide(4, "Core Concept", "Bad Prompt = Bad Result.\nGood Prompt = Good Result.", title_size=32)
+s = new_content_slide(5, "Core Principle", "Bad Input, Unpredictable Output", title_size=32)
+textbox(s, Inches(0.72), Inches(2.2), Inches(11.0), Inches(1.0),
+        "Better context + clearer instructions → better output.", size=24, color=INK, bold=True, font=HEAD_FONT)
 textbox(s, Inches(0.72), Inches(3.3), Inches(11.0), Inches(1.2),
-        "The model didn't get worse. Your instructions did all the work — and\n"
-        "vague instructions always produce vague output.",
-        size=18, color=MUTED, line_spacing=1.3)
+        "Prompting is increasingly part of a broader skill: giving AI the right task,\ncontext, examples, constraints, and output requirements.",
+        size=17, color=MUTED, line_spacing=1.3)
 
-s = new_content_slide(4, "Example", "A Weak Prompt", title_size=30)
-code_block(s, Inches(0.72), Inches(1.95), Inches(11.9), Inches(2.0),
-           ["Role: you are a world class expert youtube hook writer",
-            "Context: rewrite my hook, make it more better and attention grabbing",
-            "Be creative"], label="Weak Prompt", title_color=RGBColor(0xFF, 0x8A, 0x80))
-textbox(s, Inches(0.72), Inches(4.2), Inches(11.0), Inches(1.0),
-        "Vague role. No real context. No format. No constraints. The model has to guess\n"
-        "what “better” means — so it guesses safely, and safely is boring.",
+s = new_content_slide(5, "The Demo Task · Level 1", "One Task, Three Prompt Levels", title_size=27)
+code_block(s, Inches(0.72), Inches(1.85), Inches(11.9), Inches(1.1),
+           ["Create a HeyGen script for a short promotional video for our", "AI workshop."], label="The Task")
+code_block(s, Inches(0.72), Inches(3.15), Inches(5.75), Inches(1.0),
+           ["Write a script for my AI workshop video."], label="Level 1 — Weak", title_color=RGBColor(0xFF, 0x8A, 0x80))
+weak_pts = ["No clear objective", "No audience", "No tone or style", "No length / structure", "No CTA or success criteria"]
+bullets(s, weak_pts, Inches(6.75), Inches(3.2), Inches(5.9), Inches(2.2), size=13, gap=0.1)
+
+s = new_content_slide(5, "The Demo Task · Level 2", "Good Prompt", title_size=30)
+code_block(s, Inches(0.72), Inches(1.9), Inches(11.9), Inches(2.1),
+           ["Write a 60-second promotional script for an AI workshop. The",
+            "audience is beginners who want to learn practical AI skills. Make",
+            "it engaging, easy to understand, and persuasive. Explain what they",
+            "will learn and end with a clear call to action to register."], label="Level 2 — Good", title_color=CODE_ORANGE)
+good_pts = ["The task is clearer", "Audience is defined", "Length is specified", "Tone and objective are clearer", "CTA is included"]
+chip_grid(s, good_pts, Inches(0.72), Inches(4.3), Inches(11.9), Inches(1.9), cols=3, size=13)
+
+s = new_content_slide(5, "The Demo Task · Level 3", "The 4D Framework Prompt", title_size=30)
+textbox(s, Inches(0.72), Inches(1.7), Inches(11.0), Inches(0.4), "Define → Describe → Demonstrate → Deliver", size=15, color=ORANGE, bold=True)
+meta_lines = [
+    "DEFINE  Create a 60-second promotional video script for our AI",
+    "workshop. Motivate viewers to register.",
+    "DESCRIBE  Audience: beginners, professionals, creators, freelancers,",
+    "business owners overwhelmed by AI tools. Keep language beginner-",
+    "friendly, energetic, credible, easy to speak on camera.",
+    "DEMONSTRATE  Structure: 1) Hook 2) Audience's problem 3) What",
+    "they'll learn 4) One concrete transformation 5) Strong CTA.",
+    "Avoid generic AI buzzwords — write conversationally.",
+    "DELIVER  One polished 60-second HeyGen-ready script. Short spoken",
+    "sentences, natural pauses. End with a direct registration CTA.",
+]
+code_block(s, Inches(0.72), Inches(2.2), Inches(11.9), Inches(4.85), meta_lines, label="Level 3 — 4D")
+
+s = new_content_slide(5, "Live Comparison", "All Three, Side by Side", title_size=30)
+qa_row(s, Inches(0.72), Inches(2.0), Inches(11.9), "Bad prompt", "GENERIC AND UNPREDICTABLE",
+       "No task, no audience, no constraints — the model has to guess.", power=False)
+qa_row(s, Inches(0.72), Inches(3.2), Inches(11.9), "Good prompt", "MUCH MORE USEFUL",
+       "Task and context are clearer, but still generic in places.", power=False)
+qa_row(s, Inches(0.72), Inches(4.4), Inches(11.9), "4D prompt", "STRUCTURED AND SPECIFIC",
+       "Repeatable, and aligned to the exact output needed.", power=True)
+textbox(s, Inches(0.72), Inches(5.7), Inches(4), Inches(0.4), "LIVE DEMO", size=13, color=ORANGE, bold=True, spacing=1.5)
+
+s = new_content_slide(5, "The Loop · Go Deeper", "The 4D Prompt Becomes Our Workshop Tool", title_size=27)
+loop_steps = ["Learn the 4D framework", "Build the prompt", "Compare results",
+              "Select the strongest version", "Use it to create the HeyGen video in Section 10"]
+step_list(s, loop_steps, Inches(0.72), Inches(1.95), Inches(11.5), row_h=0.62, size=14, circle_d=0.4)
+textbox(s, Inches(0.72), Inches(5.4), Inches(11.9), Inches(0.5),
+        "The point — prompting isn't theory, it directly improves the work they produce.",
+        size=13, color=MUTED, bold=True)
+links = ["Anthropic · Learn / Build with Claude", "Anthropic · AI Fluency Framework", "Bonus · Workshop prompt library"]
+chip_grid(s, links, Inches(0.72), Inches(6.0), Inches(11.9), Inches(0.9), cols=3, size=12, fill=RGBColor(0xF0, 0xE8, 0xDC), border=ORANGE)
+
+# =============================================================================
+# SECTION 6 — PERPLEXITY COMET
+# =============================================================================
+
+s = section_break(BG_LIGHT, 6, "Perplexity Comet", "The Agentic Browser",
+                   "From AI that answers questions to AI that can perform multi-step browser tasks.")
+page_num[0] += 1; footer_page(s, page_num[0])
+
+s = new_content_slide(6, "Search vs. Delegate", "What Is an Agentic Browser?", title_size=30)
+qa_row(s, Inches(0.72), Inches(2.1), Inches(11.9), "Traditional search", "YOU DO THE WORK",
+       "You search → read → click → compare → decide, one step at a time.", power=False, h=1.3)
+qa_row(s, Inches(0.72), Inches(3.7), Inches(11.9), "Agentic browser", "THE AGENT DOES THE WORK",
+       "You give a goal — the agent navigates, researches, compares, and completes\nsteps with less manual work.", power=True, h=1.3)
+
+s = new_content_slide(6, "What This Looks Like", "Comet, Mid-Task", title_size=32)
+placeholder_box(s, Inches(0.72), Inches(2.0), Inches(11.9), Inches(4.2), "COMET DEMO SCREENSHOT")
+
+s = new_content_slide(6, "Live Demo", "Delegate a Real Task", title_size=32)
+tasks = ["Research competitors", "Compare products", "Find potential leads", "Research a travel plan", "Gather info from multiple sites and summarize it"]
+chip_grid(s, tasks, Inches(0.72), Inches(2.0), Inches(11.9), Inches(2.6), cols=3, size=14)
+textbox(s, Inches(0.72), Inches(5.0), Inches(4), Inches(0.4), "LIVE DEMO", size=13, color=ORANGE, bold=True, spacing=1.5)
+textbox(s, Inches(0.72), Inches(5.55), Inches(11.9), Inches(0.6),
+        "Teaching point — the value is delegating a multi-step knowledge task, not the browser itself.",
+        size=14, color=MUTED, bold=True)
+
+# =============================================================================
+# SECTION 7 — CUSTOM GPTs
+# =============================================================================
+
+s = section_break(BG_LIGHT, 7, "Custom GPTs", "Build Your Own AI Assistant",
+                   "Stop repeating the same instructions every day.")
+page_num[0] += 1; footer_page(s, page_num[0])
+
+s = new_content_slide(7, "Why Custom Assistants?", "A Specialized Assistant Has", title_size=32)
+why_gpt = ["A clear role", "Persistent instructions", "Reference files / knowledge", "A defined workflow", "Output rules"]
+bullets(s, why_gpt, Inches(0.72), Inches(2.0), Inches(11.5), Inches(3.0), size=18, gap=0.25)
+
+s = new_content_slide(7, "The Builder", "Where You'll Set All This Up", title_size=30)
+placeholder_box(s, Inches(0.72), Inches(1.95), Inches(5.6), Inches(3.6), "CUSTOM GPT BUILDER UI")
+builder_pts = ["One place to name the assistant and define its job", "Instructions live here permanently — no re-typing per chat",
+               "Attach knowledge files it should always have access to", "Test it right inside the builder before sharing it"]
+bullets(s, builder_pts, Inches(6.65), Inches(2.1), Inches(5.9), Inches(3.4), size=15, gap=0.25)
+textbox(s, Inches(0.72), Inches(5.75), Inches(4), Inches(0.4), "LIVE DEMO", size=13, color=ORANGE, bold=True, spacing=1.5)
+
+s = new_content_slide(7, "Live Build", 'Build "AI Content Strategist"', title_size=30)
+gpt_steps = ["Define the job", "Write the instructions", "Add knowledge / files", "Add examples", "Test with real inputs", "Improve based on failures"]
+step_list(s, gpt_steps, Inches(0.72), Inches(1.95), Inches(11.5), row_h=0.58, size=15, circle_d=0.42)
+textbox(s, Inches(0.72), Inches(5.7), Inches(11.9), Inches(0.7),
+        "Key idea — a custom GPT isn't just a fancy prompt, it's a reusable interface around a repeatable task.",
+        size=14, color=MUTED, bold=True)
+
+# =============================================================================
+# SECTION 8 — CLAUDE: BUILD A MINI APP LIVE
+# =============================================================================
+
+s = section_break(DARK_BG, 8, "Claude · The Hero Demo", "Build a Mini App, Live",
+                   "Slow down here. Let the room see the transformation.")
+page_num[0] += 1; footer_page(s, page_num[0])
+
+s = new_content_slide(8, "Why Claude for Building", "What Makes Claude Useful for Building?", title_size=27)
+claude_pts = ["Writing and reasoning", "Working with long context", "Understanding project requirements",
+              "Generating and modifying code", "Iterating on a working product"]
+bullets(s, claude_pts, Inches(0.72), Inches(2.0), Inches(11.5), Inches(3.2), size=18, gap=0.25)
+
+s = new_content_slide(8, "Build Process", "From Idea to Working App", title_size=30)
+code_block(s, Inches(0.72), Inches(1.85), Inches(11.9), Inches(1.0),
+           ["I want a simple app for [ask the room what to build]."], label="Starting Idea")
+build_steps = ["Ask the room for a real business or idea, live", "Ask Claude to clarify audience, goals, features, journey",
+               "Generate the first version", "Run the app / preview the result",
+               "Give iterative feedback", "Add or change features live", "Polish the UI", "Show the final working result"]
+step_list(s, build_steps[:4], Inches(0.72), Inches(3.15), Inches(5.7), row_h=0.62, size=14, circle_d=0.4)
+step_list(s, build_steps[4:], Inches(6.65), Inches(3.15), Inches(5.7), row_h=0.62, size=14, circle_d=0.4, start=5)
+textbox(s, Inches(0.72), Inches(6.15), Inches(4), Inches(0.4), "LIVE DEMO", size=13, color=ORANGE, bold=True, spacing=1.5)
+
+s = new_content_slide(8, "Teaching Moment", "Vibe Coding", title_size=32)
+placeholder_box(s, Inches(0.72), Inches(1.95), Inches(5.3), Inches(2.6), "VIBE CODING CYCLE DIAGRAM")
+vibe_pts = ["Idea → Describe → Generate → Run", "Inspect → Give feedback → Iterate", "Repeat until it's right"]
+bullets(s, vibe_pts, Inches(6.4), Inches(2.1), Inches(6.2), Inches(2.4), size=17, gap=0.3)
+textbox(s, Inches(0.72), Inches(4.9), Inches(11.9), Inches(1.0),
+        "Still required — you don't need to manually write every line of code, but you\nstill need to understand the product, requirements, testing, and quality.",
         size=15, color=MUTED, line_spacing=1.3)
 
-s = new_content_slide(4, "The Hack", "The Meta-Prompt", title_size=30)
-meta_lines = [
-    "Role: Act as an elite Prompt Engineering Consultant.",
-    "Objective: Transform any prompt I provide into a high-performance",
-    "prompt that maximizes clarity, accuracy, relevance, and output quality",
-    "from AI models.",
-    "Process: Understand the original intent. Remove ambiguity and",
-    "unnecessary wording. Add missing context where beneficial. Improve",
-    "structure and readability. Optimize instructions, constraints, and",
-    "output format. Preserve the original meaning and goal.",
-    "Deliverables:",
-    "1. Optimized Prompt",
-    "2. Rationale for Changes",
-    "3. Optional Advanced Version (if further optimization is possible)",
-    "Original Prompt: {PASTE_PROMPT_HERE}",
+s = new_content_slide(8, "The Bigger Lesson · Bonus", "It's Not About the App You Just Watched", title_size=27)
+textbox(s, Inches(0.72), Inches(1.95), Inches(11.9), Inches(1.0),
+        "The lesson — if you can clearly describe a problem, you can increasingly use\nAI to help turn that problem into a working prototype.",
+        size=18, color=INK, bold=True, line_spacing=1.3)
+textbox(s, Inches(0.72), Inches(3.15), Inches(11.0), Inches(0.4), "THE REST OF THE CLAUDE TOOLKIT", size=13, color=ORANGE, bold=True, spacing=1.5)
+toolkit = [("Projects", "A dedicated workspace that holds your files, instructions, and context across every chat"),
+           ("Artifacts", "Docs, code, and mini-apps Claude builds in a live side panel — the app you just watched, lives here"),
+           ("Claude Code", "Claude working directly in your terminal and codebase — reads files, runs commands, tests its own changes")]
+tkw, tkgap = Inches(3.7), Inches(0.35)
+for i, (name, desc) in enumerate(toolkit):
+    x = Inches(0.72) + i * (tkw + tkgap)
+    win = i == 1
+    rect(s, x, Inches(3.65), tkw, Inches(3.0), fill=RGBColor(0xEE, 0xF8, 0xE4) if win else WHITE,
+         line_color=GREEN if win else CARD_BORDER, line_w=Pt(1.25), radius=0.07, shadow=True)
+    textbox(s, x + Inches(0.25), Inches(3.95), tkw - Inches(0.5), Inches(0.5), name, size=18, color=INK, bold=True, font=HEAD_FONT)
+    textbox(s, x + Inches(0.25), Inches(4.55), tkw - Inches(0.5), Inches(1.9), desc, size=13, color=MUTED, line_spacing=1.3)
+
+# =============================================================================
+# SECTION 9 — OPENCLAW
+# =============================================================================
+
+s = section_break(DARK_BG, 9, "OpenClaw", "The AGI Principle", None)
+oc_steps = ["AI answers my question", "AI uses tools to complete a task", "AI can operate toward a goal with less step-by-step supervision"]
+step_list(s, oc_steps, Inches(0.72), Inches(5.05), Inches(11.5), row_h=0.55, size=14, circle_d=0.4, color=BG_LIGHT)
+placeholder_box(s, Inches(9.6), Inches(1.1), Inches(2.9), Inches(2.9), "OPENCLAW MASCOT")
+page_num[0] += 1; footer_page(s, page_num[0])
+
+s = new_content_slide(9, "Key Point", "An Agent Is More Than a Chatbot", title_size=30)
+agent_pts = ["It can be given a goal", "It can access and use tools", "It decides what steps to take",
+             "It observes its own results", "It continues until the task is complete", "All within defined permissions and constraints"]
+chip_grid(s, agent_pts, Inches(0.72), Inches(2.0), Inches(11.9), Inches(2.6), cols=3, size=14)
+textbox(s, Inches(0.72), Inches(5.0), Inches(11.9), Inches(0.7),
+        "Important — AGI and agentic AI are not the same thing. An agent can be highly\nautonomous without being AGI.",
+        size=15, color=MUTED, bold=True, line_spacing=1.3)
+
+# =============================================================================
+# SECTION 10 — HEYGEN
+# =============================================================================
+
+s = section_break(BG_LIGHT, 10, "HeyGen", "AI Video Creation",
+                   "AI avatars, cloned voices, and instant localization.")
+page_num[0] += 1; footer_page(s, page_num[0])
+
+s = new_content_slide(10, "The Capabilities", "What Can AI Video Do?", title_size=32)
+caps = ["AI avatars", "Voice generation / cloning", "Multilingual localization", "Training and educational videos",
+        "Sales videos", "Marketing content", "Scalable content production"]
+chip_grid(s, caps, Inches(0.72), Inches(2.0), Inches(11.9), Inches(3.6), cols=4, size=14)
+
+s = new_content_slide(10, "The Script", "From Section 5's 4D Prompt", title_size=28)
+hg_lines = [
+    "Stop scrolling past AI. In the next two hours, you're going to use it,",
+    "build with it, and learn how to actually make money with it.",
+    "",
+    "This workshop fixes the noise. You'll learn the mental models that",
+    "matter, a prompting framework you'll reuse forever, and how to build",
+    "a real working app with Claude — live, from a single sentence.",
+    "",
+    "Then we go further — AI video, real automation with n8n, and how",
+    "to turn everything you learn into paid work.",
+    "",
+    "Two hours. Nine skills. One session. Register now.",
 ]
-code_block(s, Inches(0.72), Inches(1.9), Inches(11.9), Inches(5.15), meta_lines, label="The Hack — copy this")
+code_block(s, Inches(0.72), Inches(1.85), Inches(11.9), Inches(4.9), hg_lines, label="HeyGen Script")
 
-s = new_content_slide(4, "Payoff", "Before vs. After", title_size=32)
-rect(s, Inches(0.72), Inches(2.0), Inches(5.7), Inches(4.3), fill=WHITE, line_color=CARD_BORDER, radius=0.05, shadow=True)
-textbox(s, Inches(1.0), Inches(2.25), Inches(5.2), Inches(0.4), "WEAK PROMPT OUTPUT", size=12, color=RGBColor(0xC4,0x4A,0x2A), bold=True, spacing=1.2)
-textbox(s, Inches(1.0), Inches(2.75), Inches(5.1), Inches(3.3),
-        "“Check out this amazing video, you won't\nbelieve what happens next!”\n\n"
-        "Generic. Overused. Sounds like every\nother hook on the platform.",
-        size=15, color=MUTED, line_spacing=1.35)
-rect(s, Inches(6.9), Inches(2.0), Inches(5.7), Inches(4.3), fill=RGBColor(0x24,0x20,0x1C), radius=0.05, shadow=True)
-textbox(s, Inches(7.2), Inches(2.25), Inches(5.2), Inches(0.4), "POWER PROMPT OUTPUT", size=12, color=GREEN, bold=True, spacing=1.2)
-textbox(s, Inches(7.2), Inches(2.75), Inches(5.1), Inches(3.3),
-        "“I spent 40 hours doing this so you don't\nhave to — here's exactly what broke,\nand the 3-line fix.”\n\n"
-        "Specific. Personal stakes. Promises a\nconcrete payoff in the first 3 seconds.",
-        size=15, color=BG_LIGHT, line_spacing=1.35)
+s = new_content_slide(10, "Live Demo · Inside the Studio", "Script → Finished Video", title_size=28)
+placeholder_box(s, Inches(0.72), Inches(1.95), Inches(5.6), Inches(3.6), "HEYGEN STUDIO INTERFACE")
+studio_pts = ["My Dashboard — every project, avatar, and render in one place",
+              "My Avatar / My Voice — the two libraries picked live",
+              "Create Video — where the script from Section 5 goes in",
+              "Ready-made templates for ads, promos, and explainers"]
+bullets(s, studio_pts, Inches(6.65), Inches(2.1), Inches(5.9), Inches(3.4), size=14, gap=0.25)
+textbox(s, Inches(0.72), Inches(5.75), Inches(4), Inches(0.4), "LIVE DEMO", size=13, color=ORANGE, bold=True, spacing=1.5)
 
-s = new_content_slide(4, "Bonus", "Build a Prompt Library", title_size=32)
-textbox(s, Inches(0.72), Inches(2.0), Inches(11.0), Inches(0.7),
-        "Never write the same prompt twice. Organize every prompt that works in Notion.",
-        size=17, color=MUTED)
-cats = [("Scripting", "Hooks, outlines, video scripts"), ("Research", "Deep-dive & summary prompts"),
-        ("Marketing", "Ads, captions, funnels")]
-cw2 = Inches(3.7); gap2 = Inches(0.35)
-for i, (name, desc) in enumerate(cats):
-    x = Inches(0.72) + i * (cw2 + gap2)
-    rect(s, x, Inches(2.9), cw2, Inches(2.6), fill=WHITE, line_color=CARD_BORDER, radius=0.08, shadow=True)
-    rect(s, x + Inches(0.3), Inches(3.15), Inches(0.5), Pt(6), fill=ORANGE)
-    textbox(s, x + Inches(0.3), Inches(3.35), cw2 - Inches(0.6), Inches(0.5), name, size=18, color=INK, bold=True, font=HEAD_FONT)
-    textbox(s, x + Inches(0.3), Inches(3.9), cw2 - Inches(0.6), Inches(1.3), desc, size=13, color=MUTED, line_spacing=1.3)
+s = new_content_slide(10, "The Result", "From Script to Finished Video", title_size=30)
+placeholder_box(s, Inches(0.72), Inches(1.95), Inches(11.9), Inches(3.3), "FINISHED HEYGEN VIDEO")
+textbox(s, Inches(0.72), Inches(5.5), Inches(11.9), Inches(1.0),
+        "Same script from Section 5's 4D prompt. Same avatar and voice picked live.\nRendered in minutes — ready to post, no camera or crew involved.",
+        size=15, color=MUTED, line_spacing=1.3)
+textbox(s, Inches(0.72), Inches(6.6), Inches(11.9), Inches(0.5),
+        "The payoff — this is what “one script, many videos” actually looks like.", size=15, color=INK, bold=True)
+
+s = new_content_slide(10, "The Business Angle", "One Script, Many Outcomes", title_size=30)
+outcomes = ["One script → multiple languages", "One idea → many videos", "Faster content production",
+            "Lower production overhead", "Can become part of an automated content system"]
+chip_grid(s, outcomes, Inches(0.72), Inches(2.0), Inches(11.9), Inches(2.6), cols=3, size=14)
+rect(s, Inches(0.72), Inches(5.0), Inches(11.9), Inches(1.0), fill=RGBColor(0x24, 0x20, 0x1C), radius=0.08, shadow=True)
+textbox(s, Inches(0.72), Inches(5.28), Inches(11.9), Inches(0.5),
+        "Bridge — but what if we don't want to do these steps manually every time?",
+        size=17, color=ORANGE, bold=True, align=PP_ALIGN.CENTER)
 
 # =============================================================================
-# SECTION 5 — CLAUDE DEEP DIVE (0:30-0:50)
+# SECTION 11 — AUTOMATION WITH N8N
 # =============================================================================
 
-s = section_break(BG_LIGHT, 5, "Claude Deep Dive", "Meet Your Real Thought Partner",
-                   "Not a search engine. Not autocomplete. A collaborator that holds context and builds with you.")
+s = section_break(BG_LIGHT, 11, "Automation With n8n", "Agents vs Automation", None)
 page_num[0] += 1; footer_page(s, page_num[0])
 
-s = new_content_slide(5, "Mental Model", "How Claude Actually Thinks", title_size=32)
-mm = ["Context windows: Claude remembers everything you've told it in this\nconversation — use that, don't repeat yourself",
-      "Instructions matter more than the model: a clear brief beats a\n“smarter” model with a vague one",
-      "Claude as thought partner, not search engine: ask it to reason,\ncritique, and iterate — not just retrieve"]
-bullets(s, mm, Inches(0.72), Inches(2.1), Inches(11.5), Inches(4.5), size=17, gap=0.35)
+s = new_content_slide(11, "What Is Automation?", "A Defined Process", title_size=32)
+auto_steps = ["Trigger", "Step 1", "Step 2", "Step 3", "Result"]
+step_list(s, auto_steps, Inches(0.72), Inches(2.0), Inches(6.0), row_h=0.7, size=16, circle_d=0.48)
+textbox(s, Inches(0.72), Inches(5.9), Inches(11.9), Inches(0.7),
+        "Example — new form submission → add lead to CRM → send email → notify sales team.",
+        size=14, color=MUTED, bold=True)
 
-s = new_content_slide(5, "Live Build", "From Weak Ask to Working App", title_size=30)
-code_block(s, Inches(0.72), Inches(1.9), Inches(11.9), Inches(1.3),
-           ["mujhe ek barber shop ke liye booking app chahiye"],
-           label="Original ask", title_color=RGBColor(0xFF, 0x8A, 0x80))
-textbox(s, Inches(0.72), Inches(3.35), Inches(9.5), Inches(0.5), "↓  Run it through the meta-prompt from Section 4, paste into Claude", size=15, color=MUTED)
-rect(s, Inches(0.72), Inches(4.0), Inches(5.6), Inches(2.4), fill=WHITE, line_color=CARD_BORDER, radius=0.06, shadow=True)
-textbox(s, Inches(1.0), Inches(4.6), Inches(5.0), Inches(1.2),
-        "10–15 DAYS", size=30, color=RGBColor(0xC4,0x4A,0x2A), bold=True, font=HEAD_FONT, align=PP_ALIGN.CENTER)
-textbox(s, Inches(1.0), Inches(5.5), Inches(5.0), Inches(0.5), "Traditional dev timeline", size=13, color=MUTED, align=PP_ALIGN.CENTER)
-rect(s, Inches(6.6), Inches(4.0), Inches(5.6), Inches(2.4), fill=RGBColor(0x24,0x20,0x1C), radius=0.06, shadow=True)
-textbox(s, Inches(6.9), Inches(4.6), Inches(5.0), Inches(1.2),
-        "~2 MINUTES", size=30, color=GREEN, bold=True, font=HEAD_FONT, align=PP_ALIGN.CENTER)
-textbox(s, Inches(6.9), Inches(5.5), Inches(5.0), Inches(0.5), "Live, with Claude", size=13, color=BG_LIGHT, align=PP_ALIGN.CENTER)
+s = new_content_slide(11, "What Is an AI Agent?", "A Flexible, Goal-Driven Process", title_size=30)
+placeholder_box(s, Inches(0.72), Inches(1.95), Inches(5.3), Inches(2.8), "AGENT NAVIGATING TOWARD GOAL")
+agent_flow = ["Goal → decide steps → use tools", "Observe results → adapt → complete task"]
+bullets(s, agent_flow, Inches(6.4), Inches(2.3), Inches(6.2), Inches(2.0), size=17, gap=0.3)
 
-s = new_content_slide(5, "Claude Connectors", "Job-Hunting on Autopilot", title_size=30)
-steps = ["Upload your resume", "Ask Claude to find ~10 remote jobs matching your role & salary target",
-         "Connect the Indeed connector → live results appear", "Personalize your resume for 4 selected roles"]
-sy = Inches(1.95)
-for i, st in enumerate(steps):
-    y = sy + Inches(1.15) * i if i < 2 else None
-for i, st in enumerate(steps):
-    y = Inches(1.95) + Inches(1.15) * i
-    circ = slide_shape = s.shapes.add_shape(MSO_SHAPE.OVAL, Inches(0.72), y, Inches(0.55), Inches(0.55))
-    circ.fill.solid(); circ.fill.fore_color.rgb = ORANGE; circ.line.fill.background(); circ.shadow.inherit = False
-    tf = circ.text_frame; tf.word_wrap = False
-    p = tf.paragraphs[0]; p.alignment = PP_ALIGN.CENTER
-    r = p.add_run(); r.text = str(i + 1); r.font.bold = True; r.font.size = Pt(18); r.font.color.rgb = WHITE; r.font.name = HEAD_FONT
-    textbox(s, Inches(1.5), y + Inches(0.05), Inches(10.8), Inches(0.5), st, size=16, color=INK, anchor=MSO_ANCHOR.MIDDLE)
+s = new_content_slide(11, "Side by Side", "Automation vs. Agent", title_size=32)
+table_block(s, Inches(0.72), Inches(2.0), Inches(11.9), Inches(3.0), ["Automation", "AI Agent"],
+            [["Predefined workflow", "Goal-driven workflow"],
+             ["Predictable steps", "Can choose next steps"],
+             ["Great for repetitive processes", "Great for complex/variable tasks"],
+             ["Easier to test", "More flexible, but needs stronger controls"]])
 
-s = new_content_slide(5, "Connectors — Prompt A", "Find the Roles", title_size=28)
-code_block(s, Inches(0.72), Inches(1.9), Inches(11.9), Inches(2.0),
-           ["Find ~10 remote job listings for a [ROLE] with a target salary of",
-            "[SALARY]. Prioritize postings from the last 14 days. For each, return:",
-            "title, company, salary range, key requirements, and a direct link."],
-           label="Prompt — find jobs")
+s = new_content_slide(11, "Live Demo", "One Real n8n Workflow", title_size=32)
+textbox(s, Inches(0.72), Inches(1.95), Inches(11.5), Inches(0.7),
+        "Lead comes in → AI analyzes lead → classifies intent → generates personalized\nresponse → stores lead → notifies salesperson.",
+        size=14, color=MUTED, line_spacing=1.3)
+n8n_steps = ["Trigger", "Data transformation", "AI decision / generation step", "Action", "Final result"]
+step_list(s, n8n_steps, Inches(0.72), Inches(3.15), Inches(6.0), row_h=0.65, size=15, circle_d=0.45)
+placeholder_box(s, Inches(7.15), Inches(3.1), Inches(5.4), Inches(3.3), "N8N WORKFLOW CANVAS")
+textbox(s, Inches(0.72), Inches(6.55), Inches(4), Inches(0.4), "LIVE DEMO", size=13, color=ORANGE, bold=True, spacing=1.5)
 
-s = new_content_slide(5, "Connectors — Prompt B", "Personalize for Each Role", title_size=28)
-code_block(s, Inches(0.72), Inches(1.9), Inches(11.9), Inches(2.0),
-           ["Using my uploaded resume and the job description for [ROLE / COMPANY],",
-            "rewrite my resume summary and top 3 bullet points to mirror the",
-            "language and priorities of this specific posting. Keep every claim true."],
-           label="Prompt — personalize")
+s = new_content_slide(11, "The Bigger Mental Model", "Four Building Blocks", title_size=32)
+blocks = [("Prompt", "One task"), ("Custom GPT", "Reusable assistant"),
+          ("Agent", "AI that pursues a goal using tools"), ("Automation", "Repeatable system that runs without manual effort")]
+bw4, bgap4 = Inches(2.85), Inches(0.2)
+for i, (name, desc) in enumerate(blocks):
+    x = Inches(0.72) + i * (bw4 + bgap4)
+    win = i == 3
+    rect(s, x, Inches(2.1), bw4, Inches(2.3), fill=RGBColor(0xEE, 0xF8, 0xE4) if win else WHITE,
+         line_color=GREEN if win else CARD_BORDER, line_w=Pt(1.25), radius=0.08, shadow=True)
+    textbox(s, x + Inches(0.2), Inches(2.4), bw4 - Inches(0.4), Inches(0.5), name, size=17, color=INK, bold=True, font=HEAD_FONT)
+    textbox(s, x + Inches(0.2), Inches(3.0), bw4 - Inches(0.4), Inches(1.2), desc, size=12, color=MUTED, line_spacing=1.25)
+textbox(s, Inches(0.72), Inches(4.8), Inches(11.9), Inches(0.6),
+        "Combine them — AI-powered automation = agent + automation, together.", size=15, color=INK, bold=True)
 
 # =============================================================================
-# SECTION 6 — LIVE AUTOMATION BUILD (0:50-1:00)
+# SECTION 12 — SELLING AI SKILLS
 # =============================================================================
 
-s = section_break(BG_LIGHT, 6, "Live Automation", "Build One Real Automation, Live, in n8n",
-                   "Something that works while you sleep — built from scratch, on screen, right now.")
+s = section_break(BG_LIGHT, 12, "Selling", "Turn AI Skills Into Money",
+                   '"Okay, how do I actually make money with this?"')
 page_num[0] += 1; footer_page(s, page_num[0])
 
-# =============================================================================
-# SECTION 7 — BUILD ANYTHING FAST (1:00-1:30)
-# =============================================================================
+s = new_content_slide(12, "What Are People Buying?", 'Clients Don\'t Buy "AI" — They Buy Outcomes', title_size=27)
+buys = ["More leads", "More content", "Faster research", "Lower operating costs",
+        "Better customer support", "Automated workflows", "Internal tools", "Faster product development"]
+chip_grid(s, buys, Inches(0.72), Inches(1.95), Inches(11.9), Inches(3.6), cols=4, size=13)
 
-s = section_break(BG_LIGHT, 7, "Build Anything Fast", "Research, Slides & Vibe-Coded Sites",
-                   "Three tools, three payoffs: deep research in minutes, a live presentation, and a working website.")
-page_num[0] += 1; footer_page(s, page_num[0])
+s = new_content_slide(12, "Beginner-Friendly Offers", "Offers You Can Start With", title_size=30)
+offers = ["AI content systems", "AI video creation", "Custom AI assistants", "Research systems",
+          "Lead-generation workflows", "n8n automations", "AI-powered internal tools", "AI website/app prototypes"]
+chip_grid(s, offers, Inches(0.72), Inches(1.95), Inches(11.9), Inches(3.6), cols=4, size=13)
 
-s = new_content_slide(7, "NotebookLM — 1:00–1:12", "Deep Research, Compressed", title_size=28)
-nb_lines = [
-    "Act as a senior research analyst. Produce a deep research report on:",
-    "\"How many jobs are being lost because of AI?\"",
-    "Structure the output as:",
-    "1. Executive Summary  2. Key Findings  3. Data & Statistics",
-    "4. Industry Breakdown  5. Regional Differences  6. Counterarguments",
-    "7. Expert Opinions  8. Historical Precedent  9. Near-Term Outlook",
-    "10. Practical Takeaways  11. References / Sources",
-]
-code_block(s, Inches(0.72), Inches(1.85), Inches(11.9), Inches(3.6), nb_lines, label="Deep Research prompt")
-textbox(s, Inches(0.72), Inches(5.65), Inches(11.5), Inches(0.6),
-        "Then: paste a podcast link → summarize it → ask follow-up questions, all inside NotebookLM.",
-        size=14, color=MUTED)
+s = new_content_slide(12, "The Offer Formula", "Skill → Problem → Outcome → Offer → Proof", title_size=27)
+qa_row(s, Inches(0.72), Inches(2.1), Inches(11.9), '"I know n8n and ChatGPT."', "WEAK",
+       "A skill list. Says nothing about the outcome a client gets.", power=False, h=1.2)
+qa_row(s, Inches(0.72), Inches(3.55), Inches(11.9), '"I build an AI lead-follow-up system\nthat responds within minutes."', "STRONG",
+       "A named outcome, for a specific problem, that a client can picture immediately.", power=True, h=1.5)
 
-s = new_content_slide(7, "NotebookLM", "One Source, Four Formats", title_size=30)
-feats = [("\U0001F5FA  Mind Map", "Visual breakdown of every key idea"),
-         ("\U0001F4CA  Infographic", "Shareable summary, ready to post"),
-         ("\U0001F3AC  Generated Video", "A narrated walkthrough of the research"),
-         ("\U0001F3A7  Audio Overview", "A podcast-style discussion of your topic")]
-fw, fh, fgap = Inches(5.7), Inches(1.7), Inches(0.3)
-for i, (name, desc) in enumerate(feats):
-    col, row = i % 2, i // 2
-    x = Inches(0.72) + col * (fw + fgap)
-    y = Inches(2.0) + row * (fh + Inches(0.25))
-    rect(s, x, y, fw, fh, fill=WHITE, line_color=CARD_BORDER, radius=0.06, shadow=True)
-    textbox(s, x + Inches(0.3), y + Inches(0.25), fw - Inches(0.6), Inches(0.5), name, size=18, color=INK, bold=True, font=HEAD_FONT)
-    textbox(s, x + Inches(0.3), y + Inches(0.85), fw - Inches(0.6), Inches(0.7), desc, size=13, color=MUTED, line_spacing=1.3)
+s = new_content_slide(12, "First Client", "Getting Your First Client", title_size=30)
+client_steps = ["Pick one niche", "Pick one painful problem", "Build one demo", "Package it as a simple offer",
+                "Contact potential clients", "Show the demo instead of only talking about AI",
+                "Start with a small implementation", "Turn the result into a case study"]
+step_list(s, client_steps[:4], Inches(0.72), Inches(1.95), Inches(5.7), row_h=0.6, size=13, circle_d=0.4)
+step_list(s, client_steps[4:], Inches(6.65), Inches(1.95), Inches(5.7), row_h=0.6, size=13, circle_d=0.4, start=5)
 
-s = new_content_slide(7, "1:12–1:20", "Research → 1-Minute Presentation", title_size=28)
-textbox(s, Inches(0.72), Inches(2.0), Inches(11.2), Inches(0.8),
-        "Take the NotebookLM research from the last step and paste it straight into\na presentation builder.",
-        size=17, color=MUTED, line_spacing=1.3)
-rect(s, Inches(0.72), Inches(3.1), Inches(11.9), Inches(2.6), fill=DARK_BG, radius=0.05, shadow=True)
-textbox(s, Inches(0.72), Inches(3.5), Inches(11.9), Inches(0.5), "THE TOOL IS...", size=14, color=MUTED_ON_DARK, bold=True, align=PP_ALIGN.CENTER, spacing=2)
-textbox(s, Inches(0.72), Inches(4.1), Inches(11.9), Inches(1.0), "Genspark / Chronicle", size=40, color=ORANGE, bold=True, font=HEAD_FONT, align=PP_ALIGN.CENTER)
-textbox(s, Inches(0.72), Inches(5.15), Inches(11.9), Inches(0.5), "A full presentation, built in under a minute.", size=15, color=BG_LIGHT, align=PP_ALIGN.CENTER)
-
-s = new_content_slide(7, "1:20–1:30", "Vibe-Coded Website — Stitch → AI Studio", title_size=27)
-code_block(s, Inches(0.72), Inches(1.85), Inches(11.9), Inches(2.1),
-           ["Redesign the landing page at aaghaz.ai/programs/ai-workshop for a",
-            "premium, high-conversion feel. Warm off-white background, bold",
-            "orange accent, heavy display headline font, card-based sections,",
-            "clear CTA above the fold. Keep the copy, change the design system."],
-           label="Redesign prompt")
-textbox(s, Inches(0.72), Inches(4.15), Inches(11.5), Inches(0.5), "Stitch produces the design.", size=15, color=MUTED, bold=True)
-textbox(s, Inches(0.72), Inches(4.6), Inches(11.5), Inches(0.5), "Export to Google AI Studio → a live, working site.", size=15, color=MUTED, bold=True)
-rect(s, Inches(0.72), Inches(5.3), Inches(11.9), Inches(1.1), fill=RGBColor(0x24,0x20,0x1C), radius=0.06, shadow=True)
-textbox(s, Inches(0.72), Inches(5.55), Inches(11.9), Inches(0.6), "This is what “vibe code any app you want” means.", size=18, color=ORANGE, bold=True, align=PP_ALIGN.CENTER)
+s = new_content_slide(12, "Final Challenge", "Pick One Problem You Can Solve This Week", title_size=27)
+textbox(s, Inches(0.72), Inches(2.3), Inches(11.5), Inches(2.0),
+        "Final message — you don't need to master every AI tool. You need to\n"
+        "understand the fundamentals, learn how to communicate with AI, choose the\n"
+        "right tools, build useful systems, and connect those systems to real problems.",
+        size=19, color=INK, line_spacing=1.4)
 
 # =============================================================================
-# SECTION 8 — HEYGEN DEEP DIVE (1:30-1:50)
+# SECTION 13 — CLOSING
 # =============================================================================
 
-s = section_break(BG_LIGHT, 8, "HeyGen Deep Dive", "Studio-Quality Content, No Studio",
-                   "AI avatars, cloned voices, and instant localization — built on real production work.")
-page_num[0] += 1; footer_page(s, page_num[0])
-
-s = new_content_slide(8, "Why HeyGen", "Replaces a Full Production Team", title_size=30)
-why = ["AI avatars that deliver your script on camera, without a camera",
-       "Voice cloning — your voice, at any scale",
-       "Multi-language localization from a single script",
-       "Studio-quality output without a studio",
-       "Built on direct production work with the HeyGen team"]
-bullets(s, why, Inches(0.72), Inches(2.0), Inches(11.5), Inches(4.5), size=17, gap=0.28)
-
-s = new_content_slide(8, "Live Walkthrough", "Inside the HeyGen Studio", title_size=30)
-libs = [("Avatar Library", "Dozens of realistic presenters to choose from"),
-        ("Voice Library", "Match tone, language, and accent to your brand"),
-        ("Project Templates", "Start from a layout instead of a blank canvas")]
-lw2 = Inches(3.75); lgap2 = Inches(0.3)
-for i, (name, desc) in enumerate(libs):
-    x = Inches(0.72) + i * (lw2 + lgap2)
-    rect(s, x, Inches(2.2), lw2, Inches(2.6), fill=WHITE, line_color=CARD_BORDER, radius=0.07, shadow=True)
-    textbox(s, x + Inches(0.3), Inches(2.5), lw2 - Inches(0.6), Inches(0.6), name, size=17, color=INK, bold=True, font=HEAD_FONT)
-    textbox(s, x + Inches(0.3), Inches(3.15), lw2 - Inches(0.6), Inches(1.4), desc, size=13, color=MUTED, line_spacing=1.3)
-
-s = new_content_slide(8, "Live Build", "Script → Finished Video", title_size=30)
-seq = ["Script input", "Avatar selection", "Voice pairing", "Render & preview"]
-seg_w = Inches(2.75); gap3 = Inches(0.2)
-for i, st in enumerate(seq):
-    x = Inches(0.72) + i * (seg_w + gap3)
-    fill = ORANGE if i == len(seq) - 1 else WHITE
-    txt_color = WHITE if i == len(seq) - 1 else INK
-    rect(s, x, Inches(2.6), seg_w, Inches(1.4), fill=fill, line_color=CARD_BORDER if fill == WHITE else None, radius=0.1, shadow=True)
-    textbox(s, x, Inches(3.05), seg_w, Inches(0.5), st, size=14, color=txt_color, bold=True, align=PP_ALIGN.CENTER)
-    if i < len(seq) - 1:
-        textbox(s, x + seg_w, Inches(2.95), gap3, Inches(0.6), "→", size=20, color=ORANGE, align=PP_ALIGN.CENTER)
-placeholder_box(s, Inches(0.72), Inches(4.5), Inches(11.9), Inches(2.0), "LIVE DEMO / FINISHED CONTENT REVEAL")
-
-s = new_content_slide(8, "Why This Matters", "Scale Without Filming", title_size=30)
-matters = ["Produce content at scale without ever picking up a camera",
-           "Localize instantly into any language your audience speaks",
-           "Fits directly into the automated content pipeline from Section 6"]
-bullets(s, matters, Inches(0.72), Inches(2.1), Inches(11.5), Inches(4.0), size=18, gap=0.35)
-
-# =============================================================================
-# SECTION 9 — OUTRO & PROGRAM REVEAL (1:50-2:10)
-# =============================================================================
-
-s = add_slide(bg=DARK_BG)
-kicker(s, "Wrapping Up", color=ORANGE)
-progress_tag(s, 9, on_dark=True)
-headline(s, "Everything today was\nmaybe 2% of AI.", y=Inches(2.4), size=42, color=BG_LIGHT)
-underline(s, Inches(0.72), Inches(3.85), Inches(2.2))
-rect(s, Inches(0.72), Inches(4.4), Inches(6.5), Inches(1.1), fill=ORANGE, radius=0.15, shadow=True)
-textbox(s, Inches(0.72), Inches(4.65), Inches(6.5), Inches(0.6), "Type ME in the chat if you want to see the rest.", size=17, color=INK, bold=True, align=PP_ALIGN.CENTER)
-live_badge(s, on_dark=True)
-page_num[0] += 1; footer_page(s, page_num[0])
-
-s = add_slide(bg=DARK_BG)
-kicker(s, "The Reveal", color=ORANGE)
-progress_tag(s, 9, on_dark=True)
-textbox(s, Inches(0.72), Inches(1.7), Inches(11.5), Inches(0.5), "INTRODUCING", size=16, color=MUTED_ON_DARK, bold=True, spacing=2)
-headline(s, "3-Month AI\nHands-On Program", y=Inches(2.2), size=48, color=BG_LIGHT)
-underline(s, Inches(0.72), Inches(3.85), Inches(2.6))
-stats3 = [("40+", "Hours of Content"), ("30+", "Tools Mastered"), ("1", "Completion Certificate")]
-sw = Inches(3.7); sgap = Inches(0.35)
-for i, (val, lbl) in enumerate(stats3):
-    x = Inches(0.72) + i * (sw + sgap)
-    rect(s, x, Inches(4.5), sw, Inches(1.9), fill=RGBColor(0x24,0x20,0x1C), radius=0.08, shadow=True)
-    textbox(s, x, Inches(4.8), sw, Inches(0.8), val, size=40, color=ORANGE, bold=True, font=HEAD_FONT, align=PP_ALIGN.CENTER)
-    textbox(s, x, Inches(5.65), sw, Inches(0.5), lbl, size=13, color=BG_LIGHT, align=PP_ALIGN.CENTER)
-page_num[0] += 1; footer_page(s, page_num[0])
-
-s = new_content_slide(9, "The Curriculum", "5 Modules, Start to Finish", title_size=30)
-modules = ["AI Fundamentals & Ethics", "ChatGPT / Claude / Gemini Mastery & Prompt Engineering",
-           "AI Content Creation System", "AI Agents & Freelance Income",
-           "No-Code AI Development & Client-Ready Websites"]
-my = Inches(1.95)
-for i, m in enumerate(modules):
-    y = my + Inches(0.92) * i
-    circ = s.shapes.add_shape(MSO_SHAPE.OVAL, Inches(0.72), y, Inches(0.5), Inches(0.5))
-    circ.fill.solid(); circ.fill.fore_color.rgb = ORANGE; circ.line.fill.background(); circ.shadow.inherit = False
-    tf = circ.text_frame; p = tf.paragraphs[0]; p.alignment = PP_ALIGN.CENTER
-    r = p.add_run(); r.text = str(i + 1); r.font.bold = True; r.font.size = Pt(16); r.font.color.rgb = WHITE; r.font.name = HEAD_FONT
-    textbox(s, Inches(1.45), y + Inches(0.03), Inches(10.8), Inches(0.5), m, size=16, color=INK, anchor=MSO_ANCHOR.MIDDLE)
-    if i < len(modules) - 1:
-        rect(s, Inches(0.955), y + Inches(0.5), Pt(2), Inches(0.42), fill=CARD_BORDER)
-
-s = add_slide(bg=DARK_BG)
-kicker(s, "The Offer", color=ORANGE)
-progress_tag(s, 9, on_dark=True)
-textbox(s, Inches(0.72), Inches(1.6), Inches(11.5), Inches(0.5), "WORKSHOP-ONLY PRICE — FIRST 40 PEOPLE", size=14, color=MUTED_ON_DARK, bold=True, spacing=1.5)
-rich_textbox(s, Inches(0.72), Inches(2.1), Inches(11.5), Inches(0.9),
-             [("PKR 436,000", MUTED_ON_DARK, True)], size=30, font=HEAD_FONT)
-# strikethrough via line
-rect(s, Inches(0.75), Inches(2.42), Inches(3.3), Pt(3), fill=RGBColor(0x8a,0x5a,0x3a))
-rich_textbox(s, Inches(0.72), Inches(2.85), Inches(11.5), Inches(1.6),
-             [("PKR 48,899", ORANGE, True)], size=70, font=HEAD_FONT)
-textbox(s, Inches(0.72), Inches(4.55), Inches(11.5), Inches(0.5), "3 easy installments: PKR 10,000  /  15,600  /  15,600", size=16, color=BG_LIGHT)
-rect(s, Inches(0.72), Inches(5.25), Inches(4.4), Inches(0.7), fill=GREEN, radius=0.2)
-textbox(s, Inches(0.72), Inches(5.42), Inches(4.4), Inches(0.4), "SAVE OVER 88%", size=15, color=INK, bold=True, align=PP_ALIGN.CENTER)
-page_num[0] += 1; footer_page(s, page_num[0])
-
-s = new_content_slide(9, "Zero Risk", "100% Money-Back Guarantee", title_size=32)
-rect(s, Inches(0.72), Inches(2.1), Inches(11.9), Inches(1.6), fill=RGBColor(0xEE,0xF8,0xE4), line_color=GREEN, line_w=Pt(1.5), radius=0.08)
-textbox(s, Inches(1.05), Inches(2.35), Inches(11.2), Inches(1.1),
-        "If you don't feel this program is worth it, request a refund — no lengthy\nforms, no runaround. That's the whole process.",
-        size=17, color=INK, line_spacing=1.35)
-
-s = new_content_slide(9, "Bonuses", "Included at No Extra Cost", title_size=32)
-bon = [("Client Acquisition System", "A repeatable framework for landing your first paying clients"),
-       ("Sales Call Mastery", "How to run a sales call that closes, without feeling salesy")]
-bw = Inches(5.7); bgap = Inches(0.4)
-for i, (name, desc) in enumerate(bon):
-    x = Inches(0.72) + i * (bw + bgap)
-    rect(s, x, Inches(2.2), bw, Inches(3.0), fill=WHITE, line_color=CARD_BORDER, radius=0.07, shadow=True)
-    rect(s, x + Inches(0.3), Inches(2.5), Inches(0.5), Pt(6), fill=ORANGE)
-    textbox(s, x + Inches(0.3), Inches(2.7), bw - Inches(0.6), Inches(0.6), name, size=19, color=INK, bold=True, font=HEAD_FONT)
-    textbox(s, x + Inches(0.3), Inches(3.4), bw - Inches(0.6), Inches(1.5), desc, size=14, color=MUTED, line_spacing=1.35)
-
-s = new_content_slide(9, "Social Proof", "What Students Say", title_size=32)
-placeholder_box(s, Inches(0.72), Inches(2.0), Inches(3.75), Inches(2.3), "TESTIMONIAL SCREENSHOT")
-placeholder_box(s, Inches(4.62), Inches(2.0), Inches(3.75), Inches(2.3), "TESTIMONIAL SCREENSHOT")
-placeholder_box(s, Inches(8.52), Inches(2.0), Inches(3.75), Inches(2.3), "TESTIMONIAL SCREENSHOT")
-rect(s, Inches(0.72), Inches(4.6), Inches(11.9), Inches(1.1), fill=RGBColor(0x24,0x20,0x1C), radius=0.1, shadow=True)
-textbox(s, Inches(0.72), Inches(4.88), Inches(11.9), Inches(0.6), "●  31 slots booked — 19 left", size=20, color=ORANGE, bold=True, align=PP_ALIGN.CENTER)
-
-s = new_content_slide(9, "Worst Case", "The Only Two Outcomes", title_size=32)
-oc = [("Worst case", "You don't love it — you get a full refund."),
-      ("Best case", "You walk away with a new skillset in 3 months.")]
-ow = Inches(5.7); ogap = Inches(0.4)
-for i, (name, desc) in enumerate(oc):
-    x = Inches(0.72) + i * (ow + ogap)
-    fill = WHITE if i == 0 else RGBColor(0xEE,0xF8,0xE4)
-    border = CARD_BORDER if i == 0 else GREEN
-    rect(s, x, Inches(2.3), ow, Inches(2.5), fill=fill, line_color=border, line_w=Pt(1.5), radius=0.07, shadow=True)
-    textbox(s, x + Inches(0.3), Inches(2.6), ow - Inches(0.6), Inches(0.5), name.upper(), size=13, color=MUTED, bold=True, spacing=1.5)
-    textbox(s, x + Inches(0.3), Inches(3.15), ow - Inches(0.6), Inches(1.4), desc, size=18, color=INK, bold=True, line_spacing=1.3)
-textbox(s, Inches(0.72), Inches(5.1), Inches(11.9), Inches(0.6), "Zero real risk, either way.", size=17, color=MUTED, align=PP_ALIGN.CENTER)
+s = new_content_slide(13, "Closing", "You Now Know How to Use, Build,\nAutomate, and Sell With AI", title_size=28)
+recap13 = ["AI fundamentals & mental models", "A repeatable prompting framework", "An agentic browser doing real research",
+           "Your own custom AI assistant", "A working app, built live with Claude", "The difference between an agent and automation",
+           "AI video creation with HeyGen", "A real n8n automation workflow", "How to turn all of it into paid work"]
+chip_grid(s, recap13, Inches(0.72), Inches(2.7), Inches(11.9), Inches(3.6), cols=3, size=13)
 
 s = add_slide(bg=DARK_BG)
 kicker(s, "Closing", color=ORANGE)
-progress_tag(s, 9, on_dark=True)
-headline(s, "Let's Talk.\nLive Q&A.", y=Inches(2.6), size=54, color=BG_LIGHT)
+progress_tag(s, 13, on_dark=True)
+headline(s, "Live Q&A", y=Inches(2.8), size=56, color=BG_LIGHT)
 underline(s, Inches(0.72), Inches(4.1), Inches(2.2))
-textbox(s, Inches(0.72), Inches(4.4), Inches(10.5), Inches(0.7), "First 40 people get the workshop price. It closes when the timer does.", size=17, color=MUTED_ON_DARK)
 live_badge(s, on_dark=True)
 page_num[0] += 1; footer_page(s, page_num[0])
 
