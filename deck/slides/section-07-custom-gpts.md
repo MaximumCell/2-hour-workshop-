@@ -28,23 +28,6 @@ Note: Contrast this with re-typing the same context every single chat — that r
 
 ---
 
-<div class="lesson-no">Section 7 · The builder</div>
-
-# Where You'll Set All This Up
-
-<div class="figure-side"><img src="assets/custom-gpt-builder.png" alt="Custom GPT builder interface" /></div>
-
-- One place to name the assistant and define its job
-- Instructions live here permanently — no re-typing them per chat
-- Attach knowledge files it should always have access to
-- Test it right inside the builder before sharing it
-
-<span class="demo">Live demo</span>
-
-Note: A quick orientation still before jumping into the live build — point out where role, instructions, and knowledge files each go in the UI.
-
----
-
 <div class="lesson-no">Section 7 · Live build</div>
 
 # Build "AI Content Strategist"
@@ -63,3 +46,30 @@ Note: A quick orientation still before jumping into the live build — point out
 <p class="rule"><b>Key idea</b> A custom GPT isn't just a fancy prompt — it's a reusable interface around a repeatable task.</p>
 
 Note: Build "AI Content Strategist" or "AI Sales Assistant" live — pick whichever fits the room's dominant profession better. Walk through all six steps in order, testing with one real, audience-suggested input before moving on.
+
+---
+
+<div class="lesson-no">Real results</div>
+
+# Messages we get every week
+
+<div class="review-wall">
+<div class="review-col">
+<img src="assets/review-7.jpg" width="580" height="870" alt="WhatsApp message: thank you, you played a big role in my journey" />
+</div>
+<div class="review-col">
+<img src="assets/review-1.jpg" width="1320" height="1520" alt="Instagram DM: first 100 followers thanks to the content" />
+<img src="assets/review-4.jpg" width="498" height="105" alt="Review: excellent two-hour AI workshop, highly recommended" />
+</div>
+<div class="review-col">
+<img src="assets/review-3.jpg" width="1254" height="1280" alt="WhatsApp message: landed a $3,000 AI automation project" />
+<img src="assets/review-5.jpg" width="1080" height="242" alt="Discord message: now I am fully determined" />
+<img src="assets/review-2.jpg" width="1320" height="540" alt="YouTube comment: you totally changed my life" />
+</div>
+<div class="review-col">
+<img src="assets/review-6.jpg" width="1235" height="870" alt="YouTube comment: proud student, a true humble mentor" />
+<img src="assets/review-8.jpg" width="1320" height="616" alt="YouTube comment: amazing session on Claude Code" />
+</div>
+</div>
+
+Note: Unedited screenshots from students and viewers (Instagram, YouTube, WhatsApp, Discord). Point at the $3,000 project message — a real paid outcome — then move on.

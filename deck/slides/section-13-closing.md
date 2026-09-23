@@ -8,8 +8,8 @@
 
 <div class="uc-grid">
 <div class="uc">AI fundamentals & mental models</div>
-<div class="uc">A repeatable prompting framework</div>
 <div class="uc">An agentic browser doing real research</div>
+<div class="uc">A repeatable prompting framework</div>
 <div class="uc">Your own custom AI assistant</div>
 <div class="uc">A working app, built live with Claude</div>
 <div class="uc">The difference between an agent and automation</div>

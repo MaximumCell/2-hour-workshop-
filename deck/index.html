@@ -25,8 +25,8 @@
         <section data-markdown="slides/section-02-credibility.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
         <section data-markdown="slides/section-03-topics.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
         <section data-markdown="slides/section-04-ai-basics.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-05-prompting.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-06-comet.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-05-comet.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-06-prompting.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
         <section data-markdown="slides/section-07-custom-gpts.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
         <section data-markdown="slides/section-08-claude-build.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
         <section data-markdown="slides/section-09-openclaw.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
@@ -44,6 +44,7 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+    <script src="agent-demo.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css" />
     <script>
       Reveal.initialize({
@@ -59,7 +60,7 @@
         width: 1280,
         height: 720,
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-      }).then(addCopyButtons);
+      }).then(function () { addCopyButtons(); initAgentDemos(); });
 
       // Adds a "Copy" button to every prompt block (.codecard) so the
       // presenter can copy the exact prompt text to the clipboard live.

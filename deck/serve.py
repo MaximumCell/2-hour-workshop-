@@ -16,4 +16,4 @@ if __name__ == "__main__":
     handler = functools.partial(NoCacheHandler, directory=".")
     port = 8000
     print(f"Serving on http://localhost:{port} (no-cache)")
-    http.server.HTTPServer(("", port), handler).serve_forever()
+    http.server.ThreadingHTTPServer(("", port), handler).serve_forever()

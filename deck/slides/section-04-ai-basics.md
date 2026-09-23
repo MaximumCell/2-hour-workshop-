@@ -2,16 +2,16 @@
 
 # What is AI?
 
-AI is a broad category of software that can **recognize patterns, learn from data, and produce useful outputs**. It is not one single tool or product — it's the larger category that contains different models and systems.
+AI is a **machine that can do tasks that used to need a human** — understanding, thinking, deciding, and creating.
 
-<div class="uc-grid">
-<div class="uc">A map app reroutes you around traffic</div>
-<div class="uc">A bank flags an unusual purchase</div>
-<div class="uc">A customer-support chatbot answers common questions</div>
-<div class="uc">A recommendation system predicts what you'll want next</div>
+<div class="ai-examples">
+<div class="ai-ex"><div class="ai-ex-icon"><img src="assets/icon-googlemaps.svg" alt="Google Maps logo" /></div><div class="ai-ex-name">Google Maps</div><div class="ai-ex-task">finds your route</div></div>
+<div class="ai-ex"><div class="ai-ex-icon"><img src="assets/icon-landmark.svg" alt="Bank icon" /></div><div class="ai-ex-name">Your bank</div><div class="ai-ex-task">spots fraud</div></div>
+<div class="ai-ex"><div class="ai-ex-icon"><img src="assets/icon-bot.svg" alt="Chatbot icon" /></div><div class="ai-ex-name">Chatbots</div><div class="ai-ex-task">answer customers</div></div>
+<div class="ai-ex"><div class="ai-ex-icon"><img src="assets/icon-netflix.svg" alt="Netflix logo" /></div><div class="ai-ex-name">Netflix</div><div class="ai-ex-task">picks your next show</div></div>
 </div>
 
-Note: Uses the OpenAI Academy definition as the foundation rather than the older dictionary-style definition. All four examples are things the room already uses daily — the point is AI has been invisible in their life for years already.
+Note: Keep it this simple: "a machine doing work that used to need a human." Each example is a job a person used to do, now done by AI the room already uses daily — the point is AI has been in their life for years already.
 
 ---
 
@@ -54,18 +54,18 @@ Note: Move through the timeline quickly, this is context not a history lesson. L
 
 <div class="lesson-no">Section 4c · The AI hierarchy</div>
 
-# AI → ML → Deep Learning → GenAI / LLMs
+# How AI Fits Together
 
-<div class="figure-side"><img src="assets/ai-hierarchy-diagram.png" alt="AI, Machine Learning, Deep Learning, and Generative AI shown as nested layers" /></div>
+<div class="figure-side"><img src="assets/ai-layers.svg" alt="Four circles inside each other: AI, then Machine Learning, then Deep Learning, then Gen AI in the centre" /></div>
 
-- **AI** — the broad outer layer
-- **Machine Learning** — learns patterns from data
-- **Deep Learning** — ML using neural networks
-- **Generative AI / LLMs** — the innermost layer, creates new content
+- **AI** — e.g. Google Maps
+- **Machine Learning** — e.g. spam filter
+- **Deep Learning** — e.g. Face ID
+- **Gen AI** — e.g. ChatGPT
 
-<p class="rule"><b>Takeaway</b> These aren't separate competing categories — they're nested layers of one stack.</p>
+<p class="rule"><b>Remember</b> Each circle lives inside a bigger one.</p>
 
-Note: This is the "zoom out" slide — connect it explicitly back to 4a.1's AI→Model→LLM chain, they're the same idea from two angles.
+Note: Use the "boxes inside boxes" picture: every inner circle is a smaller, more advanced part of the one around it. Point to each circle from outside in, and name the example out loud.
 
 ---
 

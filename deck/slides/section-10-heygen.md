@@ -12,7 +12,7 @@
 
 AI avatars, cloned voices, and instant localization.
 
-Note: Section title card. This section uses the winning 4D script from Section 5 as the actual input — call that back out loud before starting.
+Note: Section title card. This section uses the winning 4D script from Section 6 as the actual input — call that back out loud before starting.
 
 ---
 
@@ -36,7 +36,7 @@ Note: Move through this list quickly — it's context for the live demo, not the
 
 <div class="lesson-no">Section 10 · The script</div>
 
-# From Section 5's 4D Prompt
+# From Section 6's 4D Prompt
 
 <div class="codecard">
 <div class="cc-bar"><span class="cc-dot r"></span><span class="cc-dot y"></span><span class="cc-dot g"></span><span class="cc-label">HeyGen Script</span></div>
@@ -67,7 +67,7 @@ with us.
 
 </div>
 
-Note: This is the actual winning output from the Level 3 4D prompt in Section 5 — paste it straight into HeyGen live, don't retype it. This is the loop from Section 5d paying off in real time.
+Note: This is the actual winning output from the Level 3 4D prompt in Section 6 — paste it straight into HeyGen live, don't retype it. This is the loop from Section 6d paying off in real time.
 
 ---
 
@@ -94,7 +94,7 @@ Note: Have a finished backup render ready in case generation takes too long live
 
 - **My Dashboard** — every project, avatar, and render in one place
 - **My Avatar / My Voice** — the two libraries you'll pick from live
-- **Create Video** — where the script from Section 5 goes in
+- **Create Video** — where the script from Section 6 goes in
 - Ready-made templates for ads, promos, and explainers if you don't want to start from a blank canvas
 
 Note: Point out the avatar library and voice library panels as you narrate the live build — this still helps orient anyone who's never opened HeyGen before.
@@ -107,13 +107,13 @@ Note: Point out the avatar library and voice library panels as you narrate the l
 
 <div class="figure-side"><img src="assets/heygen-final-thumb.png" alt="Finished HeyGen video render" /></div>
 
-- Same script from Section 5's 4D prompt
+- Same script from Section 6's 4D prompt
 - Same avatar and voice picked live, a moment ago
 - Rendered in minutes — ready to post, no camera or crew involved
 
 <p class="rule"><b>The payoff</b> This is what "one script, many videos" actually looks like.</p>
 
-Note: The reveal moment — the actual rendered video, generated live from the exact 4D script the room watched get built in Section 5.
+Note: The reveal moment — the actual rendered video, generated live from the exact 4D script the room watched get built in Section 6.
 
 ---
 
