@@ -18,26 +18,6 @@ Note: Opening slide. Deliver the hook headline exactly as written, it's proven. 
 
 ---
 
-<div class="lesson-no">Section 1 · By the end of today</div>
-
-# You will be able to
-
-<div class="uc-grid">
-<div class="uc">AI, ML, Deep Learning, GenAI & AGI — explained simply</div>
-<div class="uc">A repeatable prompting framework</div>
-<div class="uc">Research with an agentic browser</div>
-<div class="uc">Your own custom AI assistant/GPT</div>
-<div class="uc">A working app, built with Claude</div>
-<div class="uc">Agent vs. automation — the real difference</div>
-<div class="uc">AI videos & avatars with HeyGen</div>
-<div class="uc">A real automation workflow in n8n</div>
-<div class="uc">Turning these skills into income</div>
-</div>
-
-Note: Read this fast but clearly — it's the full promise of the workshop on one screen. Don't dwell on any single line yet, they'll see all nine delivered live.
-
----
-
 <div class="lesson-no">Section 1 · Positioning</div>
 
 # This is not a "100 AI tools" tour

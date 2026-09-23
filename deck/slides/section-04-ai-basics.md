@@ -1,19 +1,3 @@
-<!-- .slide: data-background-color="#141312" class="dark" -->
-
-<div class="mod-num">04</div>
-<div class="progress-chip">Section 4 of 13</div>
-<div class="lesson-no">AI Basics</div>
-
-## Mental Models, Not Theory
-
-<span class="tag hook">12 min</span>
-
-The goal is not to teach AI theory in depth — it's to give beginners a mental model that makes the rest of the workshop understandable.
-
-Note: Section title card. Keep every slide in this section short and concrete — the payoff is that everything from Section 5 onward finally makes sense.
-
----
-
 <div class="lesson-no">Section 4a · What is AI?</div>
 
 # What is AI?
@@ -68,20 +52,6 @@ Note: Move through the timeline quickly, this is context not a history lesson. L
 
 ---
 
-<div class="lesson-no">Section 4b · 1997</div>
-
-# The Moment That Changed the Conversation
-
-<div class="figure-side"><img src="assets/deep-blue-kasparov.jpg" alt="Deep Blue vs. Garry Kasparov, 1997" /></div>
-
-- The first time the public watched a machine beat the best human at a mental task
-- Everyone assumed the task required real intelligence
-- It planted the question the rest of this section answers: what actually counts as "intelligence"?
-
-Note: A brief, visual beat — let the room actually look at the photo for a second before moving on. This is the emotional anchor for "why now" on the way into the hierarchy slide.
-
----
-
 <div class="lesson-no">Section 4c · The AI hierarchy</div>
 
 # AI → ML → Deep Learning → GenAI / LLMs
@@ -96,44 +66,6 @@ Note: A brief, visual beat — let the room actually look at the photo for a sec
 <p class="rule"><b>Takeaway</b> These aren't separate competing categories — they're nested layers of one stack.</p>
 
 Note: This is the "zoom out" slide — connect it explicitly back to 4a.1's AI→Model→LLM chain, they're the same idea from two angles.
-
----
-
-<div class="lesson-no">Section 4d · Machine learning</div>
-
-# Teaching by Examples
-
-<div class="qa">
-<div class="qa-item">
-<div class="qa-q">Traditional programming</div>
-<div class="qa-line"><span class="qa-tag weak">Rules → computer → result</span><span class="qa-why">You write every rule by hand, one at a time.</span></div>
-</div>
-<div class="qa-item">
-<div class="qa-q">Machine learning</div>
-<div class="qa-line"><span class="qa-tag power">Examples → model learns patterns → result</span><span class="qa-why">You show it data instead, and it finds the rules itself.</span></div>
-</div>
-</div>
-
-<p class="rule"><b>Example</b> Instead of manually writing every rule for spam, give a model many examples of spam and legitimate email so it can learn the patterns.</p>
-
-Note: This is the core reframe of the whole section — from writing rules to showing examples. Use the spam example concretely, it's the clearest one for a beginner.
-
----
-
-<div class="lesson-no">Section 4e · Deep learning</div>
-
-# ML With Neural Networks
-
-<div class="figure-side"><img src="assets/cnn-layers-diagram.png" alt="Neural network layers detecting edges, then shapes, then features" /></div>
-
-- Layer 1 detects edges
-- Layer 2 detects shapes
-- Layer 3 detects features — eyes, nose, fur
-- Later layers combine those into a classification
-
-Real-world examples: Face ID, translation, image recognition, recommendation systems.
-
-Note: Use image recognition as the running example since it's the most visual and intuitive for a beginner audience. Don't get pulled into the math — the layer-by-layer idea is the whole point.
 
 ---
 

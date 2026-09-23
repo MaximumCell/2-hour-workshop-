@@ -171,37 +171,3 @@ Note: This is the longest prompt of the whole workshop — give the room a momen
 <span class="demo">Live demo</span>
 
 Note: Run all three against the same model, paste outputs side by side on screen if possible. This is the moment the whole section has been building to — let the difference speak for itself.
-
----
-
-<div class="lesson-no">Section 5d · The loop</div>
-
-# The 4D Prompt Becomes Our Workshop Tool
-
-Don't just teach the framework and move on — use it for the rest of the workshop.
-
-<div class="steps">
-<div class="step"><div class="step-n">1</div><div class="step-t">Learn the 4D framework</div></div>
-<div class="step"><div class="step-n">2</div><div class="step-t">Build the prompt</div></div>
-<div class="step"><div class="step-n">3</div><div class="step-t">Compare results</div></div>
-<div class="step"><div class="step-n">4</div><div class="step-t">Select the strongest version</div></div>
-<div class="step"><div class="step-n">5</div><div class="step-t">Use it to create the HeyGen video in Section 10</div></div>
-</div>
-
-<p class="rule"><b>The point</b> The audience sees that prompting isn't theory — it directly improves the work they produce.</p>
-
-Note: Make this loop explicit out loud — it's what turns Section 5 from a lecture into something they'll actually use twice more in this same session.
-
----
-
-<div class="lesson-no">Section 5e · Go deeper</div>
-
-# Further Learning
-
-<a class="link-pill" href="https://www.anthropic.com/learn" target="_blank" rel="noopener"><span class="lp-src">Anthropic ·</span> Learn / Build with Claude</a>
-
-<a class="link-pill" href="https://www.anthropic.com/ai-fluency" target="_blank" rel="noopener"><span class="lp-src">Anthropic ·</span> AI Fluency: Framework & Foundations</a>
-
-<a class="link-pill" href="https://app.notion.com/p/cce7dc9a031944939cb6e3c08ef0093d?v=137121df7e2e468aa8e2e763ccd17ac1&source=copy_link" target="_blank" rel="noopener"><span class="lp-src">Bonus ·</span> Workshop prompt library / template</a>
-
-Note: Anthropic offers an interactive prompt-engineering tutorial plus an AI Fluency course covering delegation, description, discernment, and diligence — point people here if they want to go deeper after today. Give the prompt library link as a takeaway, not something to click through live.
