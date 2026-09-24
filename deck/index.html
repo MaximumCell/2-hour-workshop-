@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="base-theme" />
-    <link rel="stylesheet" href="theme.css?v=2" />
+    <link rel="stylesheet" href="theme.css?v=14" />
   </head>
   <body>
     <div class="reveal">
@@ -21,19 +21,19 @@
           A slide break is a line with three dashes. Speaker notes start with a line that says Note:.
           Always leave a blank line after any raw HTML tag so the markdown below it is parsed.
         -->
-        <section data-markdown="slides/title.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-02-credibility.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-03-topics.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-04-ai-basics.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-05-comet.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-06-prompting.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-07-custom-gpts.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-08-claude-build.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-09-openclaw.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-10-heygen.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-11-n8n.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-12-selling.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
-        <section data-markdown="slides/section-13-closing.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/title.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-02-credibility.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-03-topics.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-04-ai-basics.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-05-comet.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-06-prompting.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-07-custom-gpts.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-08-claude-build.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-09-openclaw.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-10-heygen.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-11-n8n.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-12-selling.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
+        <section data-markdown="slides/section-13-closing.md?v=14" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:"></section>
       </div>
 
       <!-- brand footer, fixed on every slide -->
@@ -45,6 +45,9 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
     <script src="agent-demo.js"></script>
+    <script src="gpt-builder-demo.js?v=14"></script>
+    <script src="vibe-demo.js?v=14"></script>
+    <script src="automation-demo.js?v=14"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css" />
     <script>
       Reveal.initialize({
@@ -60,7 +63,7 @@
         width: 1280,
         height: 720,
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-      }).then(function () { addCopyButtons(); initAgentDemos(); });
+      }).then(function () { addCopyButtons(); initAgentDemos(); initGptBuilderDemos(); initVibeDemos(); initAutomationDemos(); });
 
       // Adds a "Copy" button to every prompt block (.codecard) so the
       // presenter can copy the exact prompt text to the clipboard live.

@@ -8,7 +8,11 @@
 
 <span class="tag hook">10 min</span>
 
-From AI that answers questions to AI that can perform multi-step browser tasks.
+Give the browser a goal and delegate the steps.
+
+- See how traditional search differs from delegation
+- Watch a real research or comparison task unfold
+- Gather information from multiple sites into one useful result
 
 <div class="agent-demo" data-prompt="Find the 3 cheapest flights to Dubai next month and compare them">
 <div class="ad-step" data-tab="google.com/flights" data-label="Searching flights" data-pick="0">
@@ -51,16 +55,6 @@ Note: Section title card. This is the first taste of "AI does the task," not jus
 </div>
 
 Note: The value isn't "Comet is another browser" — it's delegating a multi-step knowledge task to an AI system that can interact with the web.
-
----
-
-<div class="lesson-no">Section 5 · What this looks like</div>
-
-# Comet, Mid-Task
-
-<div class="figure-side"><img src="assets/comet-demo.png" alt="Perplexity Comet completing a multi-step research task" /></div>
-
-Note: A quick still before the live demo, so the room knows what to expect the interface to look like once you switch over.
 
 ---
 

@@ -22,6 +22,19 @@ Note: Full self-intro. Answer one question only: why should they trust you to te
 
 ---
 
+<div class="lesson-no">Section 2 · Community</div>
+
+# Join 147K+ people learning AI with us
+
+<div class="social-grid">
+<figure class="social-card"><img src="assets/youtube-make-first-million.jpg" alt="Make First Million YouTube channel, 101.5K subscribers" /><figcaption><b>101.5K</b> YouTube subscribers</figcaption></figure>
+<figure class="social-card"><img src="assets/instagram-make-first-million.jpg" alt="make.first.million Instagram profile, 46K followers" /><figcaption><b>46K</b> Instagram followers</figcaption></figure>
+</div>
+
+Note: Live numbers as of September 2026 — @makefirstmillion-j1 on YouTube, @make.first.million on Instagram. Invite the room to follow for the latest AI tools and news.
+
+---
+
 <div class="lesson-no">Section 2 · The proof</div>
 
 # Worked with, and worth trusting
@@ -70,16 +83,3 @@ Note: Tell it as a short story: flew to the US, met startup founders, visited Go
 </div>
 
 Note: Student results, client work, and testimonials — the last piece of proof before moving into the agenda. Play one clip live if the room is warmed up enough, otherwise mention they're real and move on quickly; credibility should take 5 minutes total, not more.
-
----
-
-<div class="lesson-no">Section 2 · Community</div>
-
-# Join 147K+ people learning AI with us
-
-<div class="social-grid">
-<figure class="social-card"><img src="assets/youtube-make-first-million.jpg" alt="Make First Million YouTube channel, 101.5K subscribers" /><figcaption><b>101.5K</b> YouTube subscribers</figcaption></figure>
-<figure class="social-card"><img src="assets/instagram-make-first-million.jpg" alt="make.first.million Instagram profile, 46K followers" /><figcaption><b>46K</b> Instagram followers</figcaption></figure>
-</div>
-
-Note: Live numbers as of September 2026 — @makefirstmillion-j1 on YouTube, @make.first.million on Instagram. Invite the room to follow for the latest AI tools and news.
