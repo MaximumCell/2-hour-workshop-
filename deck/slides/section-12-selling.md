@@ -117,537 +117,114 @@ Note: Recommend all three, but tell them to start with $100M Offers — it's the
 
 ---
 
-<!-- .slide: class="pitch" -->
+<!-- .slide: data-background-color="#141312" class="dark program-pitch" -->
 
-<div class="lesson-no">Section 12f · The program</div>
+<div class="lesson-no">Aaghaz · AI in Hands / The next step</div>
 
-# Digital Book Overview
+# Build your next chapter<br>with AI.
 
-<div class="figure-side"><img src="assets/pitch-ebook.jpg" alt="Become a Certified AI Expert in 90 Days ebook cover" /></div>
+<p class="program-lead">AI in Hands: a practical path from today’s workshop to using AI in your work, studies, content, or business.</p>
+<div class="program-metrics"><div><b>3 months</b><span>of guided practice</span></div><div><b>14 weeks</b><span>from foundations to real projects</span></div><div><b>78 lessons</b><span>with practice and live sessions</span></div></div>
+<p class="program-takeaway">For professionals, students, freelancers, and creators ready to put AI to work.</p>
 
-<div class="card-grid">
-<div class="stat-card"><div class="sc-val">30+ AI Tools</div><div class="sc-lbl">Where you master 30+ AI tools.</div></div>
-<div class="stat-card"><div class="sc-val">40+ Hours</div><div class="sc-lbl">All about AI, where you master A to Z.</div></div>
-<div class="stat-card win"><div class="sc-val">Certificate</div><div class="sc-lbl">Use it in your resume — it shows your AI expertise.</div></div>
-<div class="stat-card"><div class="sc-val">Practical</div><div class="sc-lbl">No boring AI theory. After every class you get homework, then the next class unlocks.</div></div>
+Note: Connect the two-hour workshop to sustained practice. Address professionals, students, freelancers and creators: they can apply the material to work, study, content or a business. Source of truth confirmed by user: Outline 3 Month AI in Hands.pdf, pages 1–2: 3 months, 14 weeks, 78 lessons. Instructor: Badar Munir. Explain learning outcomes as skills developed through participation, not guarantees.
+
+---
+
+<!-- .slide: class="program-pitch program-roadmap" -->
+
+<div class="lesson-no">Aaghaz · AI in Hands / Your 14-week roadmap</div>
+
+# Here’s what you’ll learn.
+
+<div class="roadmap curriculum-roadmap">
+<div class="rm"><span class="rm-n"><small>WEEKS</small>1–4</span><span class="rm-t">Build your foundation</span><span class="rm-s">Personal branding, AI tools, research, prompting, and content writing.</span></div>
+<div class="rm"><span class="rm-n"><small>WEEKS</small>5–9</span><span class="rm-t">Create with AI</span><span class="rm-s">Marketing copy, branding, images, ads, avatars, and video storytelling.</span></div>
+<div class="rm"><span class="rm-n"><small>WEEKS</small>10–11</span><span class="rm-t">Build AI systems</span><span class="rm-s">Support agents, lead qualification, content automation, and n8n.</span></div>
+<div class="rm"><span class="rm-n"><small>WEEK</small>12</span><span class="rm-t">Bring ideas to life</span><span class="rm-s">AI calling agents and building apps through vibe coding.</span></div>
+<div class="rm"><span class="rm-n"><small>WEEKS</small>13–14</span><span class="rm-t">Package and sell your work</span><span class="rm-s">Finish vibe coding, learn buyer psychology, shape offers, and handle sales calls.</span></div>
 </div>
 
-Note: Program pitch starts here. Content from the Gamma "Before We Start" deck.
+Note: Source: user-confirmed Outline 3 Month AI in Hands.pdf, pages 3–12. This overview follows the program introduction and previews the detailed outcome slides. Personal branding starts in week 1, not all four foundation weeks. Vibe coding starts in week 12 and concludes in week 13. Keep this overview brief and then move into what participants learn and build.
 
 ---
 
-<div class="lesson-no">Section 12f · The program</div>
+<!-- .slide: class="program-pitch" -->
 
-# Who Is This For?
+<div class="lesson-no">Aaghaz · AI in Hands / Month 1 · Foundations / Weeks 1–4</div>
 
-<div class="uc-grid">
-<div class="uc">Working professionals</div>
-<div class="uc">Marketers & content creators</div>
-<div class="uc">Business owners</div>
-<div class="uc">Freelancers</div>
-<div class="uc">Students & job seekers</div>
-</div>
+# Use AI with purpose.<br>Build credibility from day one.
 
-<p class="rule"><b>In one line</b> If you use the internet, this program is for you.</p>
+<div class="program-columns"><div><h3>What you learn</h3><ul><li>Personal branding and a professional online presence</li><li>AI fundamentals, research, and choosing the right model</li><li>ChatGPT, Claude, agentic browsers, and advanced prompting</li></ul></div><div class="program-output"><h3>What you build</h3><p>A stronger LinkedIn profile.</p><p>A research workflow for your own work.</p><p>Document insights, blog drafts, scripts, and a content calendar.</p></div></div>
+<p class="program-takeaway">Start with a real task from your work or business.</p>
+
+Note: New outline pages 3–5, weeks 1–4. Personal branding and AI fundamentals lead into ChatGPT, Claude, Atlas, Perplexity, Comet, Gemini, Google AI Studio and model comparison. Advanced prompting feeds into blog articles, social content systems, storytelling and scripts. Pick examples from the audience’s work rather than reading out every tool.
 
 ---
 
-<!-- .slide: data-background-color="#141312" class="dark" -->
+<!-- .slide: class="program-pitch" -->
 
-<div class="lesson-no">Section 12f · The program</div>
+<div class="lesson-no">Aaghaz · AI in Hands / Month 2 · Creating with AI / Weeks 5–9</div>
 
-<div class="figure-side"><img src="assets/pitch-blueprint.jpg" alt="The Blueprint: your roadmap to AI mastery" /></div>
+# Turn one idea into<br>a content workflow.
 
-## What We Cover In This Program
+<p class="program-lead">Create marketing copy, a consistent brand, images, avatars, and video content.</p>
+<div class="program-sequence"><div><b>Research</b><span>Topics, stories,<br>and audience needs</span></div><div><b>Create</b><span>Email copy, ad visuals,<br>avatars, and video scripts</span></div><div><b>Publish</b><span>A consistent brand<br>across your channels</span></div></div>
+<p class="program-takeaway"><strong>Put it to work:</strong> turn your ideas into content for your brand or business.</p>
 
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# AI Fundamentals
-
-<p class="sub">Understand AI From The Ground Up</p>
-
-<div class="figure-side"><img src="assets/pitch-fundamentals.jpg" alt="AI Fundamentals ebook cover" /></div>
-
-- **Machine Learning** — How AI learns from data through Supervised, Unsupervised, and Reinforcement Learning.
-- **Computer Vision** — How AI understands images and videos.
-- **Natural Language Processing (NLP)** — How AI understands and responds to human language.
-- **AI Learning Ecosystem** — How to build a system that keeps you updated with the latest AI advancements.
-- **Practical Examples** — See how companies like Netflix and Tesla use AI in the real world.
+Note: New outline pages 5–7, weeks 5–9. Topics include email marketing, website copy, writing quality, image generation, lighting, brand identity, thumbnails, ad creatives, avatars with HeyGen, hooks, transitions and story creation. Present these as a connected workflow. Avoid claims of guaranteed virality or guaranteed speed.
 
 ---
 
-<!-- .slide: class="pitch" -->
+<!-- .slide: class="program-pitch" -->
 
-<div class="lesson-no">Section 12f · Curriculum</div>
+<div class="lesson-no">Aaghaz · AI in Hands / Month 3 · Automation / Weeks 10–12</div>
 
-# Ethics & Responsible Use
+# Build systems you<br>can demonstrate.
 
-<p class="sub">The Rules Most AI Users Don't Know Until It's Too Late</p>
+<div class="program-columns"><div><h3>AI agents</h3><ul><li>Customer support and lead qualification</li><li>Content engines and calling agents</li><li>YouTube-to-blog automation</li></ul><p class="program-small">Work through complete builds and troubleshooting.</p></div><div class="program-output"><h3>Apps & websites</h3><ul><li>Describe your app idea clearly</li><li>Build and refine it with AI</li><li>Improve the workflow through real projects</li></ul><p class="program-small">Learn vibe coding step by step.</p></div></div>
+<p class="program-takeaway">Build useful systems for your own workflow or a client’s business.</p>
 
-<div class="figure-side"><img src="assets/pitch-ethics.jpg" alt="Ethics & Responsible Use ebook cover" /></div>
-
-- **Spotting AI Mistakes** — How to identify when AI is giving incorrect or misleading answers.
-- **Protecting Your Data** — What information you should never share with AI tools.
-- **Privacy & Legal Risks** — Why some companies face legal and privacy issues when using AI.
-- **Recognizing AI Bias** — How to spot hidden biases and make better decisions.
-- **When Not to Use AI** — Situations where relying on AI can do more harm than good.
+Note: New outline pages 8–11, weeks 10–13. Customer support, lead qualification, content engines, YouTube-to-blog, self-hosted n8n and error handling lead into calling agents and vibe coding. Bonus lessons cover productization, ready-made workflows and getting clients. Vibe coding concludes in week 13. The aim is practice and working projects; no earnings promise.
 
 ---
 
-<!-- .slide: class="pitch" -->
+<!-- .slide: class="program-pitch" -->
 
-<div class="lesson-no">Section 12f · Curriculum</div>
+<div class="lesson-no">Aaghaz · AI in Hands / Month 3 · Selling / Weeks 13–14</div>
 
-# ChatGPT Mastery
+# Give your skills<br>a route to market.
 
-<p class="sub">This Will Change How You Use ChatGPT</p>
+<div class="program-columns"><div><h3>Build an offer</h3><ul><li>Understand how buyers make decisions</li><li>Package your work around a clear problem</li><li>Present an offer people can understand</li></ul></div><div class="program-output"><h3>Lead the conversation</h3><ul><li>Structure the call and build rapport</li><li>Explain pricing and handle objections</li><li>Guide the conversation toward a clear next step</li></ul></div></div>
+<p class="program-takeaway"><strong>For those selling AI services:</strong> connect your skills to a clear offer and client conversation.</p>
 
-<div class="figure-side"><img src="assets/pitch-chatgpt.jpg" alt="ChatGPT Mastery ebook cover" /></div>
-
-- **ChatGPT Mastery** — Go from beginner to advanced and unlock ChatGPT's full potential.
-- **Custom GPTs** — Build AI assistants that can handle tasks for you 24/7.
-- **Memory Mastery** — Set up ChatGPT around your goals, business, and work style for better results.
-- **Advanced Data Analysis** — Analyze spreadsheets, reports, and datasets to uncover insights in minutes.
-- **API Integrations** — Connect ChatGPT with apps and workflows to automate repetitive tasks.
+Note: New outline pages 11–12, weeks 13–14. Selling psychology includes buyer behavior, trust, objections, and the line between persuasion and manipulation. Offer design and call handling cover structure, tone, confidence, rapport and guiding the conversation. This route is particularly relevant to freelancers and business owners; employed learners can apply it to communicating the value of their work.
 
 ---
 
-<!-- .slide: class="pitch" -->
+<!-- .slide: class="program-pitch" -->
 
-<div class="lesson-no">Section 12f · Curriculum</div>
+<div class="lesson-no">Aaghaz · AI in Hands / How learning works</div>
 
-# Claude Advanced
+# A weekly rhythm.<br>Support while you build.
 
-<p class="sub">Claude's Hidden Powers Most Users Never Discover</p>
+<div class="program-columns"><div><h3>Learn and practice</h3><ul><li>Lessons, revision, and quizzes</li><li>Assignments and practical projects</li><li>Weekly live sessions with recordings</li></ul></div><div class="program-output"><h3>Get support</h3><ul><li>Live Q&A and project feedback</li><li>Community and peer learning</li><li>Certificate of completion and specialist badges</li></ul></div></div>
+<p class="program-takeaway">Bring a laptop, internet, and around two hours a day. No coding background required.</p>
 
-<div class="figure-side"><img src="assets/pitch-claude.jpg" alt="Claude Advanced ebook cover" /></div>
-
-- **Long Documents Mastery** — Understand and analyze books, reports, and research papers in minutes.
-- **Artifact Creation** — Build landing pages, apps, and dashboards without coding.
-- **Long-Form Content** — Create webinar scripts, sales pages, reports, and eBooks with consistent quality.
-- **Real Business Use Cases** — Use Claude for content creation, research, client work, and productivity.
-- **Research Workflows** — Structure complex information for faster research and better decisions.
+Note: New outline page 2 and landing-page weekly schedule and prerequisites: lessons, practice, weekly recorded demos and Q&A. The landing page adds community support, certification and specialist badges. It recommends two hours a day and no coding background. Avoid lifetime-access claims because page wording varies.
 
 ---
 
-<!-- .slide: class="pitch" -->
+<!-- .slide: data-background-color="#141312" class="dark program-pitch" -->
 
-<div class="lesson-no">Section 12f · Curriculum</div>
+<div class="lesson-no">Aaghaz · AI in Hands / Join AI in Hands</div>
 
-# Gemini Integration
+# Choose your plan.<br>Start building with us.
 
-<p class="sub">What Happens When You Add Gemini To Your Workflow</p>
+<div class="program-pricing"><div><span class="program-plan">Pay in full</span><b>PKR 59,999</b><p>One payment<br>Save PKR 9,001 vs monthly</p></div><div><span class="program-plan">Pay monthly</span><b>PKR 23,000</b><p>Three monthly payments<br>PKR 69,000 total</p></div></div>
+<p class="program-small">Both plans include the program, weekly live sessions, recordings, community, and certification.</p>
+<p class="program-guarantee"><strong>10-day money-back guarantee.</strong> Participate, do the work, and request a refund if it isn’t right for you.</p>
+<a class="program-cta" href="https://www.aaghaz.ai/programs/ai-in-hands-v3/register" target="_blank" rel="noopener">Explore the program & enroll ↗</a>
+<p class="program-url">aaghaz.ai/programs/ai-in-hands-v3</p>
 
-<div class="figure-side"><img src="assets/pitch-gemini.jpg" alt="Gemini Integration ebook cover" /></div>
-
-- **Google Workspace Integration** — Use Gemini with Docs, Sheets, Gmail, and Drive to boost productivity.
-- **Multi-Modal AI** — Analyze text, images, and data together for better outputs.
-- **Faster Document Workflows** — Summarize documents, draft emails, and organize information in minutes.
-- **Smart Spreadsheet Analysis** — Generate formulas, analyze data, and uncover insights directly in Google Sheets.
-- **Meeting & Notes Assistance** — Turn meeting notes into summaries, action items, and follow-up drafts faster.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# Prompt Engineering Mastery
-
-<p class="sub">The Skill That Separates AI Users From AI Masters</p>
-
-<div class="figure-side"><img src="assets/pitch-prompting.jpg" alt="Prompt Engineering Mastery ebook cover" /></div>
-
-- **Prompt Engineering Mastery** — One of the most valuable AI skills in today's market.
-- **Beginner to Advanced** — Learn a complete framework for writing effective prompts from scratch.
-- **Advanced Prompting Techniques** — Discover powerful methods used by top AI users to get better results.
-- **Custom Prompt Creation** — Build high-performing prompts tailored to your specific goals and tasks.
-- **Prompt Optimization** — Refine and improve prompts systematically for more accurate, consistent outputs.
-
----
-
-<!-- .slide: data-background-color="#141312" class="dark" -->
-
-<div class="lesson-no">Section 12f · The program</div>
-
-## This is 100% True
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# AI Visual & Media Creation
-
-<div class="figure-side"><img src="assets/pitch-media.jpg" alt="AI Visual & Media Creation ebook cover" /></div>
-
-- **Content Research** — Learn how top creators discover winning content ideas and trends.
-- **Competitor Analysis** — Break down competitors' content strategies and what is working.
-- **AI-Powered Content Management** — Organize, plan, and scale content production.
-- **Viral Topic Discovery** — Find trending topics and content opportunities.
-- **AI Script Writing** — Scripts for videos and reels in minutes.
-- **Image Creation** — Professional-quality images without design experience.
-- **AI Video Creation** — AI-generated videos from simple prompts.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# AI Agent Foundation
-
-<p class="sub">The Skill That Makes AI Work While You Sleep</p>
-
-<div class="figure-side"><img src="assets/pitch-agent.jpg" alt="AI Agent Foundation ebook cover" /></div>
-
-- **AI Agent Fundamentals** — What AI agents are and how businesses use them.
-- **High-Demand AI Agents** — Explore the most valuable AI agent use cases.
-- **Real Case Studies** — See how people use AI agents to automate work and generate revenue.
-- **Tools Ecosystem** — Compare the top AI agent tools and free vs paid options.
-- **Build Your First Agent** — Create a practical AI agent from scratch.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# AI Agent Foundation
-
-<p class="sub">Why Businesses Pay Thousands For AI Agents</p>
-
-<div class="figure-side"><img src="assets/pitch-agent.jpg" alt="AI Agent Foundation ebook cover" /></div>
-
-- **AI Agent Fundamentals** — What AI agents are and how businesses use them.
-- **High-Demand AI Agents** — Explore the most valuable AI agent use cases.
-- **Real Case Studies** — See how people use AI agents to automate work and generate revenue.
-- **Tools Ecosystem** — Compare the top AI agent tools and free vs paid options.
-- **Build Your First Agent** — Create a practical AI agent from scratch.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# Live Build: RAG Agent
-
-<p class="sub">Watch A Profitable RAG Agent Built From Scratch, Live</p>
-
-<div class="figure-side"><img src="assets/pitch-rag.jpg" alt="Live Build: RAG Agent ebook cover" /></div>
-
-- **Build a RAG Agent** — An AI agent that answers questions from your documents and files.
-- **How RAG Works** — Why RAG agents give more accurate, context-aware answers.
-- **Vector Databases Simplified** — How AI finds relevant information from large datasets in seconds.
-- **Google Drive Integration** — Connect documents, PDFs, and files as a knowledge source.
-- **End-to-End Implementation** — Build a complete RAG agent from scratch, hands-on.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# Live Email Support Agent
-
-<p class="sub">That Handles Emails Automatically</p>
-
-<div class="figure-side"><img src="assets/pitch-email.jpg" alt="Live Email Support Agent ebook cover" /></div>
-
-- **Email Support Agent** — Build an AI-powered email support agent without coding.
-- **Automated Customer Support** — Handle common customer queries automatically.
-- **Complete Setup Process** — Step-by-step implementation from start to finish.
-- **n8n Automation** — Learn how to build AI automations using n8n.
-- **Free Deployment Options** — Run and test your automations without expensive plans.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# Make It Sellable
-
-<p class="sub">Why Clients Pay More For This One Simple Shift</p>
-
-<div class="figure-side"><img src="assets/pitch-sellable.jpg" alt="Make It Sellable ebook cover" /></div>
-
-- **Position Your AI Agent as a Business Solution** — Not just a technical service.
-- **One-Page Sales Document** — A simple document that helps clients say "yes."
-- **The Demo That Closes Deals** — Show your AI Agent's value with confidence.
-- **First Client Outreach Templates** — Proven templates to help you land your first client.
-- **Communicate Value Clearly** — Make clients instantly understand why it's worth paying for.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# The Facebook Ads Comment Agent
-
-<p class="sub">Turns Every Comment Into A Customer</p>
-
-<div class="figure-side"><img src="assets/pitch-fb-ads.jpg" alt="The Facebook Ads Comment Agent ebook cover" /></div>
-
-- **Auto-Reply System** — Automatically respond to Facebook ad comments.
-- **Lead Capture Automation** — Collect interested leads automatically, 24/7.
-- **Facebook Integration** — Connect your AI Agent with Facebook workflows.
-- **Smart Lead Collection** — Turn Facebook engagement into qualified leads.
-- **Automation Best Practices** — Avoid the common mistakes most people overlook.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# The Money Math
-
-<p class="sub">Why Businesses Happily Pay $500 A Month For This</p>
-
-<div class="figure-side"><img src="assets/pitch-money-math.jpg" alt="The Money Math ebook cover" /></div>
-
-- **Why Businesses Pay $500+/Month** — What makes AI Agents worth the investment.
-- **Calculate ROI with Confidence** — Show clients the value using simple ROI calculations.
-- **Sell Through Value, Not Price** — Position your AI Agent as a profitable investment.
-- **Upsell Existing Clients** — Sell AI Agents to clients you already have.
-- **Close Higher-Value Deals** — Use ROI to justify premium monthly pricing.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# The YouTube to Blog Agent
-
-<div class="figure-side"><img src="assets/pitch-yt-blog.jpg" alt="The YouTube to Blog Agent ebook cover" /></div>
-
-- **YouTube-to-Blog Automation** — Convert any YouTube video into a blog post automatically.
-- **SEO-Optimized Articles** — Content that's ready to rank on search engines.
-- **Auto Publishing** — Publish blog posts to your website automatically.
-- **Automatic Image Generation** — Relevant images in every article, no manual work.
-- **Hands-Free Content Workflow** — Videos into fully published posts with minimal effort.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# Pricing & Packaging
-
-<p class="sub">Package Your AI Skills So Clients Can't Say No</p>
-
-<div class="figure-side"><img src="assets/pitch-pricing.jpg" alt="Pricing & Packaging ebook cover" /></div>
-
-- **Pricing & Packaging** — Structure your AI solution for maximum value.
-- **Build $800/Month Recurring Income** — Create predictable monthly revenue.
-- **Value-Based Packaging** — Package your solution so clients instantly see its worth.
-- **White-Label Opportunities** — Work with businesses and agencies under their brand.
-- **Scale with Recurring Clients** — Turn one-time projects into long-term monthly retainers.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# AI Development & Automation
-
-<p class="sub">The No-Code Revolution</p>
-
-<div class="figure-side"><img src="assets/pitch-nocode.jpg" alt="AI Development & Automation ebook cover" /></div>
-
-- **AI Development & Automation** — Build powerful AI solutions without complexity.
-- **No-Code AI Apps** — Turn your ideas into working AI applications without coding.
-- **Lovable, Bolt & AI Builders** — Build with today's leading AI development tools.
-- **API Integrations** — Connect multiple tools to create powerful automations.
-- **Real-World AI Workflows** — Build practical systems you can use or sell.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# Project Requirement Engineering
-
-<p class="sub">Why Most AI Projects Fail</p>
-
-<div class="figure-side"><img src="assets/pitch-requirements.jpg" alt="Project Requirement Engineering ebook cover" /></div>
-
-- **Understand Client Requirements** — Gather exactly what your client needs.
-- **Functional Requirements** — Define what your AI solution should do.
-- **Non-Functional Requirements** — Plan for performance, security, and reliability.
-- **Professional User Stories** — Write clear instructions for AI and development tools.
-- **Build with Clarity** — Avoid confusion by planning your project the right way.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12f · Curriculum</div>
-
-# Build Your Service Website
-
-<p class="sub">Your Website Is Your Salesman</p>
-
-<div class="figure-side"><img src="assets/pitch-website.jpg" alt="Build Your Service Website ebook cover" /></div>
-
-- **Professional Service Website** — A website that instantly creates trust.
-- **Showcase Your Portfolio** — Display testimonials and case studies effectively.
-- **High-Converting Website Copy** — Turn visitors into paying clients.
-- **Domain & Database Setup** — Configure your website from start to finish.
-- **Launch with Confidence** — Get your website ready for real clients.
-
----
-
-<div class="lesson-no">Section 12f · The program</div>
-
-# All These Learnings In One Program
-
-<div class="book-grid">
-<img src="assets/pitch-grid-01.jpg" alt="" />
-<img src="assets/pitch-grid-02.jpg" alt="" />
-<img src="assets/pitch-grid-03.jpg" alt="" />
-<img src="assets/pitch-grid-04.jpg" alt="" />
-<img src="assets/pitch-grid-05.jpg" alt="" />
-<img src="assets/pitch-grid-06.jpg" alt="" />
-<img src="assets/pitch-grid-07.jpg" alt="" />
-<img src="assets/pitch-grid-08.jpg" alt="" />
-<img src="assets/pitch-grid-09.jpg" alt="" />
-<img src="assets/pitch-grid-10.jpg" alt="" />
-<img src="assets/pitch-grid-11.jpg" alt="" />
-<img src="assets/pitch-grid-12.jpg" alt="" />
-<img src="assets/pitch-grid-13.jpg" alt="" />
-<img src="assets/pitch-grid-14.jpg" alt="" />
-<img src="assets/pitch-grid-15.jpg" alt="" />
-<img src="assets/pitch-grid-16.jpg" alt="" />
-<img src="assets/pitch-grid-17.jpg" alt="" />
-<img src="assets/pitch-grid-18.jpg" alt="" />
-<img src="assets/pitch-grid-19.jpg" alt="" />
-</div>
-
----
-
-<!-- .slide: data-background-color="#141312" class="dark" -->
-
-<div class="lesson-no">Section 12g · Investment</div>
-
-## Normal Price
-
-<p class="sub">(Outside of the workshop)</p>
-
-<div class="price-new">PKR 3,360,000</div>
-
-<p class="rule"><b>Standard fee</b> This is the regular program fee before workshop savings or special offers.</p>
-
----
-
-<!-- .slide: data-background-color="#141312" class="dark" -->
-
-<div class="lesson-no">Section 12g · Limited-time offer · Only 40 seats</div>
-
-## Special Offer For 40 People
-
-<div class="price-old">PKR 3,360,000</div>
-<div class="price-new">PKR 48,600</div>
-<span class="price-save">Final price for the workshop · 3-month installments</span>
-
-<div class="steps">
-<div class="step"><div class="step-n">1</div><div class="step-t">1st month — PKR 10,000</div></div>
-<div class="step"><div class="step-n">2</div><div class="step-t">2nd month — PKR 15,600</div></div>
-<div class="step"><div class="step-n">3</div><div class="step-t">3rd month — PKR 15,600</div></div>
-</div>
-
-<p class="rule"><b>Act now</b> Once the 40 seats are filled, this offer ends.</p>
-
----
-
-<!-- .slide: data-background-color="#141312" class="dark" -->
-
-<div class="lesson-no">Section 12h · Bonuses</div>
-
-## Amazing Bonuses
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12h · Bonus</div>
-
-# Client Acquisition System
-
-<p class="sub">The System That Brings Clients To You Consistently</p>
-
-<div class="figure-side"><img src="assets/pitch-client-acq.jpg" alt="Client Acquisition System ebook cover" /></div>
-
-- **Pricing Psychology** — Price your services for both local and global clients.
-- **AI-Powered Prospecting** — Find and qualify potential clients using AI.
-- **Irresistible Offers** — Craft offers that attract and convert ideal clients.
-- **Ideal Client Research** — Identify and target the right clients for your services.
-- **Proposal Writing** — Professional proposals that close more deals.
-- **Value Ladder Framework** — Structure offers to maximize customer value and revenue.
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12h · Bonus</div>
-
-# Sales Call Mastery
-
-<p class="sub">Turn Every Sales Call Into A Signed Client</p>
-
-<div class="figure-side"><img src="assets/pitch-sales-call.jpg" alt="Sales Call Mastery ebook cover" /></div>
-
-- **Sales Call Confidence** — Handle client calls with confidence.
-- **Client Discovery** — Understand your client's needs and goals.
-- **Objection Handling** — Respond to common objections effectively.
-- **Closing Techniques** — Learn how to confidently close more deals.
-- **Sales Call Framework** — Follow a proven structure for successful client calls.
-
----
-
-<!-- .slide: data-background-color="#141312" class="dark" -->
-
-<div class="lesson-no">Section 12i · Zero risk</div>
-
-<div class="figure-side logo"><img src="assets/pitch-guarantee.jpg" alt="100% money back guaranteed badge" /></div>
-
-## 15-Day Money Back Guarantee
-
----
-
-<!-- .slide: class="pitch" -->
-
-<div class="lesson-no">Section 12i · Zero risk</div>
-
-# Only 2 Possible Outcomes
-
-<div class="card-grid" style="max-width:96%">
-<div class="stat-card"><div class="sc-val">Worst case</div><div class="sc-lbl">You join, but for any reason feel the program isn't right for you. Send us a message and you get a 100% refund.</div></div>
-<div class="stat-card win"><div class="sc-val">Best case</div><div class="sc-lbl">You realize how valuable it is and keep learning: master 30+ AI tools, make your job, business, and daily life 10x faster with AI, and become an AI-powered professional who can't be replaced by AI.</div></div>
-</div>
-
-<p class="rule"><b>Three months from now</b> you'll thank yourself for joining today. Or: "I wish I had started that day. I kept overthinking, and now everyone else is already using AI while I'm still catching up."</p>
-
-Note: Say this for those who are afraid to invest their money in the program.
-
----
-
-<!-- .slide: data-background-color="#141312" class="dark" -->
-
-<div class="lesson-no">Section 12i · The real question</div>
-
-## What If You Just Gave It a Shot?
-
-You have nothing to lose. Start learning AI today, and in just 3 months you'll know more about AI than 95% of the world's population.
+Note: Website fees confirmed by user: PKR 59,999 once, or PKR 23,000 monthly for three payments totaling PKR 69,000. Upfront saving: PKR 9,001. User confirmed ten-day guarantee with their team; landing page describes participation and doing the work. No coupon has been applied. Use the enrollment link for current payment details. Do not claim limited seats or a countdown.

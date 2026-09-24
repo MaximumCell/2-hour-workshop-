@@ -8,23 +8,30 @@
 
 <span class="tag hook">30 min</span>
 
-Slow down here. Let the room see the transformation.
+Turn an audience idea into a working mini app.
+
+- Understand the vibe-coding cycle
+- Describe the idea, clarify requirements, and run a first version
+- Give feedback and refine the app to a working result
+- Explore Projects, Artifacts, and Claude Code
 
 Note: Section title card. This is the hero demo of the whole workshop — the single section most directly tied to the promised transformation. Don't rush it.
 
 ---
 
-<div class="lesson-no">Section 8a · Why Claude for building</div>
+<div class="lesson-no">Section 8d · Teaching moment</div>
 
-# What Makes Claude Useful for Building?
+# Vibe Coding
 
-- Writing and reasoning
-- Working with long context
-- Understanding project requirements
-- Generating and modifying code
-- Iterating on a working product
+<div class="figure-side vibe-demo" aria-label="Animated vibe coding process"></div>
 
-Note: Quick framing before the live build starts — this isn't "AI writes code," it's "AI understands the whole project and iterates with you."
+- Idea → Describe → Generate → Run
+- Inspect → Give feedback → Iterate
+- Repeat until it's right
+
+<p class="rule"><b>Still required</b> You don't need to manually write every line of code — but you still need to understand the product, requirements, testing, and quality.</p>
+
+Note: Name the workflow explicitly as "vibe coding" — this term is what they'll hear elsewhere, introduce the cycle they will see in the upcoming live build.
 
 ---
 
@@ -68,32 +75,6 @@ Note: This has to actually feel live — take a real suggestion from chat, don't
 <span class="demo">Live demo</span>
 
 Note: Take at least one audience-suggested change live in steps 5–6 — this is what makes the demo feel real instead of rehearsed.
-
----
-
-<div class="lesson-no">Section 8d · Teaching moment</div>
-
-# Vibe Coding
-
-<div class="figure-side"><img src="assets/vibe-coding-cycle.png" alt="The vibe coding cycle: idea, describe, generate, run, inspect, give feedback, iterate" /></div>
-
-- Idea → Describe → Generate → Run
-- Inspect → Give feedback → Iterate
-- Repeat until it's right
-
-<p class="rule"><b>Still required</b> You don't need to manually write every line of code — but you still need to understand the product, requirements, testing, and quality.</p>
-
-Note: Name the workflow explicitly as "vibe coding" — this term is what they'll hear elsewhere, connect it to what they just watched happen.
-
----
-
-<div class="lesson-no">Section 8e · The bigger lesson</div>
-
-# It's Not About the App You Just Watched
-
-<p class="rule"><b>The lesson</b> If you can clearly describe a problem, you can increasingly use AI to help turn that problem into a working prototype.</p>
-
-Note: Say this explicitly — the demo is a vehicle, not the point. The point is the capability now exists for anyone in the room, for their own problem.
 
 ---
 

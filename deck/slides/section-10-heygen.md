@@ -1,4 +1,4 @@
-<!-- .slide: data-background-color="#141312" class="dark" -->
+<!-- .slide: data-background-color="#141312" class="dark heygen-overview" -->
 
 <div class="mod-num">10</div>
 <div class="progress-chip">Section 10 of 13</div>
@@ -10,16 +10,6 @@
 
 <span class="tag hook">12 min</span>
 
-AI avatars, cloned voices, and instant localization.
-
-Note: Section title card. This section uses the winning 4D script from Section 6 as the actual input — call that back out loud before starting.
-
----
-
-<div class="lesson-no">Section 10a · What can AI video do?</div>
-
-# The Capabilities
-
 <div class="uc-grid">
 <div class="uc">AI avatars</div>
 <div class="uc">Voice generation / cloning</div>
@@ -30,7 +20,22 @@ Note: Section title card. This section uses the winning 4D script from Section 6
 <div class="uc">Scalable content production</div>
 </div>
 
-Note: Move through this list quickly — it's context for the live demo, not the demo itself.
+Note: Section title card. This section uses the winning 4D script from Section 6 as the actual input — call that back out loud before starting.
+
+---
+
+<div class="lesson-no">Section 10b · Inside the studio</div>
+
+# The HeyGen Interface
+
+<div class="figure-side"><img src="assets/heygen-studio.png" alt="HeyGen studio interface with avatar and voice libraries" /></div>
+
+- **My Dashboard** — every project, avatar, and render in one place
+- **My Avatar / My Voice** — the two libraries you'll pick from live
+- **Create Video** — where the script from Section 6 goes in
+- Ready-made templates for ads, promos, and explainers if you don't want to start from a blank canvas
+
+Note: Point out the avatar library and voice library panels as you narrate the live build — this still helps orient anyone who's never opened HeyGen before.
 
 ---
 
@@ -71,36 +76,6 @@ Note: This is the actual winning output from the Level 3 4D prompt in Section 6 
 
 ---
 
-<div class="lesson-no">Section 10b · Live demo</div>
-
-# Script → Finished Video
-
-<div class="figure-side"><img src="assets/hygen-cycle.jpeg" alt="HeyGen workflow: script, avatar and voice, visuals, render, export" /></div>
-
-- Script → avatar & voice → visuals
-- Render in the cloud → export, ready to post
-
-<span class="demo">Live demo</span>
-
-Note: Have a finished backup render ready in case generation takes too long live — HeyGen render time can vary, don't let the room sit in silence.
-
----
-
-<div class="lesson-no">Section 10b · Inside the studio</div>
-
-# The HeyGen Interface
-
-<div class="figure-side"><img src="assets/heygen-studio.png" alt="HeyGen studio interface with avatar and voice libraries" /></div>
-
-- **My Dashboard** — every project, avatar, and render in one place
-- **My Avatar / My Voice** — the two libraries you'll pick from live
-- **Create Video** — where the script from Section 6 goes in
-- Ready-made templates for ads, promos, and explainers if you don't want to start from a blank canvas
-
-Note: Point out the avatar library and voice library panels as you narrate the live build — this still helps orient anyone who's never opened HeyGen before.
-
----
-
 <div class="lesson-no">Section 10b · The result</div>
 
 # From Script to Finished Video
@@ -114,21 +89,3 @@ Note: Point out the avatar library and voice library panels as you narrate the l
 <p class="rule"><b>The payoff</b> This is what "one script, many videos" actually looks like.</p>
 
 Note: The reveal moment — the actual rendered video, generated live from the exact 4D script the room watched get built in Section 6.
-
----
-
-<div class="lesson-no">Section 10c · The business angle</div>
-
-# One Script, Many Outcomes
-
-<div class="uc-grid">
-<div class="uc">One script → multiple languages</div>
-<div class="uc">One idea → many videos</div>
-<div class="uc">Faster content production</div>
-<div class="uc">Lower production overhead</div>
-<div class="uc">Can become part of an automated content system</div>
-</div>
-
-<p class="rule"><b>Bridge</b> But what if we don't want to do these steps manually every time?</p>
-
-Note: The rule at the bottom is the literal transition line into Section 11 — say it verbatim, it's the hook into automation.

@@ -8,21 +8,13 @@
 
 <span class="tag hook">15 min</span>
 
-A repeatable framework for talking to AI — one you'll reuse for the rest of today.
+Better context and clearer instructions produce better output.
+
+- Compare weak, good, and 4D prompts on one video-script task
+- Use 4D: Define, Describe, Demonstrate, Deliver
+- Compare the results live and take the winning script into HeyGen
 
 Note: Section title card. This section produces the actual HeyGen script we'll use live in Section 10 — make sure that connection lands.
-
----
-
-<div class="lesson-no">Section 6a · Core principle</div>
-
-# Bad Input, Unpredictable Output
-
-Better context + clearer instructions → better output.
-
-Prompting is increasingly part of a broader skill: giving AI the right **task, context, examples, constraints, and output requirements**.
-
-Note: Set this up as the thesis for the whole section before the demo — everything that follows just proves this one line.
 
 ---
 
@@ -30,87 +22,45 @@ Note: Set this up as the thesis for the whole section before the demo — everyt
 
 # One Task, Three Prompt Levels
 
-Same task throughout, so the difference is impossible to miss.
+Create a short promotional video script for our AI workshop.
 
+<div class="prompt-comparison">
+<div>
+<h3>Level 1 · Bad / Weak</h3>
 <div class="codecard">
-<div class="cc-bar"><span class="cc-dot r"></span><span class="cc-dot y"></span><span class="cc-dot g"></span><span class="cc-label">The Task</span></div>
-
-```
-Create a HeyGen script for a short promotional video for our
-AI workshop.
-```
-
+<div class="cc-bar"><span class="cc-label">Weak prompt</span></div>
+<pre><code>Write a script for my AI workshop video.</code></pre>
+</div>
+<p>No audience, length, tone, structure, or call to action.</p>
+</div>
+<div>
+<h3>Level 2 · Good</h3>
+<div class="codecard">
+<div class="cc-bar"><span class="cc-label">Good prompt</span></div>
+<pre><code>Write a 60-second promotional script for an AI workshop. The audience is beginners who want to learn practical AI skills. Make it engaging, easy to understand, and persuasive. Explain what they will learn and end with a clear call to action to register.</code></pre>
+</div>
+<p>Defines the audience, length, tone, objective, and call to action.</p>
+</div>
 </div>
 
-Note: This exact task carries through the rest of the section, and its winning output becomes the real script used live in Section 10 — say that out loud now so the room knows this isn't just an exercise.
+<p class="rule"><b>Next: Level 3</b> Add the 4D framework for a more specific, repeatable result.</p>
+
+Note: Use the same task and model throughout. Run the weak prompt first, then the good prompt, and compare results. The next slide adds 4D. The winning script becomes the real HeyGen input in Section 10.
 
 ---
 
-<div class="lesson-no">Section 6b · Level 1</div>
-
-# Bad / Weak Prompt
-
-<div class="codecard">
-<div class="cc-bar"><span class="cc-dot r"></span><span class="cc-dot y"></span><span class="cc-dot g"></span><span class="cc-label">Level 1 — Weak</span></div>
-
-```
-Write a script for my AI workshop video.
-```
-
-</div>
-
-<div class="uc-grid">
-<div class="uc">No clear objective</div>
-<div class="uc">No audience</div>
-<div class="uc">No context about the workshop</div>
-<div class="uc">No tone or style</div>
-<div class="uc">No length</div>
-<div class="uc">No structure</div>
-<div class="uc">No CTA or success criteria</div>
-</div>
-
-Note: Run this one live first so the room sees the generic output before anything else. Let the weakness be self-evident from the result, then walk the checklist of what's missing.
-
----
-
-<div class="lesson-no">Section 6b · Level 2</div>
-
-# Good Prompt
-
-<div class="codecard">
-<div class="cc-bar"><span class="cc-dot r"></span><span class="cc-dot y"></span><span class="cc-dot g"></span><span class="cc-label">Level 2 — Good</span></div>
-
-```
-Write a 60-second promotional script for an AI workshop. The
-audience is beginners who want to learn practical AI skills. Make
-it engaging, easy to understand, and persuasive. Explain what they
-will learn and end with a clear call to action to register.
-```
-
-</div>
-
-<div class="uc-grid">
-<div class="uc">The task is clearer</div>
-<div class="uc">Audience is defined</div>
-<div class="uc">Length is specified</div>
-<div class="uc">Tone and objective are clearer</div>
-<div class="uc">CTA is included</div>
-</div>
-
-Note: Run this live too and compare the output directly against Level 1 — the room should visibly see the jump in quality already, before the 4D version even shows up.
-
----
+<!-- .slide: class="prompt-reading" -->
 
 <div class="lesson-no">Section 6b · Level 3</div>
 
 # The 4D Framework Prompt
 
-Define → Describe → Demonstrate → Deliver.
+Define → Describe → Demonstrate → Deliver. <span class="reading-hint">Scroll inside the prompt to read all four parts.</span>
 
 <div class="codecard">
 <div class="cc-bar"><span class="cc-dot r"></span><span class="cc-dot y"></span><span class="cc-dot g"></span><span class="cc-label">Level 3 — 4D</span></div>
 
-```
+```text
 DEFINE
 Create a 60-second promotional video script for our AI workshop.
 The goal is to make viewers understand the value of attending and

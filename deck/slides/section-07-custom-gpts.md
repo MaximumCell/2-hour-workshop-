@@ -8,7 +8,11 @@
 
 <span class="tag hook">12 min</span>
 
-Stop repeating the same instructions every day.
+Turn repeat instructions into a reusable assistant.
+
+- Define its role, knowledge, workflow, and output rules
+- Find where those settings live in the GPT builder
+- Build an AI Content Strategist, test it, and improve it
 
 Note: Section title card. This is the "reusable interface" idea — the bridge between a one-off prompt and a real automation later in the workshop.
 
@@ -25,6 +29,23 @@ Note: Section title card. This is the "reusable interface" idea — the bridge b
 - Output rules
 
 Note: Contrast this with re-typing the same context every single chat — that repetition is exactly what a custom GPT eliminates.
+
+---
+
+<div class="lesson-no">Section 7 · The builder</div>
+
+# Where You'll Set All This Up
+
+<div class="figure-side gpt-builder-demo" aria-label="Illustrative custom GPT builder walkthrough"></div>
+
+- One place to name the assistant and define its job
+- Instructions live here permanently — no re-typing them per chat
+- Attach knowledge files it should always have access to
+- Test it right inside the builder before sharing it
+
+<span class="demo">Live demo</span>
+
+Note: Illustrative animated walkthrough, not a live ChatGPT session. Follow Name, Instructions, Knowledge, then Preview. Click a numbered stage to pause there, or use Play/Pause before the live build.
 
 ---
 

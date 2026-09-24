@@ -6,12 +6,6 @@
 
 You will leave knowing how to <u>use</u> AI, <u>build</u> with AI, <u>automate</u> with AI, and start thinking about how to <u>make money</u> with AI.
 
-<div class="promptcard" style="background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.14);"><span class="lbl">Awaz clear aa rahi hai?</span>
-
-<p style="color:#d9d3c9;">Confirming audio is clear — drop a comment.</p>
-
-</div>
-
 <div class="live-badge">Live Session · MakeFirstMillion Series</div>
 
 Note: Opening slide. Deliver the hook headline exactly as written, it's proven. Say the Roman Urdu line for the audio check, then wait for chat confirmation before continuing. Then say the four verbs slowly — use, build, automate, make money.
