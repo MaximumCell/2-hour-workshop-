@@ -1191,3 +1191,65 @@
 @keyframes wf-travel { to { stroke-dashoffset:-32; } }
 @media(prefers-reduced-motion:reduce) { .reveal .automation-demo * { animation:none !important; transition:none !important; } }
 .reveal .automation-demo.wf-paused * { animation-play-state:paused !important; }
+.reveal .program-roadmap .curriculum-roadmap .rm-s strong { color:#542700; font-family:var(--font); font-weight:800; }
+.reveal .program-pricing .program-original { display:block; margin:8px 0 3px; color:#76695e; font-size:.75em; text-decoration-thickness:2px; }
+.reveal .program-pricing .program-per-month { font-size:.4em; white-space:nowrap; }
+
+/* Emphasize the lower total cost of full payment. */
+.reveal .program-pitch .program-pricing { grid-template-columns:1.12fr 1fr; gap:22px; margin:.65em 0; align-items:stretch; }
+.reveal .program-pricing > div { border-radius:14px; padding:20px 25px; }
+.reveal .program-pricing .plan-featured { background:linear-gradient(135deg,#fff2da,#ffe0b1); border:2px solid #ff9b36; box-shadow:0 8px 26px #ff7d001c; color:#22170e; }
+.reveal .program-pricing .plan-monthly { background:#201e1b; border:1px solid #514b43; color:#ded8ce; }
+.reveal .plan-badge,.reveal .plan-flexible { display:inline-block; font-size:12px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin-bottom:12px; padding:4px 9px; border-radius:5px; }
+.reveal .plan-badge { background:#25562c; color:#fff; }
+.reveal .plan-flexible { padding-left:0; color:#c6bcaf; }
+.reveal .program-pricing .program-plan { margin-bottom:6px; }
+.reveal .program-pricing .plan-featured b { color:#813500; font-size:1.65em; }
+.reveal .program-pricing .plan-monthly b { color:#e3dcd2; font-size:1.25em; }
+.reveal .program-pricing .program-original { color:#aa9f91; font-size:.64em; }
+.reveal .program-pricing .plan-featured .program-original { color:#78634d; }
+.reveal .program-pricing p { margin:12px 0 0; font-size:.62em; }
+.reveal .program-pricing .plan-saving { display:inline-block; margin-top:5px; color:#25562c; font-weight:800; }
+.reveal .program-pitch .program-pricing .plan-featured p { color:#49331f; }
+
+/* Brand row beneath the two featured channel banners. */
+.reveal .brand-partners { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; max-width:96%; margin-top:22px; }
+.reveal .brand-partner { display:flex; justify-content:center; align-items:center; gap:9px; height:112px; padding:16px; box-sizing:border-box; background:#fff; border:1px solid #ecdccc; border-radius:12px; box-shadow:0 5px 16px #38200908; }
+.reveal .brand-partner img { display:block; margin:0; max-width:100%; width:175px; height:74px; object-fit:contain; }
+.reveal .brand-higgsfield img { width:39px; height:39px; border-radius:8px; }
+.reveal .brand-higgsfield span { font-size:20px; font-weight:700; color:#171717; }
+
+
+.reveal .brand-wondershare img { filter: brightness(0); }
+
+.reveal .brand-partner { min-width:0; padding:12px; }
+.reveal .brand-higgsfield img { width:30px; height:30px; flex-shrink:0; }
+.reveal .brand-higgsfield span { font-size:18px; }
+
+/* Four community screenshots, preserved in full. */
+.reveal .community-grid { gap:18px 24px; }
+.reveal .community-grid .social-card img { height:190px; aspect-ratio:auto; object-fit:contain; background:#101214; box-shadow:0 5px 16px #14131218; }
+.reveal .community-grid .social-card figcaption { margin-top:8px; font-size:16px; }
+.reveal .community-grid .social-card figcaption b { font-size:24px; }
+
+/* Zoom into Instagram profile headers without altering source screenshots. */
+.reveal .community-grid .instagram-header { position:relative; height:190px; overflow:hidden; border-radius:12px; background:#0b1014; border:1px solid rgba(255,125,0,.3); }
+.reveal .community-grid .instagram-header img { position:absolute; max-width:none; max-height:none; height:auto; object-fit:initial; border:0; border-radius:0; box-shadow:none; }
+.reveal .community-grid .instagram-header-personal img { width:155%; left:-5%; top:4px; }
+.reveal .community-grid .instagram-header-aaghaz img { width:194%; left:-46%; top:-20px; }
+
+/* Match the Aaghaz profile header composition: compact avatar and adjacent bio. */
+.reveal .instagram-header-personal .instagram-avatar-crop { position:absolute; left:10px; top:0; width:122px; height:190px; overflow:hidden; }
+.reveal .instagram-header-personal .instagram-bio-crop { position:absolute; left:140px; right:10px; top:0; height:190px; overflow:hidden; }
+.reveal .community-grid .instagram-header-personal .instagram-avatar-crop img { width:720px; left:-54px; top:-8px; }
+.reveal .community-grid .instagram-header-personal .instagram-bio-crop img { width:720px; left:-243px; top:0; }
+
+.reveal .community-grid .social-card .discord-community-image { object-fit:cover; object-position:center 24%; }
+
+/* Testimonials: centered heading above three prominent videos. */
+.reveal .slides section.present.testimonial-showcase:has(.video-grid) { display:block !important; text-align:center; }
+.reveal .testimonial-showcase .lesson-no { margin-bottom:12px; }
+.reveal .testimonial-showcase h1 { margin:0 0 12px; font-size:48px; }
+.reveal .testimonial-showcase .testimonial-intro { margin:0 0 28px; font-size:21px; color:var(--muted); }
+.reveal .testimonial-showcase .video-grid { display:grid; grid-template-columns:repeat(3,260px); gap:26px; justify-content:center; margin:0 auto; }
+.reveal .testimonial-showcase .video-grid .video-card { aspect-ratio:3/4; border-radius:18px; border:2px solid #ead8c7; box-shadow:0 12px 28px #38200920; }

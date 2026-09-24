@@ -24,14 +24,16 @@ Note: Full self-intro. Answer one question only: why should they trust you to te
 
 <div class="lesson-no">Section 2 · Community</div>
 
-# Join 147K+ people learning AI with us
+# Join our 200K+ combined AI community
 
-<div class="social-grid">
+<div class="social-grid community-grid">
 <figure class="social-card"><img src="assets/youtube-make-first-million.jpg" alt="Make First Million YouTube channel, 101.5K subscribers" /><figcaption><b>101.5K</b> YouTube subscribers</figcaption></figure>
-<figure class="social-card"><img src="assets/instagram-make-first-million.jpg" alt="make.first.million Instagram profile, 46K followers" /><figcaption><b>46K</b> Instagram followers</figcaption></figure>
+<figure class="social-card"><div class="instagram-header instagram-header-personal" role="img" aria-label="make.first.million Instagram profile header, 46K followers and bio"><span class="instagram-avatar-crop"><img src="assets/instagram-make-first-million.jpg" alt="" /></span><span class="instagram-bio-crop"><img src="assets/instagram-make-first-million.jpg" alt="" /></span></div><figcaption><b>46K</b> Instagram followers</figcaption></figure>
+<figure class="social-card"><div class="instagram-header instagram-header-aaghaz"><img src="assets/aaghaz-instagram.png" alt="Zoomed Aaghaz AI Instagram profile header, showing 27.3K followers and bio" /></div><figcaption><b>27.3K</b> Aaghaz Instagram followers</figcaption></figure>
+<figure class="social-card"><img class="discord-community-image" src="assets/aaghaz-discord.png" alt="Aaghaz Discord community discussions" /><figcaption><b>15K+</b> Aaghaz community members</figcaption></figure>
 </div>
 
-Note: Live numbers as of September 2026 — @makefirstmillion-j1 on YouTube, @make.first.million on Instagram. Invite the room to follow for the latest AI tools and news.
+Note: Combined community headline (200K+) and Discord count (15K) supplied by the presenter. Individual screenshot counts reflect when captured, not a current sum or deduplicated audience. Invite the room to follow and join the community.
 
 ---
 
@@ -39,14 +41,21 @@ Note: Live numbers as of September 2026 — @makefirstmillion-j1 on YouTube, @ma
 
 # Worked with, and worth trusting
 
-Companies and tools worked with include HeyGen, Higgsfield, Wondershare, and Hostinger — plus guest masterclasses on major technology channels.
+Companies and tools worked with include Hostinger, Higgsfield, Wondershare, HeyGen, and MiniMax — plus guest masterclasses on major technology channels.
 
 <div class="logo-grid">
-<div class="logo-card" style="background-image:url('assets/kashif-majeed.png');" role="img" aria-label="Kashif Majeed channel banner"></div>
-<div class="logo-card" style="background-image:url('assets/hba-services.png');" role="img" aria-label="HBA Services channel banner"></div>
 <div class="logo-card" style="background-image:url('assets/muzamil-hasan.png');" role="img" aria-label="Muzamil Hasan TBT Podcast channel banner"></div>
 <div class="logo-card" style="background-image:url('assets/synq-with-saad.png');" role="img" aria-label="SynQ with Saad channel banner"></div>
 </div>
+
+<div class="brand-partners" aria-label="Companies and tools worked with">
+<div class="brand-partner"><img src="assets/hostinger-brand.svg" alt="Hostinger logo" /></div>
+<div class="brand-partner brand-higgsfield"><img src="assets/higgsfield-brand.png" alt="Higgsfield logo" /><span>Higgsfield</span></div>
+<div class="brand-partner"><img src="assets/minimax-brand.webp" alt="MiniMax logo" /></div>
+<div class="brand-partner"><img src="assets/heygen-brand.png" alt="HeyGen logo" /></div>
+<div class="brand-partner brand-wondershare"><img src="assets/wondershare-brand.svg" alt="Wondershare logo" /></div>
+</div>
+
 
 <p class="rule"><b>Credibility principle</b> Show evidence rather than spending too much time describing yourself.</p>
 
@@ -69,17 +78,18 @@ Note: Tell it as a short story: flew to the US, met startup founders, visited Go
 
 ---
 
+<!-- .slide: class="testimonial-showcase" -->
+
 <div class="lesson-no">Section 2 · Real results</div>
 
 # In their own words
 
+<p class="testimonial-intro">Real people. Real learning. Hear their experience.</p>
+
 <div class="video-grid">
 <div class="video-card"><video src="assets/testimonial-1.mp4" controls preload="metadata"></video></div>
-<div class="video-card"><video src="assets/testimonial-2.mp4" controls preload="metadata"></video></div>
-<div class="video-card"><video src="assets/testimonial-3.mp4" controls preload="metadata"></video></div>
-<div class="video-card"><video src="assets/testimonial-4.mp4" controls preload="metadata"></video></div>
-<div class="video-card"><video src="assets/testimonial-5.mp4" controls preload="metadata"></video></div>
 <div class="video-card"><video src="assets/testimonial-6.mp4" controls preload="metadata"></video></div>
+<div class="video-card"><video src="assets/testimonial-new.mp4" controls preload="metadata"></video></div>
 </div>
 
 Note: Student results, client work, and testimonials — the last piece of proof before moving into the agenda. Play one clip live if the room is warmed up enough, otherwise mention they're real and move on quickly; credibility should take 5 minutes total, not more.

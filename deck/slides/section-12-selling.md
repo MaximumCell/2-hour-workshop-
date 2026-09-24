@@ -133,19 +133,19 @@ Note: Connect the two-hour workshop to sustained practice. Address professionals
 
 <!-- .slide: class="program-pitch program-roadmap" -->
 
-<div class="lesson-no">Aaghaz · AI in Hands / Your 14-week roadmap</div>
+<div class="lesson-no">Aaghaz · AI in Hands / Your five core modules</div>
 
 # Here’s what you’ll learn.
 
 <div class="roadmap curriculum-roadmap">
-<div class="rm"><span class="rm-n"><small>WEEKS</small>1–4</span><span class="rm-t">Build your foundation</span><span class="rm-s">Personal branding, AI tools, research, prompting, and content writing.</span></div>
-<div class="rm"><span class="rm-n"><small>WEEKS</small>5–9</span><span class="rm-t">Create with AI</span><span class="rm-s">Marketing copy, branding, images, ads, avatars, and video storytelling.</span></div>
-<div class="rm"><span class="rm-n"><small>WEEKS</small>10–11</span><span class="rm-t">Build AI systems</span><span class="rm-s">Support agents, lead qualification, content automation, and n8n.</span></div>
-<div class="rm"><span class="rm-n"><small>WEEK</small>12</span><span class="rm-t">Bring ideas to life</span><span class="rm-s">AI calling agents and building apps through vibe coding.</span></div>
-<div class="rm"><span class="rm-n"><small>WEEKS</small>13–14</span><span class="rm-t">Package and sell your work</span><span class="rm-s">Finish vibe coding, learn buyer psychology, shape offers, and handle sales calls.</span></div>
+<div class="rm"><span class="rm-n"><small>MODULE</small>01</span><span class="rm-t">AI Foundations &amp; Personal Branding</span><span class="rm-s"><strong>Personal branding</strong>, research, <strong>Claude</strong>, <strong>advanced prompting</strong>, and content writing.</span></div>
+<div class="rm"><span class="rm-n"><small>MODULE</small>02</span><span class="rm-t">AI Agents &amp; Automation</span><span class="rm-s">Build <strong>support agents</strong>, <strong>qualify leads</strong>, and automate <strong>content workflows</strong> with <strong>n8n</strong>.</span></div>
+<div class="rm"><span class="rm-n"><small>MODULE</small>03</span><span class="rm-t">AI Content &amp; Creative Production</span><span class="rm-s">Marketing copy, <strong>branding</strong>, images, <strong>ads</strong>, and <strong>video storytelling</strong> with <strong>HeyGen</strong> <strong>avatars</strong>.</span></div>
+<div class="rm"><span class="rm-n"><small>MODULE</small>04</span><span class="rm-t">Vibe Coding &amp; App Building</span><span class="rm-s">Bring ideas to life through <strong>vibe coding</strong>, <strong>build apps</strong>, and explore <strong>AI calling agents</strong>.</span></div>
+<div class="rm"><span class="rm-n"><small>MODULE</small>05</span><span class="rm-t">Offer Creation &amp; Sales</span><span class="rm-s">Package your <strong>AI skills</strong> into <strong>services</strong>, understand <strong>buyer psychology</strong>, shape <strong>offers</strong>, and handle <strong>sales calls</strong>.</span></div>
 </div>
 
-Note: Source: user-confirmed Outline 3 Month AI in Hands.pdf, pages 3–12. This overview follows the program introduction and previews the detailed outcome slides. Personal branding starts in week 1, not all four foundation weeks. Vibe coding starts in week 12 and concludes in week 13. Keep this overview brief and then move into what participants learn and build.
+Note: Source: user-confirmed Outline 3 Month AI in Hands.pdf, pages 3–12. This overview groups the curriculum into five thematic modules in the requested presentation order: foundations, AI systems, content creation, app building, and selling. Module numbers describe this overview rather than a revised weekly delivery schedule. Emphasize Claude, n8n, HeyGen, and vibe coding as tangible tools and skills.
 
 ---
 
@@ -221,10 +221,10 @@ Note: New outline page 2 and landing-page weekly schedule and prerequisites: les
 
 # Choose your plan.<br>Start building with us.
 
-<div class="program-pricing"><div><span class="program-plan">Pay in full</span><b>PKR 59,999</b><p>One payment<br>Save PKR 9,001 vs monthly</p></div><div><span class="program-plan">Pay monthly</span><b>PKR 23,000</b><p>Three monthly payments<br>PKR 69,000 total</p></div></div>
+<div class="program-pricing"><div class="plan-featured"><span class="plan-badge">Best value</span><span class="program-plan">Pay in full</span><del class="program-original">PKR 80,000</del><b>PKR 44,999</b><p>One payment. Full program access.<br><strong class="plan-saving">Save PKR 5,998 vs monthly</strong></p></div><div class="plan-monthly"><span class="plan-flexible">Flexible payments</span><span class="program-plan">Pay monthly</span><del class="program-original">PKR 29,000 / month</del><b>PKR 16,999<span class="program-per-month"> / month</span></b><p>Three monthly payments<br>PKR 50,997 total</p></div></div>
 <p class="program-small">Both plans include the program, weekly live sessions, recordings, community, and certification.</p>
 <p class="program-guarantee"><strong>10-day money-back guarantee.</strong> Participate, do the work, and request a refund if it isn’t right for you.</p>
 <a class="program-cta" href="https://www.aaghaz.ai/programs/ai-in-hands-v3/register" target="_blank" rel="noopener">Explore the program & enroll ↗</a>
 <p class="program-url">aaghaz.ai/programs/ai-in-hands-v3</p>
 
-Note: Website fees confirmed by user: PKR 59,999 once, or PKR 23,000 monthly for three payments totaling PKR 69,000. Upfront saving: PKR 9,001. User confirmed ten-day guarantee with their team; landing page describes participation and doing the work. No coupon has been applied. Use the enrollment link for current payment details. Do not claim limited seats or a countdown.
+Note: Workshop pricing updated by user: regular upfront PKR 80,000, discounted to PKR 44,999; regular monthly PKR 29,000, discounted to PKR 16,999 for three payments totaling PKR 50,997. Upfront saving versus installments: PKR 5,998. User confirmed ten-day guarantee with their team; landing page describes participation and doing the work. No coupon has been applied. Use the enrollment link for current payment details. Do not claim limited seats or a countdown.

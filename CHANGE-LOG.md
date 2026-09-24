@@ -67,3 +67,24 @@ No pending edits.
 - Replaced the screenshot and step list with a large platform-neutral connected node diagram titled From Trigger to Result.
 - Animated trigger, agent resources, conditional routing and one result per run, alternating successful and needs-attention examples.
 - Added pause/play and stage controls. Dashed resource connections are distinguished from execution paths.
+
+## Module overview revision
+- Replaced week ranges on the curriculum overview with five thematic modules, ordered foundations, AI systems, content creation, app building, then sales.
+- Renamed module headings and emphasized Claude, n8n, HeyGen, and vibe coding. Preserved the agenda-inspired cards.
+
+## Workshop pricing update
+- User specified PKR 80,000 crossed out to PKR 44,999 upfront, and PKR 29,000 crossed out to PKR 16,999 monthly.
+- Retained three monthly payments; total PKR 50,997 and upfront saving PKR 5,998.
+
+## Credibility brand row
+- Removed the Kashif Majeed and HBA Services banners; retained Muzamil Hasan and SynQ with Saad above four brand cards.
+- Logo sources: https://www.heygen.com/images/heygen-logo.png ; https://higgsfield.ai/icon.png ; https://neveragain.allstatics.com/2019/assets/icon/logo/wondershare-slogan-vertical-white.svg ; Hostinger desktop navigation SVG from https://www.hostinger.com .
+- Saved all four logos locally and checked the rendered slide.
+
+- Matched the Wondershare card to the white logo row, displaying the official transparent SVG in black with CSS.
+
+- Added MiniMax as the fifth white logo card; final order Hostinger, Higgsfield, MiniMax, HeyGen, Wondershare. Official asset: https://www.minimax.io/assets/logo/minimax-horizontal-brand-black.webp
+
+## Final workshop review
+- Expanded the community slide to four screenshots, with a presenter-supplied 200K+ combined headline and 15K+ Aaghaz community caption. Zoomed Instagram headers and filled the Discord frame.
+- Kept testimonials 1 and 6, added the uploaded replacement as the third video, and redesigned the slide around three larger centered video cards.
