@@ -88,3 +88,8 @@ No pending edits.
 ## Final workshop review
 - Expanded the community slide to four screenshots, with a presenter-supplied 200K+ combined headline and 15K+ Aaghaz community caption. Zoomed Instagram headers and filled the Discord frame.
 - Kept testimonials 1 and 6, added the uploaded replacement as the third video, and redesigned the slide around three larger centered video cards.
+
+## Fullscreen layout refinement
+- Centered the level-check heading, equal-width answer cards, and chat prompt within fixed slide gutters.
+- Recalculate layout after fonts/media load, fullscreen changes, and resizing; preserve the widescreen canvas with safe margins and scaling through 4K.
+- Reduced pricing slide density for more vertical breathing room. Verified level-check card alignment at 1366x768, 1920x1080, 1920x1200, and 3840x2160.

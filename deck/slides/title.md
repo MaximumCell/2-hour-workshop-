@@ -22,6 +22,8 @@ Note: Set this expectation early — it prevents the workshop from feeling like 
 
 ---
 
+<!-- .slide: class="level-check-slide" -->
+
 <div class="lesson-no">Quick level check</div>
 
 # What's your AI level right now?

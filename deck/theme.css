@@ -1253,3 +1253,17 @@
 .reveal .testimonial-showcase .testimonial-intro { margin:0 0 28px; font-size:21px; color:var(--muted); }
 .reveal .testimonial-showcase .video-grid { display:grid; grid-template-columns:repeat(3,260px); gap:26px; justify-content:center; margin:0 auto; }
 .reveal .testimonial-showcase .video-grid .video-card { aspect-ratio:3/4; border-radius:18px; border:2px solid #ead8c7; box-shadow:0 12px 28px #38200920; }
+
+/* Presentation canvas: fixed internal gutters scale with the whole slide. */
+.reveal .slides > section { padding-left:109px; padding-right:90px; }
+.reveal .program-pitch:has(.program-pricing) h1 { font-size:1.65em; margin-bottom:.3em; }
+.reveal .program-pitch .program-pricing { margin:.45em 0; }
+.reveal .program-pricing > div { padding:16px 22px; }
+
+/* Keep the level-check composition centered and bounded on every screen. */
+.reveal .slides > section.level-check-slide { padding:0 120px; text-align:center; }
+.reveal .level-check-slide h1 { font-size:48px; line-height:1.15; margin:0 auto 30px; max-width:1040px; }
+.reveal .level-check-slide .lesson-no { margin-bottom:18px; }
+.reveal .level-check-slide .ai-examples.level-poll { width:100%; max-width:1040px; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; margin:0 auto; }
+.reveal .level-check-slide .ai-ex { box-sizing:border-box; min-height:230px; padding:28px 16px; }
+.reveal .level-check-slide .rule { max-width:none; margin:26px auto 0; }
