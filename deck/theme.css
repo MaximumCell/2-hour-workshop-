@@ -881,6 +881,56 @@
 .reveal .ai-ex-name { font-family: var(--font); font-size: 0.8em; font-weight: 700; color: var(--ink); }
 .reveal .ai-ex-task { font-size: 0.6em; color: var(--muted); margin-top: 0.15em; }
 
+/* ---------- "The Inflection Point" era timeline (title.md) ---------- */
+/* three columns hanging off one rule; dots sit on the rule, past eras muted, current era in orange */
+.reveal .eras { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 2.2em; margin-top: 1.6em; padding-top: 1.3em; max-width: 92%; }
+.reveal .eras::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: rgba(255,176,92,0.3); transform-origin: left; }
+.reveal .era { position: relative; display: flex; flex-direction: column; }
+.reveal .era::before { content: ""; position: absolute; top: calc(-1.3em - 7px); left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--dark); border: 2px solid #6b645c; }
+.reveal .era-year { font-family: var(--font); font-size: 1.5em; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: #5a524a; }
+.reveal .era-lbl { margin-top: 0.55em; font-size: 0.4em; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #a9a196; }
+.reveal section.dark .era-cap { margin: 0.8em 0 0; font-size: 0.5em; line-height: 1.45; color: #8f877d; }
+.reveal .era.now::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 6px rgba(255,125,0,0.18); }
+.reveal .era.now .era-year { color: var(--accent); }
+.reveal .era.now .era-lbl { color: var(--cream); }
+.reveal section.dark .era.now .era-cap { color: #d9d3c9; }
+.reveal .era-chip { display: inline-block; vertical-align: middle; margin-left: 0.5em; padding: 0.3em 0.8em; font-family: var(--font-body); font-size: 0.26em; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark); background: var(--accent); border-radius: 999px; }
+
+/* animated era icons: globe spins, phone apps pop in, chip pins carry current */
+.reveal .era-ic { width: 84px; height: 84px; margin-bottom: 0.5em; display: flex; align-items: center; justify-content: center; background: #1f1c19; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; }
+.reveal .era-ic svg { width: 48px; height: 48px; fill: none; stroke: #c9c2b8; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.reveal .era.now .era-ic { border: 1.5px solid var(--accent); box-shadow: 0 0 22px rgba(255,125,0,0.3); }
+.reveal .era.now .era-ic svg { stroke: var(--accent-soft); }
+.reveal .era-ic .ic-mer, .reveal .era-ic .ic-app { transform-box: fill-box; transform-origin: center; }
+.reveal .era-ic .ic-app { fill: currentColor; stroke: none; color: #c9c2b8; }
+.reveal .era.now .era-ic .ic-core { fill: var(--accent); stroke: none; }
+.reveal .era-ic .ic-pin { stroke-dasharray: 1.5 1.5; }
+@keyframes ic-spin { 0% { transform: scaleX(1); } 50% { transform: scaleX(0); } 100% { transform: scaleX(-1); } }
+@keyframes ic-app { 0%, 12% { transform: scale(0); } 22%, 80% { transform: scale(1); } 90%, 100% { transform: scale(0); } }
+@keyframes ic-flow { to { stroke-dashoffset: -6; } }
+@keyframes ic-core { 50% { opacity: 0.45; } }
+.reveal section.present .ic-mer { animation: ic-spin 3s linear infinite; }
+.reveal section.present .ic-mer.b { animation-delay: -1.5s; }
+.reveal section.present .ic-app { animation: ic-app 3s ease-out infinite; }
+.reveal section.present .ic-app:nth-of-type(3) { animation-delay: .15s; }
+.reveal section.present .ic-app:nth-of-type(4) { animation-delay: .3s; }
+.reveal section.present .ic-app:nth-of-type(5) { animation-delay: .45s; }
+.reveal section.present .ic-app:nth-of-type(6) { animation-delay: .6s; }
+.reveal section.present .ic-pin { animation: ic-flow 1s linear infinite; }
+.reveal section.present .ic-core { animation: ic-core 1.6s ease-in-out infinite; }
+
+/* build-in when the slide opens: rule draws left to right, then each era rises in turn */
+@keyframes era-draw { from { transform: scaleX(0); } }
+@keyframes era-rise { from { opacity: 0; transform: translateY(14px); } }
+@keyframes era-pulse { 50% { box-shadow: 0 0 0 12px rgba(255,125,0,0); } }
+.reveal section.present .eras::before { animation: era-draw 1.4s cubic-bezier(.6,0,.2,1) both; }
+.reveal section.present .era { animation: era-rise .6s ease-out both; }
+.reveal section.present .era:nth-child(1) { animation-delay: .3s; }
+.reveal section.present .era:nth-child(2) { animation-delay: .8s; }
+.reveal section.present .era:nth-child(3) { animation-delay: 1.3s; }
+.reveal section.present .era.now::before { animation: era-pulse 2s ease-in-out 2s infinite; }
+@media (prefers-reduced-motion: reduce) { .reveal .eras::before, .reveal .era, .reveal .era::before, .reveal .era-ic * { animation: none !important; } }
+
 /* ---------- animated agentic-browser mock-up (agent-demo.js) ---------- */
 /* sits on the right of the Comet section title slide */
 .reveal .agent-demo {
@@ -1130,10 +1180,10 @@
 .reveal .slides section:has(.gpt-builder-demo) > h1 { max-width:43%; font-size:1.65em; }
 
 /* Animated vibe-coding loop. */
-.reveal .slides section .figure-side.vibe-demo { display:block; width:580px; right:3%; max-height:none; padding:20px; box-sizing:border-box; background:#1e1b18; border:1px solid #775334; color:#fff9f4; text-align:left; font:17px/1.4 var(--font-body); }
+.reveal .slides section .figure-side.vibe-demo, .reveal .slides section .figure-side.llm-demo { display:block; width:580px; right:3%; max-height:none; padding:20px; box-sizing:border-box; background:#1e1b18; border:1px solid #775334; color:#fff9f4; text-align:left; font:17px/1.4 var(--font-body); }
 .reveal .slides section:has(.vibe-demo) > ul, .reveal .slides section:has(.vibe-demo) > .rule { max-width:43%; }
 .reveal .vc-top { display:flex; align-items:center; justify-content:space-between; color:#ffa452; font-weight:700; font-size:14px; letter-spacing:1px; }
-.reveal .vibe-demo button { cursor:pointer; font:inherit; }
+.reveal .vibe-demo button, .reveal .llm-demo button { cursor:pointer; font:inherit; }
 .reveal .vc-play { border:1px solid #805b3c; color:#fff; background:#30261f; border-radius:6px; padding:5px 12px; font-size:13px !important; }
 .reveal .vc-flow { display:flex; gap:12px; margin:18px 0; }
 .reveal .vc-flow button { position:relative; flex:1; border:1px solid #584334; background:#2b241e; color:#d0bba7; border-radius:9px; padding:10px 3px; font-size:14px; }
@@ -1162,10 +1212,65 @@
 .reveal .vc-feedback { font-size:16px; color:#ffbf86; margin:10px 0; }
 .reveal .vc-caption { font-size:17px; margin-top:16px; color:#fff5eb; }
 .reveal .vc-loop { margin-top:12px; padding-top:12px; border-top:1px solid #514031; font-size:13px; color:#bba48f; }
-.reveal .vibe-demo button:focus-visible { outline:3px solid #ffae67; outline-offset:2px; }
+.reveal .vibe-demo button:focus-visible, .reveal .llm-demo button:focus-visible { outline:3px solid #ffae67; outline-offset:2px; }
 @keyframes vc-appear { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 @keyframes vc-build { from { width:0; } to { width:100%; } }
 @media(prefers-reduced-motion:reduce) { .reveal .vibe-demo * { animation:none !important; } }
+
+/* LLM explainer (llm-demo.js): reuses the vibe-demo frame (.vc-*), adds its own step visuals */
+.reveal .slides section:has(.llm-demo) > .rule { max-width:44%; }
+.reveal .slides section:has(.llm-demo) h1 { margin-bottom:0.25em; }
+.reveal .slides section .figure-side.llm-demo { width:560px; }
+.reveal .llm-demo .vc-top { margin-bottom:16px; }
+.reveal .llm-demo .vc-stage { height:300px; }
+.reveal .lm-sub { max-width:44%; margin:0; font-size:0.62em; color:var(--muted); line-height:1.45; }
+/* left-column step list: doubles as the demo's stepper, highlights in sync with the panel */
+.reveal .lm-steps { display:flex; flex-direction:column; gap:6px; max-width:44%; margin-top:0.9em; }
+.reveal .lm-steps button { display:grid; grid-template-columns:34px 1fr; gap:14px; align-items:center; padding:7px 14px; text-align:left; cursor:pointer; font:inherit; background:transparent; border:1px solid transparent; border-left:3px solid var(--line); border-radius:0 10px 10px 0; transition:background .3s, border-color .3s; }
+.reveal .lm-steps i { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font:700 16px var(--font); font-style:normal; color:var(--muted); background:#f3e8dc; transition:background .3s, color .3s; }
+.reveal .lm-steps span { font-size:15px; line-height:1.35; color:var(--muted); }
+.reveal .lm-steps span b { display:block; font:700 19px var(--font); color:var(--ink); }
+.reveal .lm-steps .vc-selected { background:#fff; border-color:rgba(255,125,0,0.25); border-left-color:var(--accent); box-shadow:0 6px 16px rgba(26,26,26,0.06); }
+.reveal .lm-steps .vc-selected i { background:var(--accent); color:#fff; }
+.reveal .lm-steps .vc-selected span { color:var(--ink); }
+.reveal .lm-steps button:focus-visible { outline:3px solid #ffae67; outline-offset:2px; }
+.reveal .lm-sentence { font-family:var(--font); font-size:26px; font-weight:600; color:#fff9f4; }
+.reveal .lm-sentence u { text-decoration:none; color:#ff9f48; border-bottom:3px solid #ff7d00; animation:vc-appear .5s 1.8s both; }
+.reveal .lm-tokens { display:flex; gap:8px; margin-top:22px; }
+.reveal .lm-tokens span { padding:8px 14px; border-radius:8px; background:#362b22; border:1px solid #805b3c; color:#ffd2a6; font:600 18px var(--font-mono); animation:lm-pop .4s both; }
+.reveal .lm-tokens span:nth-child(2) { animation-delay:.3s; } .reveal .lm-tokens span:nth-child(3) { animation-delay:.6s; }
+.reveal .lm-tokens span:nth-child(4) { animation-delay:.9s; } .reveal .lm-tokens span:nth-child(5) { animation-delay:1.2s; }
+.reveal .lm-hint { margin-top:18px; font-size:14px; color:#bba48f; animation:vc-appear .5s 1.6s both; }
+.reveal .lm-vecs > div { display:grid; grid-template-columns:48px auto 1fr; align-items:center; gap:14px; margin:12px 0; animation:vc-appear .5s both; }
+.reveal .lm-vecs > div:nth-child(2) { animation-delay:.5s; } .reveal .lm-vecs > div:nth-child(3) { animation-delay:1s; }
+.reveal .lm-vecs b { font:600 18px var(--font-mono); color:#ffd2a6; }
+.reveal .lm-vecs em { font:13px var(--font-mono); font-style:normal; color:#9d8a78; }
+.reveal .lm-cells { display:flex; gap:4px; }
+.reveal .lm-cells i { width:22px; height:22px; border-radius:4px; background:#ff7d00; }
+.reveal .lm-map { width:100%; height:190px; display:block; margin-top:-6px; overflow:visible; }
+.reveal .lm-map text { font:600 15px var(--font-mono); fill:#e9d6c2; }
+.reveal .lm-map .lm-zone { font:700 10px var(--font-body); letter-spacing:1.5px; fill:#6f5c4b; }
+.reveal .lm-pt { animation:lm-pop .4s both; transform-box:fill-box; transform-origin:center; }
+.reveal .lm-pt circle { fill:#5b4c40; }
+.reveal .lm-pt.far { animation-delay:.2s; } .reveal .lm-pt.mid { animation-delay:.5s; } .reveal .lm-pt.near { animation-delay:.8s; }
+.reveal .lm-pt.near circle { fill:#ffb05c; }
+.reveal .lm-pt.me { animation-delay:1.1s; } .reveal .lm-pt.me circle { fill:#ff7d00; animation:lm-ring 1.6s 1.5s ease-in-out infinite; }
+.reveal .lm-pt.me text { fill:#fff; font-size:17px; }
+.reveal .lm-link { stroke:#ff9f48; stroke-width:2; stroke-dasharray:90; stroke-dashoffset:90; animation:lm-draw .8s 1.6s ease-out forwards; }
+.reveal .lm-bars { margin-top:18px; }
+.reveal .lm-bars > div { display:grid; grid-template-columns:60px 1fr 44px; align-items:center; gap:12px; margin:9px 0; }
+.reveal .lm-bars b { font:600 16px var(--font-mono); color:#d0bba7; }
+.reveal .lm-bars span { height:14px; background:#2b241e; border-radius:7px; overflow:hidden; }
+.reveal .lm-bars i { display:block; height:100%; width:var(--w); background:#6f5c4b; border-radius:7px; animation:lm-grow 1.2s .2s ease-out both; }
+.reveal .lm-bars em { font-style:normal; font-size:14px; color:#9d8a78; text-align:right; }
+.reveal .lm-next { margin-top:22px; padding-top:14px; border-top:1px dashed #40342a; font-size:15px; color:#ffbf86; animation:vc-appear .5s 2.2s both; }
+.reveal .lm-next span { color:#ff7d00; animation:ad-blink 1s steps(1) infinite; }
+.reveal .lm-bars .win b, .reveal .lm-bars .win em { color:#ffb05c; } .reveal .lm-bars .win i { background:#ff7d00; }
+@keyframes lm-pop { from { opacity:0; transform:scale(.4); } }
+@keyframes lm-draw { to { stroke-dashoffset:0; } }
+@keyframes lm-grow { from { width:0; } }
+@keyframes lm-ring { 50% { filter:drop-shadow(0 0 8px #ff7d00); } }
+@media(prefers-reduced-motion:reduce) { .reveal .llm-demo * { animation:none !important; } .reveal .lm-link { stroke-dashoffset:0; } }
 
 /* Connected automation canvas, independent of other slide demos. */
 .reveal .workflow-slide h1 { font-size:1.65em; margin-bottom:18px; }

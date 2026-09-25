@@ -47,6 +47,7 @@
     <script src="agent-demo.js"></script>
     <script src="gpt-builder-demo.js?v=38"></script>
     <script src="vibe-demo.js?v=38"></script>
+    <script src="llm-demo.js?v=38"></script>
     <script src="automation-demo.js?v=38"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css" />
     <script>
@@ -65,7 +66,7 @@
         width: 1280,
         height: 720,
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-      }).then(function () { addCopyButtons(); initAgentDemos(); initGptBuilderDemos(); initVibeDemos(); initAutomationDemos(); initPresentationLayout(); });
+      }).then(function () { addCopyButtons(); initAgentDemos(); initGptBuilderDemos(); initVibeDemos(); initLlmDemos(); initAutomationDemos(); initPresentationLayout(); });
 
       // Keep the same 16:9 composition when fonts/media load or the screen changes.
       function initPresentationLayout() {

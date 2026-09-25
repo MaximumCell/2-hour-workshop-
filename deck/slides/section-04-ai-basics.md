@@ -85,13 +85,22 @@ Note: The distinction between "the app" and "the model underneath it" is subtle 
 
 <div class="lesson-no">Section 4g · How LLMs work</div>
 
-# The Five-Step Loop
+# How an LLM <u>thinks</u>
 
-<div class="figure-side"><img src="assets/llm-loop-diagram.png" alt="Tokenize, embed, attend, predict, loop diagram" /></div>
+<p class="lm-sub">No lookup, no database of answers. Just one small loop, run again for every word it writes.</p>
 
-<p class="rule"><b>Core takeaway</b> An LLM generates language by repeatedly predicting the next token based on context — not simple "autocomplete." Modern models can perform complex reasoning-like behavior through learned representations and computation.</p>
+<div class="lm-steps">
+<button type="button" data-vc="0"><i>1</i><span><b>Tokenize</b>Your text is split into small pieces called tokens.</span></button>
+<button type="button" data-vc="1"><i>2</i><span><b>Embed</b>Each token becomes a list of numbers: its meaning.</span></button>
+<button type="button" data-vc="2"><i>3</i><span><b>Compare</b>Similar meanings sit close, so it sees what's related.</span></button>
+<button type="button" data-vc="3"><i>4</i><span><b>Predict</b>It scores every next token, picks one, and repeats.</span></button>
+</div>
 
-Note: Keep this simple and don't get stuck on the "just autocomplete" framing — the rule at the bottom is the correction to that common misconception, land on it clearly.
+<div class="figure-side llm-demo" aria-label="Animated explainer: tokenize, embed, compare, predict"></div>
+
+<p class="rule"><b>Takeaway</b> Not just autocomplete. This loop at huge scale produces reasoning.</p>
+
+Note: Let the panel play; it loops through four steps. 1) Tokens: the model sees pieces, not words. 2) Embeddings: every token becomes numbers; point out cat and dog look alike, car doesn't. 3) Meaning map: close means related, that's how it "understands". 4) Prediction: it scores the next token, picks mat, adds it and repeats. Click a step on the left to pause on it. Land the takeaway: it's not "just autocomplete", this loop at huge scale is what produces reasoning-like answers.
 
 ---
 
